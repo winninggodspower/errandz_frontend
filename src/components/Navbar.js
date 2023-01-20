@@ -2,7 +2,7 @@ import navLogo from '../images/errandz-logo.svg'
 
 function Navbar() {
     return (
-        <nav class="navbar navbar-expand-md fixed-top navbar-dark" style={{height: '100px'}} >
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark" style={{height: '100px', background:"black"}} >
             <a href="index.html" class="navbar-brand ms-5">
                 <img src={navLogo} alt="errandz-logo" class="errandzLogo" height="44.67px" width="134px" />
             </a>

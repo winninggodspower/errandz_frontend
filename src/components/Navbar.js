@@ -1,20 +1,32 @@
-import navLogo from '../images/errandz-logo.svg'
+import errandLogo from '../images/errandz-logo.svg';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav class="navbar navbar-expand-md fixed-top navbar-dark" style={{height: '100px'}} >
-            <a href="index.html" class="navbar-brand ms-5">
-                <img src={navLogo} alt="errandz-logo" class="errandzLogo" height="44.67px" width="134px" />
-            </a>
-            <button class="navbar-toggler me-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ms-auto me-5">
-                    <a href="index.html" class="nav-link active me-3" aria-current="page">Home</a>
-                    <a href="about.html" class="nav-link me-3">About</a>
-                    <a href="faq.html" class="nav-link me-3">FAQs</a>
-                    <a href="contact.html" class="nav-link me-5">Contact</a>
+        <nav className="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed" aria-label="Seventh navbar example">
+            <div className="container">
+                <a className="navbar-brand" href="#">
+                    <img src={errandLogo} alt="Logo" width="134px" height="44.6" className="d-inline-block align-text-top" />
+                </a>
+                <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="collapse navbar-collapse" id="navbarsExampleXxl">
+                    <ul className="navbar-nav ms-auto mb-2 mb-xl-0">
+                        <li className="nav-item ms-4">
+                            <Link to="/" className="nav-link active">Home</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            <Link to="/" className="nav-link active">About</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            <Link to="/" className="nav-link active">FAQs</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            <Link to="/" className="nav-link active">Cont</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

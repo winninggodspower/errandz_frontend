@@ -1,5 +1,6 @@
 import mobileHero from '../../images/mobile-hero.svg';
 import desktopHero from '../../images/desktop-hero.svg';
+import { Link } from 'react-router-dom';
 
 function Home(){
     return (
@@ -16,7 +17,7 @@ function Home(){
                         in an eco-friendly way.
                     </h1>
                     <button>
-                        Get Started
+                        <Link to={"/login"} >Get Started</Link>
                     </button>
                 </div>
                 <div class="col-xl-5 col-xs-12 offset-xl-1 imgContainer container-fluid">

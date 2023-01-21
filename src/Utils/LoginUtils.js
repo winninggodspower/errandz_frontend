@@ -1,9 +1,10 @@
 
-function getUsertoken(){
-    return 
+export let setToken = (userToken) => {
+    sessionStorage.setItem('token', JSON.stringify(userToken))
 }
 
-
-function setUserToken(){
-    return 
+export let getToken =() => {
+    const tokenString = sessionStorage.getItem('token');
+    const userToken = JSON.parse(tokenString);
+    return userToken;
 }

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed fixed-top" style={{background:"transparent"}} aria-label="Seventh navbar example">
-            <div className="container ">
-                <a className="navbar-brand" href="./home">
+        <nav className="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed" aria-label="Seventh navbar example">
+            <div className="container">
+                <Link className="navbar-brand" to={'/'}>
                     <img src={errandLogo} alt="Logo" width="134px" height="44.6" className="d-inline-block align-text-top" />
-                </a>
+                </Link>
                 <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

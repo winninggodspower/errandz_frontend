@@ -5,9 +5,9 @@ import { Form, useNavigate } from 'react-router-dom';
 const BASE_URL = 'https://errandzbackend-production.up.railway.app';
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
-const LogUser = async (data) => {
-    
 
+const FetchUser = async (data) => {
+    
     let response = await fetch(loginPath, {
         method: 'POST',
         mode: 'cors',
@@ -23,8 +23,8 @@ const LogUser = async (data) => {
 function Login(){
 
     let [is_loading, setLoading] =  useState(false);
-    let [loginDetails, setLoginDetals] = useState({email: '', password: ''});
-    let [fieldErrors, setFieldError] = useState({email: [], password: [], non_field_eror: []})
+    let [loginDetails, setLoginDetails] = useState({email: '', password: ''});
+    let [fieldErrors, setFieldError] = useState({});
     let {user, setUser} = useContext(UserContext)
     let navigate = useNavigate();
 
@@ -34,42 +34,40 @@ function Login(){
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        setLoading(true)
+
         console.log({username: loginDetails.email, password: loginDetails.password});
-        let response = await LogUser({username: loginDetails.email, password: loginDetails.password})
-        
-        if (response.status === 200){
-            console.log(response);
+        let response = await FetchUser({username: loginDetails.email, password: loginDetails.password})
+        console.log(response)
+
+        if (response.token){
+            return
         }else{
-            console.log('login unsuccessful')
-            handleError(response)
+            setFieldError(response)
         }
         
+        setLoading(false)
 
-    }
-
-    const handleError = (error)=> {
-        console.log(error.username)
-         //set the password field state if there is error in password else set it to null
-         error.password ? setFieldError({password: error.password, email: fieldErrors.email})  : setFieldError(fieldErrors['email'])
-
-        //set the email field state if there is error in email else set it to null
-        error.username ? setFieldError({email: error.username, password: fieldErrors.password})  : setFieldError({email: null, password: fieldErrors.password}) 
-        
     }
 
     return (
         <>
         <h1>Login Page</h1>
-        {}
+        {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error=> {
+            return <div key={error} className="text-center text-danger"> {error}</div>;
+        })}
         <Form onSubmit={handleSubmit}>
-            <input onChange={(e)=>setLoginDetals({email: e.target.value, password: loginDetails.password})} value={loginDetails.email} type="email" placeholder='email'/>
-            { fieldErrors.email && fieldErrors.email.map(error => <p className='text-danger'>{error}</p>) }
+            <div>
+                <input onChange={(e)=>setLoginDetails({...loginDetails, email: e.target.value})} value={loginDetails.email} type="email" placeholder='email' required />
+                { fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>) }
+            </div>
 
-            <input onChange={(e)=>setLoginDetals({password: e.target.value, email: loginDetails.email})} value={loginDetails.password} type="password" placeholder='password'/>
-            { fieldErrors.password && <p className='text-primary'>{fieldErrors.password}</p> }
+            <div>
+                <input onChange={(e)=>setLoginDetails({...loginDetails, password: e.target.value})} value={loginDetails.password} type="password" placeholder='password' required />
+                { fieldErrors.password && fieldErrors.password.map(error=><p key={error} className='text-danger'>{error}</p>) }
+            </div>
             <button disabled={is_loading}>login</button>
         </Form>
-        {fieldErrors.email}
 
         </>
     )

@@ -13,6 +13,7 @@
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   
 }
 
@@ -23,7 +24,7 @@
   line-height: 140%;
   width: 10em;
   word-spacing: 2px;
-  top: 30%;
+  top: 50%;
 }
 
 .formBox {
@@ -40,6 +41,9 @@
 .formBox div input {
   border-radius: 6px;
   padding: 5px 10px;
+}
+.formBox span input {
+  width: 100%;
 }
 .spinner {
     animation: App-logo-spin infinite 20s linear;

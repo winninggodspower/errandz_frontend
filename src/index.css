@@ -10,7 +10,7 @@ body{
     margin: 0px;
     border: none;
     padding: 0px;
-    
+    background-color: #000000cc;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -62,10 +62,7 @@ a:visited,a:hover,a:focus,a:active{
         width: 450px;
         height: 450px;
     }
-    .imgContainer img{
     
-
-    }
     button{
         width: 143px;
         height: 48px;

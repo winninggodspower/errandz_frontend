@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed fixed-top" style={{background:"transparent"}} aria-label="Seventh navbar example">
-            <div className="container ps-5">
+            <div className="container ">
                 <a className="navbar-brand" href="./home">
                     <img src={errandLogo} alt="Logo" width="134px" height="44.6" className="d-inline-block align-text-top" />
                 </a>

@@ -1,5 +1,6 @@
 import './App.css';
 import Root from './Root';
+import { getToken } from './Utils/LoginUtils'
 import ErrorPage from "./error-page";
 import Dashboard from './routes/dashboard';
 import Login from './routes/Login/Login';
@@ -10,7 +11,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import { RegisteredCustomer } from './routes/Register/RegisterCustomer';
 import {useState} from 'react';
 import {UserContext} from './UserContext';
-
+import { useEffect } from 'react'
 
 const router = createBrowserRouter([
   {
@@ -49,9 +50,15 @@ const router = createBrowserRouter([
 
 function App() {
   const [user, setUser] = useState(null);
+  
+  useEffect(()=>{
+    console.log('this ran')
+    setUser(getToken())
+  }, [])
+
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <RouterProvider router={router} basename={process.env.PUBLIC_URL}/>
+      <RouterProvider router={router} />
     </UserContext.Provider>
   );
 }

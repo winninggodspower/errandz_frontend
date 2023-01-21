@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { UserContext } from '../../UserContext';
 import { Form, useNavigate } from 'react-router-dom';
+import { setToken } from '../../Utils/LoginUtils';
 
 const BASE_URL = 'https://errandzbackend-production.up.railway.app';
 const loginPath = BASE_URL + '/api/api-token-auth/';
@@ -41,7 +42,8 @@ function Login(){
         console.log(response)
 
         if (response.token){
-            return
+            setUser(response.token);
+            setToken(response.token);
         }else{
             setFieldError(response)
         }
@@ -54,7 +56,7 @@ function Login(){
         <>
         <h1>Login Page</h1>
         {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error=> {
-            return <div key={error} className="text-center text-danger"> {error}</div>;
+            return <div key={error} className="text-center text-danger"> {error}</div>
         })}
         <Form onSubmit={handleSubmit}>
             <div>

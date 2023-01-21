@@ -4,10 +4,13 @@ import ErrorPage from "./error-page";
 import Dashboard from './routes/dashboard';
 import Login from './routes/Login/Login';
 import Home from './routes/home/Home';
+import { RegisteredVendor } from './routes/Register/RegiseterVendor';
+import { RegisteredRider } from './routes/Register/RegisterRider';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-
+import { RegisteredCustomer } from './routes/Register/RegisterCustomer';
 import {useState} from 'react';
 import {UserContext} from './UserContext';
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Home />,
+        name: "home"
       },
       {
         path: 'dashboard/:userid',
@@ -26,6 +30,18 @@ const router = createBrowserRouter([
       {
         path: 'login/',
         element: <Login />,
+      },
+      {
+        path: 'register/customer',
+        element: <RegisteredCustomer />,
+      },
+      {
+        path: 'register/vendor',
+        element: <RegisteredVendor />,
+      },
+      {
+        path: 'register/rider',
+        element: <RegisteredRider />,
       }
     ]
   }

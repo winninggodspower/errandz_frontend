@@ -35,7 +35,7 @@ function App() {
   const [user, setUser] = useState(null);
   return (
     <UserContext.Provider value={{user, setUser}}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} basename={process.env.PUBLIC_URL}/>
     </UserContext.Provider>
   );
 }

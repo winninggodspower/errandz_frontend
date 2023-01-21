@@ -65,15 +65,15 @@ export const RegisteredRider = () => {
     }
 
     return <>
-    <div className="pageBody d-flex flex-column justify-content-center">
-        <div className="hero">
-            <h3>Register as a Vendor or Customer</h3>
+    <div className="pageBody d-flex flex-column">
+        <div className="hero ps-5 ">
+            <h3 className="text-light position-absolute">Register as a Vendor or Customer</h3>
         </div>
         <div>
-            <form className="">
+            <form className="d-flex flex-column formBox gap-2 ">
                 <div>
                     <input type="text"  name="first_name" defaultValue={user.first_name} onChange={handleChange} required />
-                    {error?.account && <>{error?.account?.first_name || null}</>}
+                    {error?.account && <p>{error?.account?.first_name || null}uu</p>}
                 </div>
                 <div className="d-flex flex-1 flex-fill">
                     <input type="text" name="last_name" defaultValue={user.last_name} onChange={handleChange} />

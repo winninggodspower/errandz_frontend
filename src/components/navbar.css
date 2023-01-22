@@ -1,3 +1,10 @@
-.navbar-toggler:focus {
-    box-shadow: none !important;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.nav-item{
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+}
+a:hover{
+    text-decoration: underline;
 }

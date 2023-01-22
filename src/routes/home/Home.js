@@ -1,30 +1,29 @@
 import mobileHero from '../../images/mobile-hero.svg';
-import desktopHero from '../../images/desktop-hero.svg';
+import desktopHeroImage from '../../images/desktop2-hero.png';
 import { Link } from 'react-router-dom';
+import './home.css';
 
 function Home(){
     return (
         <>
-        {/* <!--FIRST SECTION--> */}
-        <section id="section-a" className="container-fluid" >
-            <div 
-                className="row b-wrapper">
+        {/* FIRST SECTION */}
+        <section id="section-a" className="" >
+            <div className="row container mx-auto pb-5 pt-0 pt-md-5">
                 {/* <!--INTRO TEXT--> */}
-        
-                <div className="col-md-12 col-lg-6 txtContainer">
+                <div id="txt-container" className="col-md-12 col-lg-6 d-flex flex-column justify-content-center order-1 order-md-0 ">
                     <h1>
-                        Quick, safe and affordable deliveries for businesses
-                        in an eco-friendly way.
+                        Quick, safe and affordable deliveries for businesses in an eco-friendly way
                     </h1>
-                    <button>
-                        <Link to={"/login"} >Get Started</Link>
+                    <button class="btn btn-light mt-3">
+                        <Link to={"/login"} className="text-dark text-decoration-none" >Get Started</Link>
                     </button>
                 </div>
-                <div className="col-xl-5 col-xs-12 offset-xl-1 imgContainer container-fluid">
-                    <picture>
-                        <source media="(min-width: 480px)" srcSet={mobileHero} />
-                        <source media="(min-width: 992px)" srcSet={desktopHero} />
-                        <img className="img-fluid img-rounded" src="./images/11 1.svg" alt="Lots of cakes" />
+
+                <div className="col-md-6 col-12 pb-4 px-0 px-md-2 d-md-flex ">
+                    <picture class="ms-auto">
+                        <source media="(min-width: 480px)" srcSet={desktopHeroImage} />
+                        <source media="(min-width: 992px)" srcSet={desktopHeroImage} />
+                        <img className="mw-100" src={mobileHero} alt="Lots of cakes" />
                     </picture>
                 </div>
             </div>

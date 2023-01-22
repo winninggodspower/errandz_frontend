@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../UserContext';
 import { Form, useNavigate } from 'react-router-dom';
 import { setToken } from '../../Utils/LoginUtils';
@@ -29,9 +29,12 @@ function Login(){
     let {user, setUser} = useContext(UserContext)
     let navigate = useNavigate();
 
-    if (user){
-        return navigate('/dashboard/1')
-    }
+
+    useEffect(()=>{
+        if (user){
+            return navigate('/dashboard/1');
+        }    
+    }, [user])
 
     const handleSubmit = async (e)=>{
         e.preventDefault();

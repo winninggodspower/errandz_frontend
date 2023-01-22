@@ -25,7 +25,7 @@ function Navbar() {
                             <Link to="/" className="nav-link active">FAQs</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active">Cont</Link>
+                            <Link to="/" className="nav-link active">Contact</Link>
                         </li>
                     </ul>
                 </div>

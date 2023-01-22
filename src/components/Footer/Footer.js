@@ -1,5 +1,6 @@
 import ErrandzLogo from '../../images/errandz-logo.svg';
 import './footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 
@@ -21,28 +22,28 @@ function Footer() {
                     
                     <div class="col">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Contact</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Home</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">About</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Contact</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">FAQs</Link></li>
                         </ul>
                     </div>
 
                     <div class="col">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Licence</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Privacy Policy</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Copyright</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Email</a></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Licence</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Privacy Policy</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Copyright</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Email</Link></li>
                         </ul>
                     </div>
 
                     <div class="col">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Socials</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Twitter</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Instagram</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Facebook</a></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Socials</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Twitter</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Instagram</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Facebook</Link></li>
                         </ul>
                     </div>
 

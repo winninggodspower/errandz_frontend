@@ -1,0 +1,47 @@
+footer{
+    background-color: var(--primary-dark);
+}
+
+
+/*LINKS*/
+
+footer{
+    height: fit-content;
+    padding: 4rem 0rem 0rem 0rem;
+    line-height: 35px;
+    color: white;
+}
+
+#logo-aside{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    height: fit-content;
+    margin-bottom: 8rem;
+}
+.f-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.f-links{
+    display: flex;
+    flex-direction: column;
+    height: 158px;
+    margin-right: 2rem;
+        
+}
+
+.link-wrapper{
+    
+    display: flex;
+    height: fit-content;
+    justify-content: left;
+    margin-right: -3rem;
+
+}
+
+footer a{
+    font-size: 0.9rem;
+}

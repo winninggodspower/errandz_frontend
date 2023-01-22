@@ -1,6 +1,7 @@
 import mobileHero from '../../images/mobile-hero.svg';
 import desktopHeroImage from '../../images/desktop2-hero.png';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 import './home.css';
 
 function Home(){
@@ -14,13 +15,13 @@ function Home(){
                     <h1>
                         Quick, safe and affordable deliveries for businesses in an eco-friendly way
                     </h1>
-                    <button class="btn btn-light mt-3">
+                    <button className="btn btn-light mt-3">
                         <Link to={"/login"} className="text-dark text-decoration-none" >Get Started</Link>
                     </button>
                 </div>
 
                 <div className="col-md-6 col-12 pb-4 px-0 px-md-2 d-md-flex ">
-                    <picture class="ms-auto">
+                    <picture className="ms-auto">
                         <source media="(min-width: 480px)" srcSet={desktopHeroImage} />
                         <source media="(min-width: 992px)" srcSet={desktopHeroImage} />
                         <img className="mw-100" src={mobileHero} alt="Lots of cakes" />
@@ -39,99 +40,60 @@ function Home(){
             </div>
 
             {/* <!--CARDS CONTAINER--> */}
-            <div class ="container">
-                <div className="row">
-                    {/* <!--CARD DECK--> */}
-                    
-                        <div className="col-md-2 col-sm-12 ">
-                            <h2>
-                                Eco-Friendly
-                            </h2>
-                            <p>
-                                Without the use of third party vehicles,
-                                our bicycles are safe and enviromental friendly.
-                            </p>
-                        </div>
+            <div className="container">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
 
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        {/* card item */}
+                        <div className=" col rounded rounded-4 ">
+                            <div className="card mw-100" style={{"height" : "247px"}}>
+                                <div className="card-body d-flex flex-column justify-content-center text-center ">
+                                    <h5 className="card-title mb-4">Eco-Friendly</h5>
+                                    <p className="card-text">Without the use of third party vehicles,
+                                    our bicycles are safe and enviromental friendly.</p>
+                                </div>
                             </div>
                         </div>
 
-                        {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 ">
-                            <h2>
-                                Fast Delivery
-                            </h2>
-                            <p>
-                                We are more community based which
-                                makes our delivery faster.
-                            </p>
+                        {/* card item */}
+                        <div className=" col rounded rounded-4 ">
+                            <div className="card mw-100" style={{"height" : "247px"}}>
+                                <div className="card-body d-flex flex-column justify-content-center text-center ">
+                                    <h5 className="card-title mb-4">Fast Delivery</h5>
+                                    <p className="card-text">We are more community based which
+                                    makes our delivery faster.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 ">
-                            <h2>
-                                Financial inclusion
-                            </h2>
-                            <p>
-                                Flexibility and variety gives financial inclusion
-                                for riders, vendors and also giving back to the society.
-                            </p>
+                        {/* card item */}
+                        <div className=" col rounded rounded-4 ">
+                            <div className="card mw-100" style={{"height" : "247px"}}>
+                                <div className="card-body d-flex flex-column justify-content-center text-center ">
+                                    <h5 className="card-title mb-4">Financial inclusion</h5>
+                                    <p className="card-text">Flexibility and variety gives financial inclusion
+                                    for riders, vendors and also giving back to the society.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 ">
-                            <h2>
-                                Safe & Affordable
-                            </h2>
-                            <p>
-                                We facilitate businesses to scale faster with
-                                our affordable rate and real time tracking
-                            </p>
+                        {/* card item */}
+                        <div className=" col rounded rounded-4 ">
+                            <div className="card mw-100" style={{"height" : "247px"}}>
+                                <div className="card-body d-flex flex-column justify-content-center text-center ">
+                                    <h5 className="card-title mb-4">Safe & Affordable</h5>
+                                    <p className="card-text">We facilitate businesses to scale faster with
+                                    our affordable rate and real time tracking</p>
+                                </div>
+                            </div>
                         </div>
-                       
+
                 </div>
             </div>
         </section>
 
+        {/* Footer section */}
+        <Footer />
 
-        {/* <!--FOOTER SECTION--> */}
-        <footer className="container-fluid">
-
-            <div className="f-wrapper row">
-                {/* <!--ERRANZ LOGO ET TEXT--> */}
-                <div id="logo-aside" className="col-sm-12 col-md-6">
-                    <img src="./images/errandz PPIC2 (1) 1.svg" alt="errandz logo" className="img-fluid" height="140px" width="200px" />
-                    <p>
-                        Fast and easy, eco-friendly way to make your deliveries.
-                    </p>
-                </div>
-
-                {/* <!--FOOTER LINKS--> */}
-                <div className="col-sm-12 col-md-6 link-wrapper">
-                    <div className="f-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="faq.html">FAQ</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div className="f-links">
-                        <a href="#f">License</a>
-                        <a href="#ff">Privacy Policy</a>
-                        <a href="#f">Copyright</a>
-                        <a href="#f">Social Media</a>
-                    </div>
-                    <div className="f-links">
-                        <a href="#f">Twitter</a>
-                        <a href="#f">Instagram</a>
-                        <a href="#f">Facebook</a>
-                    </div>
-                </div>
-            </div>   
-        </footer>
         </>
     )
 }

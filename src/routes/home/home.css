@@ -48,7 +48,7 @@ nav{
     /* padding: 10rem 1px; */
 }
 
-#section-b h2{
+#section-b h5{
     font-weight: 700;
     font-size: 20px;
     color: #000000cc;
@@ -57,20 +57,9 @@ nav{
 #section-b p{
     font-weight: 400;
     font-size: 16px;
+    font-style: light;
     text-align: center;
     color: #000000;
     line-height: -120px;
 }
 
-.box{
-    display: flex;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2rem 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    flex: 1 1 auto;   
-}

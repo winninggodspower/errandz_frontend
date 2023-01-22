@@ -34,7 +34,7 @@ function Login(){
         if (user){
             return navigate('/dashboard/1');
         }    
-    }, [user])
+    }, [user, navigate])
 
     const handleSubmit = async (e)=>{
         e.preventDefault();

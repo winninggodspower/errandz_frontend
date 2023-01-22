@@ -31,19 +31,19 @@ function Home(){
 
 
         {/* <!--SECOND SECTION--> */}
-        <section id="section-b" className="container-fluid">
-            <div className="headercontainer">
-                <h2>
+        <section id="section-b" className="container my-5">
+            <div className="headercontainer ">
+                <h2 className="text-center mb-5">
                     WHY CHOOSE ERRANDZ
                 </h2>
             </div>
 
             {/* <!--CARDS CONTAINER--> */}
-            <div id="cdCont" class ="container-fluid">
-                <div className="row justify-content-center deck">
+            <div class ="container">
+                <div className="row">
                     {/* <!--CARD DECK--> */}
                     
-                        <div className="col-md-2 col-sm-12 box">
+                        <div className="col-md-2 col-sm-12 ">
                             <h2>
                                 Eco-Friendly
                             </h2>
@@ -53,8 +53,15 @@ function Home(){
                             </p>
                         </div>
 
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+
                         {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 box">
+                        <div className="col-md-2 col-sm-12 ">
                             <h2>
                                 Fast Delivery
                             </h2>
@@ -65,7 +72,7 @@ function Home(){
                         </div>
 
                         {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 box">
+                        <div className="col-md-2 col-sm-12 ">
                             <h2>
                                 Financial inclusion
                             </h2>
@@ -76,7 +83,7 @@ function Home(){
                         </div>
 
                         {/* <!--CARD DECK--> */}
-                        <div className="col-md-2 col-sm-12 box">
+                        <div className="col-md-2 col-sm-12 ">
                             <h2>
                                 Safe & Affordable
                             </h2>

@@ -27,7 +27,7 @@ nav{
 
     #txt-container{
         margin-right: 5px;
-        margin-left: 5px;
+        margin-left: calc(var(--bs-gutter-x) * .5);
     }
 
     #section-a h1{
@@ -44,29 +44,22 @@ nav{
 
 /*SECOND SECTION STYLES*/
 #section-b{
-    background-color: black;
-    height: fit-content;
-    padding: 10rem 1px;
+    /* height: fit-content; */
+    /* padding: 10rem 1px; */
 }
+
 #section-b h2{
-    margin-bottom: 20px;
     font-weight: 700;
     font-size: 20px;
-    text-align: center;
     color: #000000cc;
-
 }
+
 #section-b p{
     font-weight: 400;
     font-size: 16px;
     text-align: center;
     color: #000000;
     line-height: -120px;
-}
-
-.deck{
-    display: flex;
-    padding: 0 4rem;
 }
 
 .box{

@@ -4,11 +4,12 @@ import './footer.css';
 function Footer() {
 
     return (
-        <footer className="container">
+        <footer className="py-5">
 
-            <div className=" row">
+            <div className="row container mx-auto justify-content-between mb-5 mb-md-2">
+
                 {/* <!--ERRANZ LOGO ET TEXT--> */}
-                <div id="logo-aside" className="col-sm-12 col-md-6">
+                <div  className="col-12 col-sm-6">
                     <img src={ErrandzLogo} alt="errandz logo" className="img-fluid" height="140px" width="200px" />
                     <p>
                         Fast and easy, eco-friendly way to make your deliveries.
@@ -16,34 +17,32 @@ function Footer() {
                 </div>
 
                 {/* <!--FOOTER LINKS--> */}
-                <div className="col-sm-12 col-md-6 link-wrapper">
+                <div className="col-12 col-sm row row-col-3">
                     
-                    <div className="f-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="faq.html">FAQ</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div className="f-links">
-                        <a href="#f">License</a>
-                        <a href="#ff">Privacy Policy</a>
-                        <a href="#f">Copyright</a>
-                        <a href="#f">Social Media</a>
-                    </div>
-                    <div className="f-links">
-                        <a href="#f">Twitter</a>
-                        <a href="#f">Instagram</a>
-                        <a href="#f">Facebook</a>
-                    </div>
-                    
-                    <div class="f-link">
-                        <h5>Section</h5>
+                    <div class="col">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Contact</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Licence</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Privacy Policy</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Copyright</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col">
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link active p-0 ">Socials</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Twitter</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Instagram</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Facebook</a></li>
                         </ul>
                     </div>
 

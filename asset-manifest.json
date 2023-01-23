@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/winninggodspower/errandz_frontend.git/static/css/main.76065801.css",
-    "main.js": "/winninggodspower/errandz_frontend.git/static/js/main.7f97797f.js",
-    "static/media/mobile-hero.svg": "/winninggodspower/errandz_frontend.git/static/media/mobile-hero.02f49da593bbcb8e8edf315e6e3f5c4b.svg",
-    "static/media/desktop2-hero.png": "/winninggodspower/errandz_frontend.git/static/media/desktop2-hero.3d6ba28a626274b9dcbd.png",
-    "static/media/Rectan.png": "/winninggodspower/errandz_frontend.git/static/media/Rectan.dbfb0bcadd31b1387e3f.png",
-    "static/media/errandz-logo.svg": "/winninggodspower/errandz_frontend.git/static/media/errandz-logo.957aba47fbcbafe3c5fcca29b2d65cd9.svg",
-    "index.html": "/winninggodspower/errandz_frontend.git/index.html",
-    "main.76065801.css.map": "/winninggodspower/errandz_frontend.git/static/css/main.76065801.css.map",
-    "main.7f97797f.js.map": "/winninggodspower/errandz_frontend.git/static/js/main.7f97797f.js.map"
+    "main.css": "/errandz_frontend/static/css/main.f75530ab.css",
+    "main.js": "/errandz_frontend/static/js/main.d768f823.js",
+    "static/media/mobile-hero.svg": "/errandz_frontend/static/media/mobile-hero.02f49da593bbcb8e8edf315e6e3f5c4b.svg",
+    "static/media/desktop2-hero.png": "/errandz_frontend/static/media/desktop2-hero.3d6ba28a626274b9dcbd.png",
+    "static/media/Rectan.png": "/errandz_frontend/static/media/Rectan.dbfb0bcadd31b1387e3f.png",
+    "static/media/errandz-logo.svg": "/errandz_frontend/static/media/errandz-logo.957aba47fbcbafe3c5fcca29b2d65cd9.svg",
+    "index.html": "/errandz_frontend/index.html",
+    "main.f75530ab.css.map": "/errandz_frontend/static/css/main.f75530ab.css.map",
+    "main.d768f823.js.map": "/errandz_frontend/static/js/main.d768f823.js.map"
   },
   "entrypoints": [
-    "static/css/main.76065801.css",
-    "static/js/main.7f97797f.js"
+    "static/css/main.f75530ab.css",
+    "static/js/main.d768f823.js"
   ]
 }

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/winninggodspower/errandz_frontend.git/static/css/main.8b22b11c.css",
-    "main.js": "/winninggodspower/errandz_frontend.git/static/js/main.459f6ac1.js",
-    "static/media/desktop-hero.svg": "/winninggodspower/errandz_frontend.git/static/media/desktop-hero.8015b58faf3c77dd6fa7ebeeed7b2cd3.svg",
+    "main.css": "/winninggodspower/errandz_frontend.git/static/css/main.76065801.css",
+    "main.js": "/winninggodspower/errandz_frontend.git/static/js/main.7f97797f.js",
     "static/media/mobile-hero.svg": "/winninggodspower/errandz_frontend.git/static/media/mobile-hero.02f49da593bbcb8e8edf315e6e3f5c4b.svg",
+    "static/media/desktop2-hero.png": "/winninggodspower/errandz_frontend.git/static/media/desktop2-hero.3d6ba28a626274b9dcbd.png",
     "static/media/Rectan.png": "/winninggodspower/errandz_frontend.git/static/media/Rectan.dbfb0bcadd31b1387e3f.png",
     "static/media/errandz-logo.svg": "/winninggodspower/errandz_frontend.git/static/media/errandz-logo.957aba47fbcbafe3c5fcca29b2d65cd9.svg",
     "index.html": "/winninggodspower/errandz_frontend.git/index.html",
-    "main.8b22b11c.css.map": "/winninggodspower/errandz_frontend.git/static/css/main.8b22b11c.css.map",
-    "main.459f6ac1.js.map": "/winninggodspower/errandz_frontend.git/static/js/main.459f6ac1.js.map"
+    "main.76065801.css.map": "/winninggodspower/errandz_frontend.git/static/css/main.76065801.css.map",
+    "main.7f97797f.js.map": "/winninggodspower/errandz_frontend.git/static/js/main.7f97797f.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b22b11c.css",
-    "static/js/main.459f6ac1.js"
+    "static/css/main.76065801.css",
+    "static/js/main.7f97797f.js"
   ]
 }

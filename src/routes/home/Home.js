@@ -2,6 +2,7 @@ import mobileHero from '../../images/mobile-hero.svg';
 import desktopHeroImage from '../../images/desktop2-hero.png';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
+import { getToken } from '../../Utils/LoginUtils';
 import './home.css';
 
 function Home(){
@@ -16,7 +17,11 @@ function Home(){
                         Quick, safe and affordable deliveries for businesses in an eco-friendly way
                     </h1>
                     <button className="btn btn-light mt-3">
-                        <Link to={"/login"} className="text-dark text-decoration-none" >Get Started</Link>
+                        { getToken() ?
+                         <Link to={"/dashboard/1"} className="text-dark text-decoration-none" >Dashboard</Link> : 
+                         <Link to={"/login"} className="text-dark text-decoration-none" >Get Started</Link>
+                        }
+                       
                     </button>
                 </div>
 

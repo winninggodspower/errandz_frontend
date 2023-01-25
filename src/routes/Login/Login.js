@@ -1,7 +1,9 @@
 import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../UserContext';
-import { Form, useNavigate } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { setToken } from '../../Utils/LoginUtils';
+import Footer from "../../components/Footer/Footer"
+import "./login.css"
 
 const BASE_URL = 'https://errandzbackend-production.up.railway.app';
 const loginPath = BASE_URL + '/api/api-token-auth/';
@@ -52,28 +54,38 @@ function Login(){
         }
         
         setLoading(false)
-
+        setLoginDetails({...loginDetails, password: ''})
+        
     }
 
     return (
         <>
-        <h1>Login Page</h1>
-        {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error=> {
-            return <div key={error} className="text-center text-danger"> {error}</div>
-        })}
-        <Form onSubmit={handleSubmit}>
-            <div>
-                <input onChange={(e)=>setLoginDetails({...loginDetails, email: e.target.value})} value={loginDetails.email} type="email" placeholder='email' required />
-                { fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>) }
-            </div>
+        <div className="position-relative p-6">
+        <div className="form-box text-center">
+                <h1>Sign in to your account</h1>
+                {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error=> {
+                    return <div key={error} className="text-center text-danger"> {error}</div>
+                })}
+                <Form onSubmit={handleSubmit} className="m-5 d-flex flex-column gap-4 text-start">
+                    <div className="">
+                        <input className="w-100 input-box" onChange={(e)=>setLoginDetails({...loginDetails, email: e.target.value})} value={loginDetails.email} type="email" placeholder='email' required />
+                        { fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>) }
+                    </div>
 
-            <div>
-                <input onChange={(e)=>setLoginDetails({...loginDetails, password: e.target.value})} value={loginDetails.password} type="password" placeholder='password' required />
-                { fieldErrors.password && fieldErrors.password.map(error=><p key={error} className='text-danger'>{error}</p>) }
+                    <div className="">
+                        <input className=" w-100 input-box" onChange={(e)=>setLoginDetails({...loginDetails, password: e.target.value})} value={loginDetails.password} type="password" placeholder='password' required />
+                        { fieldErrors.password && fieldErrors.password.map(error=><p key={error} className='text-danger'>{error}</p>) }
+                    </div>
+                    <div className=" text-center">
+                    <button disabled={is_loading} className="input-box w-100 bg-transparent" >login</button>
+                    </div>
+                </Form>
+                <p>Don't have an account? <Link to={"/vendor"}>Sign Up</Link> </p>
             </div>
-            <button disabled={is_loading}>login</button>
-        </Form>
-
+            
+        
+        </div>
+        <Footer />
         </>
     )
 }

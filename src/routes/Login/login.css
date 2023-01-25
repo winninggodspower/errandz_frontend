@@ -1,0 +1,33 @@
+
+.input-box {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.form-box {
+    max-width: 903px;
+    max-height: 661px;
+    margin: 0 auto;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px
+
+
+}
+
+.p-6 {
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background: #F4F4F4;
+
+}
+
+form {
+    background: white;
+    border-radius: 10px;
+    padding: 200px 100px 200px 100px;
+
+}

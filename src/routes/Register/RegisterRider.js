@@ -59,7 +59,7 @@ export const RegisteredRider = () => {
             }
                 
             })
-            .catch((e)= console.log(e))
+            .catch((e)=> console.log(e))
 
         
     }
@@ -73,7 +73,7 @@ export const RegisteredRider = () => {
             <form className="d-flex flex-column formBox gap-3 position-relative">
                 <div>
                     <input type="text"  name="first_name" defaultValue={user.first_name} onChange={handleChange} required />
-                    {error?.account && <p>{error?.account?.first_name || null}uu</p>}
+                    {error?.account && <p>{error?.account?.first_name || null}</p>}
                 </div>
                 <div className="d-flex flex-1 flex-fill">
                     <input type="text" name="last_name" defaultValue={user.last_name} onChange={handleChange} />

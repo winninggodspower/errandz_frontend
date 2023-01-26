@@ -4,6 +4,7 @@ import { getToken } from './Utils/LoginUtils'
 import ErrorPage from "./error-page";
 import Dashboard from './routes/dashboard';
 import Login from './routes/Login/Login';
+import Logout from './routes/Logout/Logout';
 import Home from './routes/home/Home';
 import { RegisteredVendor } from './routes/Register/RegiseterVendor';
 import { RegisteredRider } from './routes/Register/RegisterRider';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: 'login/',
         element: <Login />,
+      },
+      {
+        path: 'logout/',
+        element: <Logout />,
       },
       {
         path: 'register/customer',

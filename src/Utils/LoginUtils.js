@@ -8,3 +8,12 @@ export let getToken =() => {
     const userToken = JSON.parse(tokenString);
     return userToken;
 }
+
+export let clearToken = () =>{
+    if (getToken()){
+        return sessionStorage.removeItem('token')
+    }
+    else{
+        return null
+    }
+}

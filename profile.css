@@ -1,0 +1,52 @@
+#username{
+    font-size: 30px;
+}
+
+#phone{
+    font-weight: 500;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#profile-img{
+    aspect-ratio: 1/1;
+}
+
+.info span, .exit-container span{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.exit-wrapper{
+    margin-top: 150px !important;
+}
+
+@media (max-width: 700px) {
+    #profile-img{
+        width: 80px;
+        height: 80px;
+    }
+    #username{
+        color: #575757;
+        font-size: 17px;
+        line-height: 17px;
+    }
+    #phone{
+        color: #B2B2B2;
+        font-size: 15px;
+    }
+
+    .info, .exit-wrapper{
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .info img, .exit-container img{
+        width: 20px;
+    }
+
+    .exit-wrapper{
+        margin-top: 0px !important;
+    }
+
+}

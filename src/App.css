@@ -37,7 +37,9 @@
   }
 }
 
-
+.account {
+  max-width: 880px;
+}
 .flex-1 {
   flex-grow: 1;
   flex-basis: 1;
@@ -52,4 +54,13 @@
 .flex-3 {
   flex-grow: 3;
   flex-basis: 3;
+}
+
+#nav-transparent {
+  background: transparent;
+  z-index: 2000;
+}
+
+#nav-black {
+  background: #0C0C0C;
 }

@@ -2,10 +2,12 @@ import errandLogo from '../../images/errandz-logo.svg';
 import './navbar.css';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar(props) {
+    let transparent = props.transparent
     return (
-        <nav className="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed" aria-label="Seventh navbar example">
+        <nav className="navbar navbar-expand-md  w-100 navbar-fixed" id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
             <div className="container">
+                
                 <Link className="navbar-brand" to={'/'}>
                     <img src={errandLogo} alt="Logo"  className="d-inline-block align-text-top" />
                 </Link>
@@ -16,16 +18,16 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarsExampleXxl">
                     <ul className="navbar-nav ms-auto text-center">
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active">Home</Link>
+                            <Link to="/" className="nav-link active text-white">Home</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active">About</Link>
+                            <Link to="/" className="nav-link active text-white">About</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active">FAQs</Link>
+                            <Link to="/" className="nav-link active text-white">FAQs</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active">Contact</Link>
+                            <Link to="/" className="nav-link active text-white">Contact</Link>
                         </li>
                     </ul>
                 </div>

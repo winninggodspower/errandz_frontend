@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap);
+
+/* *{
+    font-family: sans-serif;
+} */
+
+legend{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    
+    color: rgba(0, 0, 0, 0.8);
+}
+
+button{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px !important;
+    line-height: 23px !important;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#grid-container{
+    width: 100%;
+    grid-template-columns: min-content auto;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.rounded-top-up{
+    border-radius: 60px 60px 0px 0px !important;
+}
+
+.bg-very-light{
+    background: rgba(244, 244, 244, 0.8);
+}
+#faded-circle{
+    height: 30px;
+}
+
+#dot1-container{
+    background: url('./images/Line.svg');
+    background-repeat-x: no-repeat;
+    background-position: center;
+}
+
+#dot1 img, #dot2 img{
+    vertical-align: top;
+}
+
+@media (max-width: 700px){
+    legend{
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: #B2B2B2;
+        opacity: 0.9;
+    }
+    
+    .rounded-top-up{
+        border-radius: 30px 30px 0px 0px !important;
+    }
+
+    #faded-circle{
+        height: 15px;
+    }
+       
+}

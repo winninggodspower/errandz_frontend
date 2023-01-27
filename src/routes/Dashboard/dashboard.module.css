@@ -37,6 +37,26 @@
     color: rgba(0, 0, 0, 0.5);
 }
 
+#wallet-text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#wallet-price{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    /* line-height: 43px; */
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
 @media (max-width: 600px) {
     #profile-img {
         width: 40px !important;
@@ -49,12 +69,14 @@
     }
 
     #wallet-text{
-        font-size: 12px !important;font-style: normal;
+        font-size: 12px !important;
         font-weight: 700;
         line-height: 12px;
+        margin-bottom: 2px !important;
     } 
     #wallet-price{
         font-size: 15px !important;
+        line-height: 16.8px;
     }
 
     #notification-icon-wrapper img{

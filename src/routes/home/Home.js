@@ -21,7 +21,7 @@ function Home(){
                     <button className="btn btn-light mt-3">
                         { getToken() ?
                          <Link to={"/dashboard/1"} className="text-dark text-decoration-none" >Dashboard</Link> : 
-                         <Link to={"/login"} className="text-dark text-decoration-none" >Get Started</Link>
+                         <Link to={"/register_as"} className="text-dark text-decoration-none" >Get Started</Link>
                         }
                        
                     </button>

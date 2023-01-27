@@ -14,6 +14,7 @@ import {useState} from 'react';
 import {UserContext} from './UserContext';
 import { useEffect } from 'react'
 import Delivery from "../src/routes/delivery/delivery"
+import RegisterAs from './routes/Register-as/Register-as';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: 'delivery/',
         element: <Delivery />
       },
+      {
+        path: 'register_as/',
+        element: <RegisterAs />
+      }
     ]
   }
 ]);

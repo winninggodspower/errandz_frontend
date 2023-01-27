@@ -2,7 +2,7 @@ import './App.css';
 import Root from './Root';
 import { getToken } from './Utils/LoginUtils'
 import ErrorPage from "./error-page";
-import Dashboard from './routes/dashboard';
+import Dashboard from './routes/Dashboard/dashboard';
 import Login from './routes/Login/Login';
 import Logout from './routes/Logout/Logout';
 import Home from './routes/home/Home';
@@ -13,6 +13,7 @@ import { RegisteredCustomer } from './routes/Register/RegisterCustomer';
 import {useState} from 'react';
 import {UserContext} from './UserContext';
 import { useEffect } from 'react'
+import Delivery from "../src/routes/delivery/delivery"
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
       {
         path: 'register/rider',
         element: <RegisteredRider />,
-      }
+      },
+      {
+        path: 'delivery/',
+        element: <Delivery />
+      },
     ]
   }
 ]);

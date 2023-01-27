@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import { getToken } from '../../Utils/LoginUtils';
 import './home.css';
+import Navbar from '../../components/Navbar/Navbar';
 
 function Home(){
     return (
         <>
+        <Navbar transparent={false} />
         {/* FIRST SECTION */}
         <section id="section-a" className="" >
             <div className="row container mx-auto pb-5 pt-0 pt-md-5">

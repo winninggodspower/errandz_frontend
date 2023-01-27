@@ -4,13 +4,13 @@ import { Form, Link, useNavigate } from 'react-router-dom';
 import { setToken } from '../../Utils/LoginUtils';
 import Footer from "../../components/Footer/Footer"
 import "./login.css"
-
+import Navbar from '../../components/Navbar/Navbar';
 const BASE_URL = 'https://errandzbackend-production.up.railway.app';
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
 
 const FetchUser = async (data) => {
-    
+
     let response = await fetch(loginPath, {
         method: 'POST',
         mode: 'cors',
@@ -19,73 +19,94 @@ const FetchUser = async (data) => {
             'Content-Type': 'application/json'
         },
 
-        })
-        return response.json()
+    })
+    return response.json()
 }
 
-function Login(){
+function Login() {
 
-    let [is_loading, setLoading] =  useState(false);
-    let [loginDetails, setLoginDetails] = useState({email: '', password: ''});
+    let [is_loading, setLoading] = useState(false);
+    let [loginDetails, setLoginDetails] = useState({ email: '', password: '' });
     let [fieldErrors, setFieldError] = useState({});
-    let {user, setUser} = useContext(UserContext)
+    let { user, setUser } = useContext(UserContext)
+    let [show, setShow] = useState(false)
     let navigate = useNavigate();
 
 
-    useEffect(()=>{
-        if (user){
+    useEffect(() => {
+        if (user) {
             return navigate('/dashboard/1');
-        }    
+        }
     }, [user, navigate])
 
-    const handleSubmit = async (e)=>{
+    const showPassword = () => {
+        setShow((show) => !show)
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true)
 
-        console.log({username: loginDetails.email, password: loginDetails.password});
-        let response = await FetchUser({username: loginDetails.email, password: loginDetails.password})
+        console.log({ username: loginDetails.email, password: loginDetails.password });
+        let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password })
         console.log(response)
 
-        if (response.token){
+        if (response.token) {
             setUser(response.token);
             setToken(response.token);
-        }else{
+        } else {
             setFieldError(response)
         }
-        
+
         setLoading(false)
-        setLoginDetails({...loginDetails, password: ''})
-        
+        setLoginDetails({ ...loginDetails, password: '' })
+
     }
 
     return (
         <>
-        <div className="position-relative p-6">
-        <div className="form-box text-center">
-                <h1>Sign in to your account</h1>
-                {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error=> {
-                    return <div key={error} className="text-center text-danger"> {error}</div>
-                })}
-                <Form onSubmit={handleSubmit} className="m-5 d-flex flex-column gap-4 text-start">
-                    <div className="">
-                        <input className="w-100 input-box" onChange={(e)=>setLoginDetails({...loginDetails, email: e.target.value})} value={loginDetails.email} type="email" placeholder='email' required />
-                        { fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>) }
+            <Navbar transparent={false} />
+            <div class="container h-100 d-md-flex align-items-center my-5">
+
+                <div id="box-container" class="mx-auto my-4" >
+                    <h1 class="text-center d-none d-md-block">Sign into your account</h1>
+
+
+                    <div id="form-container" class="px-4 py-5 px-md-5 mx-3">
+                        <h2 class="text-center d-md-none mb-3 fs-5">Sign Into your Account</h2>
+                        {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error => {
+                            return <div key={error} className="text-center text-danger"> {error}</div>
+                        })}
+
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
+                                {fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>)}
+                            </div>
+                            <div class="mb-3">
+                                <input type={show ? "text" : "password"} class="form-control" id="password" placeholder="Password" onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
+                                {fieldErrors.password && fieldErrors.password.map(error => <p key={error} className='text-danger'>{error}</p>)}
+                            </div>
+                            <div class="d-none d-md-flex justify-content-between">
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="show-password" onChange={showPassword} />
+                                    <label class="form-check-label" for="show-password">show password</label>
+                                </div>
+                                
+                                <div>
+                                    <span><a href="" class="text-dark text-decoration-underline">forgot password?</a></span>
+                                </div>
+                            </div>
+
+                            <button type="submit" onClick={handleSubmit} class="btn btn-dark w-100" disabled={is_loading}>Sign In</button>
+                        </form>
                     </div>
 
-                    <div className="">
-                        <input className=" w-100 input-box" onChange={(e)=>setLoginDetails({...loginDetails, password: e.target.value})} value={loginDetails.password} type="password" placeholder='password' required />
-                        { fieldErrors.password && fieldErrors.password.map(error=><p key={error} className='text-danger'>{error}</p>) }
-                    </div>
-                    <div className=" text-center">
-                    <button disabled={is_loading} className="input-box w-100 bg-transparent" >login</button>
-                    </div>
-                </Form>
-                <p>Don't have an account? <Link to={"/vendor"}>Sign Up</Link> </p>
+                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+
+                </div>
             </div>
-            
-        
-        </div>
-        <Footer />
+            <Footer />
         </>
     )
 }

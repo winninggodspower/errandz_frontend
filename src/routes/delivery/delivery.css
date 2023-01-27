@@ -4,17 +4,17 @@
     font-family: sans-serif;
 } */
 
-legend{
+.form-map legend{
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
     
-    color: rgba(0, 0, 0, 0.8);
+   
 }
 
-button{
+.form-map button{
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
@@ -45,7 +45,7 @@ button{
 }
 
 #dot1-container{
-    background: url('./images/Line.svg');
+    background: wheat;
     background-repeat-x: no-repeat;
     background-position: center;
 }
@@ -55,7 +55,7 @@ button{
 }
 
 @media (max-width: 700px){
-    legend{
+    .form-map legend{
         font-weight: 700;
         font-size: 12px;
         line-height: 14px;

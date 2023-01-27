@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap);
+
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+#box-container{
+    width: 400px; 
+    height: 400px; 
+    max-width: 100%;
+    max-height: 90%;
+    background: #FFFFFF !important;
+}
+
+
+body{
+    height: 100vh;
+    background : #F5F5F5;
+}
+
+.register-button{
+    width: 250px;
+    max-width: 95%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.8);
+}

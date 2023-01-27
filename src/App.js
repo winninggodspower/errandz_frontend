@@ -15,6 +15,7 @@ import {UserContext} from './UserContext';
 import { useEffect } from 'react'
 import Delivery from "../src/routes/delivery/delivery"
 import RegisterAs from './routes/Register-as/Register-as';
+import Profile from './routes/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'delivery/',
         element: <Delivery />
+      },
+      {
+        path: 'profile/',
+        element: <Profile />
       },
       {
         path: 'register_as/',

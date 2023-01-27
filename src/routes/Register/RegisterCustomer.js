@@ -69,8 +69,12 @@ export const RegisteredCustomer = () => {
 
             <div className="register mx-auto">
                 <Navbar transparent={true} />
+                <div className="mt-5 container text-white">
+                    <h2>Register as a vendor</h2>
+                    <h6>Stress Free deliveries</h6>
+                </div>
             </div>
-            <div className="p-5 account mx-auto">
+            <div className="pad account mx-auto">
                 <div class="container rounded h-100 d-md-flex align-items-center justify-content-center my-5 bg-white py-5 account">
                     <form className="">
 

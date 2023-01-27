@@ -5,11 +5,16 @@ import v1 from "../../images/icons/V2.svg";
 import v2 from "../../images/icons/V3.svg"
 import v3 from "../../images/icons/Vector.svg";
 import "./dashboard.module.css"
+import Navbar from "../../components/Navbar/Navbar";
+
+
 function Dashboard() {
 
 
     return (
-        <div className="container">
+        <>
+        <Navbar transparent={false} />
+        <div style={{minHeight:"700px"}} className="container">
 
             <div id="profile-heading" className="d-flex justify-content-between mt-5">
                 <div className="profile ">
@@ -101,7 +106,7 @@ function Dashboard() {
             </div>
 
         </div>
-
+        </>
     );
 }
 

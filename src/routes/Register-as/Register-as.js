@@ -6,6 +6,7 @@ function RegisterAs(){
     return (
         <>
         <Navbar transparent={false} />
+        <div className="pad">
             <div class="container h-100 d-flex align-items-center">
         
         <div id="box-container" class="mx-auto my-4 px-3" >
@@ -23,6 +24,7 @@ function RegisterAs(){
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <Footer />
         </>

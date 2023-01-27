@@ -3,9 +3,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./delivery.css"
 
 
+
 function Delivery() {
     return (
         <>
+        
+        <div>
             <Navbar transparent={false} />
             <div class="form-map bg-very-light">
 
@@ -118,6 +121,7 @@ function Delivery() {
                     </div>
                 </div>
 
+            </div>
             </div>
         </>
     )

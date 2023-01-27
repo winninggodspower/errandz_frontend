@@ -66,9 +66,15 @@ export const RegisteredVendor = () => {
         <div className="">
             <div className="register mx-auto">
                 <Navbar transparent={true} />
+                <div className="mt-5 container text-white">
+                    <h2>Register as a vendor</h2>
+                    <h6>Stress Free deliveries</h6>
+                </div>
             </div>
-            <div className="p-5 account mx-auto">
-                <div class="container rounded h-100 d-md-flex align-items-center justify-content-center my-5 bg-white py-5">
+            <div className="pad account mx-auto">
+
+                <div class="container rounded h-100 d-md-flex flex-column align-items-center justify-content-center my-5 bg-white py-5">
+                    <h3 className="pb-4">Create an account</h3>
                     <form className="">
 
                         <div class="mb-3">
@@ -117,8 +123,9 @@ export const RegisteredVendor = () => {
                             <button onClick={handleSubmit} class="w-100 btn btn-dark" >Register Now</button>
                         </div>
                     </form>
+                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
                 </div>
-                <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+               
             </div>
         </div>
     </>

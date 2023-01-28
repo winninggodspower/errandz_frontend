@@ -1,8 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap);
 
-/* *{
-    font-family: sans-serif;
-} */
 
 .form-map legend{
     font-family: 'Raleway';
@@ -45,8 +42,9 @@
 }
 
 #dot1-container{
-    background: wheat;
-    background-repeat-x: no-repeat;
+    background: url('../../image/Line.svg');
+    background-repeat-x: ro-repeat;
+    background-repeat: repeat-y;
     background-position: center;
 }
 

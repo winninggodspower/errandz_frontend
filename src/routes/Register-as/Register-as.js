@@ -9,7 +9,7 @@ function RegisterAs(){
         <div className="pad">
             <div class="container h-100 d-flex align-items-center">
         
-        <div id="box-container" class="mx-auto my-4 px-3" >
+        <div id="register-container" class="mx-auto my-4 px-3" >
             <div id="inner-content-header" class="d-flex flex-column w-100 h-100 justify-content-center align-items-center ">
                 
                 <h1 class="mb-3">Get started as</h1>

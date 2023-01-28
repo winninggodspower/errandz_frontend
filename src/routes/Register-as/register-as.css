@@ -5,14 +5,16 @@
 }
 .pad {
     padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 @media screen and (max-width:760px) {
     .pad {
-        padding: 20px 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
-#box-container{
+#register-container{
     width: 400px; 
     height: 400px; 
     max-width: 100%;

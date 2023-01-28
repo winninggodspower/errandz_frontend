@@ -5,7 +5,8 @@ import { setToken } from '../../Utils/LoginUtils';
 import Footer from "../../components/Footer/Footer"
 import "./login.css"
 import Navbar from '../../components/Navbar/Navbar';
-const BASE_URL = 'https://errandzbackend-production.up.railway.app';
+import { BASE_URL } from '../../globalVariable';
+import { getUserDetails } from '../../Utils/AccountUtils';
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
 
@@ -35,7 +36,7 @@ function Login() {
 
     useEffect(() => {
         if (user) {
-            return navigate('/dashboard/1');
+            return navigate('/dashboard');
         }
     }, [user, navigate])
 
@@ -47,13 +48,11 @@ function Login() {
         e.preventDefault();
         setLoading(true)
 
-        console.log({ username: loginDetails.email, password: loginDetails.password });
         let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password })
-        console.log(response)
 
         if (response.token) {
-            setUser(response.token);
             setToken(response.token);
+            setUser(await getUserDetails());
         } else {
             setFieldError(response)
         }
@@ -78,7 +77,7 @@ function Login() {
                             return <div key={error} className="text-center text-danger"> {error}</div>
                         })}
 
-                        <form>
+                        <Form>
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="email" placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
                                 {fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>)}
@@ -94,12 +93,12 @@ function Login() {
                                 </div>
                                 
                                 <div>
-                                    <span><a href="" class="text-dark text-decoration-underline">forgot password?</a></span>
+                                    <span><a href="/forgot-password" class="text-dark text-decoration-none">forgot password?</a></span>
                                 </div>
                             </div>
 
                             <button type="submit" onClick={handleSubmit} class="btn btn-dark w-100" disabled={is_loading}>Sign In</button>
-                        </form>
+                        </Form>
                     </div>
 
                     <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>

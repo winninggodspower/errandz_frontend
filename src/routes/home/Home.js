@@ -20,7 +20,7 @@ function Home(){
                     </h1>
                     <button className="btn btn-light mt-3">
                         { getToken() ?
-                         <Link to={"/dashboard/1"} className="text-dark text-decoration-none" >Dashboard</Link> : 
+                         <Link to={"/dashboard"} className="text-dark text-decoration-none" >Dashboard</Link> : 
                          <Link to={"/register_as"} className="text-dark text-decoration-none" >Get Started</Link>
                         }
                        

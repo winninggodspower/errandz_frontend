@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { BASE_URL } from "../../globalVariable";
 
 
 
@@ -36,7 +37,7 @@ export const RegisteredCustomer = () => {
         e.preventDefault()
         let params = { ...user, account: { ...account } };
 
-        const url = "https://errandzbackend-production.up.railway.app/api/register/vendor/";
+        const url = BASE_URL + '/api/register/customer/';
 
         requestdata(url, params)
             .then((data) => {

@@ -12,9 +12,9 @@ function Footer() {
                 {/* <!--ERRANZ LOGO ET TEXT--> */}
                 <div  className="col-12 col-sm-6">
                     <img src={ErrandzLogo} alt="errandz logo" className="img-fluid" height="140px" width="200px" />
-                    <p>
+                    <h6 className='py-1'>
                         Fast and easy, eco-friendly way to make your deliveries.
-                    </p>
+                    </h6>
                 </div>
 
                 {/* <!--FOOTER LINKS--> */}

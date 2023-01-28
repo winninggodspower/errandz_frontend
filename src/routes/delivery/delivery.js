@@ -1,6 +1,9 @@
 import map from "../../images/map.png"
 import Navbar from "../../components/Navbar/Navbar";
 import "./delivery.css"
+import moneyIcon from "../../image/money.svg"
+import walletIcon from "../../image/wallet.svg"
+import dotIcon from "../../image/dot.svg"
 
 
 
@@ -10,88 +13,88 @@ function Delivery() {
         
         <div>
             <Navbar transparent={false} />
-            <div class="form-map bg-very-light">
+            <div className="form-map bg-very-light">
+  
 
-
-                <div id="map" class="position-relative">
+                <div id="map" className="position-relative">
                     <img src={map} alt="" width="100%" height="400px" style={{ objectFit: "cover" }} />
-                    <div id="faded-circle" class="position-absolute bottom-0 w-100 bg-light rounded-top-up">
+                    <div id="faded-circle" className="position-absolute bottom-0 w-100 bg-light rounded-top-up">
 
                     </div>
                 </div>
 
-                <div class="rounded-top-up " style={{ backgroundColor: "white" }}>
-                    <div class="container pt-5">
+                <div className="rounded-top-up " style={{ backgroundColor: "white" }}>
+                    <div className="container pt-5">
 
-                        <div class="px-4 mx-auto" style={{ width: "600px", maxWidth: "100%" }}>
+                        <div className="px-4 mx-auto" style={{ width: "600px", maxWidth: "100%" }}>
 
 
-                            <form action="" method="post" class="my-3">
-                                <fieldset class="pb-1 pb-md-3">
-                                    <div id="grid-container" class="d-grid">
-                                        <div class="me-2" id="dot1-container">
+                            <form action="" method="post" className="my-3">
+                                <fieldset className="pb-1 pb-md-3">
+                                    <div id="grid-container" className="d-grid">
+                                        <div className="me-2" id="dot1-container">
                                             <div id="dot1">
-                                                <img src="./images/dot.svg" alt="" />
+                                                <img src={dotIcon} alt="" />
                                             </div>
                                         </div>
-                                        <div class="forms">
-                                            <legend class="mb-3 mb-md-4 text-uppercase ">Pickup</legend>
-                                            <div class="mb-3">
-                                                <input class="form-control" id="pickup-name" type="text" placeholder="Name"
+                                        <div className="forms">
+                                            <legend className="mb-3 mb-md-4 text-uppercase ">Pickup</legend>
+                                            <div className="mb-3">
+                                                <input className="form-control" id="pickup-name" type="text" placeholder="Name"
                                                     aria-label="godfred obot" />
                                             </div>
 
-                                            <div class="mb-3">
-                                                <input class="form-control" type="text" placeholder="Location"
+                                            <div className="mb-3">
+                                                <input className="form-control" type="text" placeholder="Location"
                                                     aria-label="alakahia chaoba" />
                                             </div>
 
-                                            <div class="mb-3">
-                                                <input class="form-control" type="text" placeholder="Phone number"
+                                            <div className="mb-3">
+                                                <input className="form-control" type="text" placeholder="Phone number"
                                                     aria-label="08123902721" />
                                             </div>
 
-                                            <div class="mb-3 d-noee d-md-block">
-                                                <input class="form-control" type="text" placeholder="Email"
+                                            <div className="mb-3 d-noee d-md-block">
+                                                <input className="form-control" type="text" placeholder="Email"
                                                     aria-label="godfredobot@gmail.com" />
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="pb-1 pb-md-3">
-                                    <div id="grid-container" class="d-grid">
-                                        <div class="me-2">
+                                <fieldset className="pb-1 pb-md-3">
+                                    <div id="grid-container" className="d-grid">
+                                        <div className="me-2">
                                             <div id="dot2">
-                                                <img src="./images/dot.svg" alt="" />
+                                                <img src={dotIcon} alt="" />
                                             </div>
                                         </div>
 
                                         <div>
-                                            <legend class="mb-3 mb-md-4 text-uppercase">Delivery</legend>
+                                            <legend className="mb-3 mb-md-4 text-uppercase">Delivery</legend>
 
-                                            <div class="mb-3">
-                                                <input class="form-control" type="text" placeholder="Name"
+                                            <div className="mb-3">
+                                                <input className="form-control" type="text" placeholder="Name"
                                                     aria-label="godfred obot" />
                                             </div>
 
-                                            <div class="mb-3">
-                                                <input class="form-control" type="text" placeholder="Location"
+                                            <div className="mb-3">
+                                                <input className="form-control" type="text" placeholder="Location"
                                                     aria-label="alakahia chaoba" />
                                             </div>
 
-                                            <div class="mb-3">
-                                                <input class="form-control" type="text" placeholder="Phone number"
+                                            <div className="mb-3">
+                                                <input className="form-control" type="text" placeholder="Phone number"
                                                     aria-label="08123902721" />
                                             </div>
 
-                                            <div class="mb-3 d-noee d-md-block">
-                                                <input class="form-control" type="text" placeholder="Email"
+                                            <div className="mb-3 d-noee d-md-block">
+                                                <input className="form-control" type="text" placeholder="Email"
                                                     aria-label="godfredobot@gmail.com" />
                                             </div>
 
-                                            <div class="mb-3">
-                                                <textarea class="form-control" id="parcel description"
+                                            <div className="mb-3">
+                                                <textarea className="form-control" id="parcel description"
                                                     placeholder="parcel description" rows="2"></textarea>
                                             </div>
                                         </div>
@@ -99,20 +102,20 @@ function Delivery() {
 
                                 </fieldset>
 
-                                <fieldset class="pb-1 pb-md-3 d-none d-md-block">
-                                    <div class="row">
-                                        <div class="col">
-                                            <button class="btn border border-2 w-100 py-2"> <img src="./images/money.svg"
-                                                width="30px" alt="" /> Cash</button>
+                                <fieldset className="pb-1 pb-md-3 d-none d-md-block">
+                                    <div className="row">
+                                        <div className="col">
+                                            <button className="btn border border-2 w-100 py-2 text-dark"> <img src={moneyIcon}
+                                                style={{width:"30px"}} alt=" cash icon" /> Cash</button>
                                         </div>
-                                        <div class="col">
-                                            <button class="btn border border-2 w-100 py-2"> <img src="./images/wallet.svg"
-                                                width="30px" alt="" /> Wallet</button>
+                                        <div className="col">
+                                            <button className="btn border border-2 w-100 py-2 text-dark"> <img src={walletIcon}
+                                                style={{width:"30px"}} alt="wallet icon" /> Wallet</button>
                                         </div>
                                     </div>
                                 </fieldset>
 
-                                <button type="submit" class="btn btn-dark btn-lg w-100">Request Delivery</button>
+                                <button type="submit" className="btn btn-dark btn-lg w-100">Request Delivery</button>
 
                             </form>
 

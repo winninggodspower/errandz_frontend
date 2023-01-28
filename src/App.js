@@ -8,14 +8,16 @@ import Logout from './routes/Logout/Logout';
 import Home from './routes/home/Home';
 import { RegisteredVendor } from './routes/Register/RegiseterVendor';
 import { RegisteredRider } from './routes/Register/RegisterRider';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RegisteredCustomer } from './routes/Register/RegisterCustomer';
-import {useState} from 'react';
-import {UserContext} from './UserContext';
+import { useState } from 'react';
+import { UserContext } from './UserContext';
 import { useEffect } from 'react'
 import Delivery from "../src/routes/delivery/delivery"
 import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
+import AcceptRequest from './routes/Register-as/accept-request/accept-request';
+import { getUserDetails } from './Utils/AccountUtils';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
         name: "home"
       },
       {
-        path: 'dashboard/:userid',
+        path: 'dashboard/',
         element: <Dashboard />
       },
       {
@@ -61,6 +63,10 @@ const router = createBrowserRouter([
         element: <Profile />
       },
       {
+        path: 'accept/request',
+        element: <AcceptRequest />
+      },
+      {
         path: 'register_as/',
         element: <RegisterAs />
       }
@@ -68,16 +74,26 @@ const router = createBrowserRouter([
   }
 ]);
 
+
 function App() {
   const [user, setUser] = useState(null);
-  
-  useEffect(()=>{
-    console.log('this ran')
-    setUser(getToken())
+
+  useEffect(() => {
+    async function setAccountUser(){
+      if (getToken()) {
+        setUser(await getUserDetails());
+        console.log(await getUserDetails())
+      } else {
+        setUser(null)
+      }
+    }
+
+    setAccountUser();
   }, [])
 
+
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{ user, setUser }}>
       <RouterProvider router={router} />
     </UserContext.Provider>
   );

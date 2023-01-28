@@ -1,9 +1,11 @@
 import errandLogo from '../../images/errandz-logo.svg';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import { getToken } from '../../Utils/LoginUtils';
 
 function Navbar(props) {
-    let transparent = props.transparent
+    let transparent = props.transparent;
+
     return (
         <nav className="navbar navbar-expand-md  w-100 navbar-fixed" id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
             <div className="container">
@@ -17,9 +19,7 @@ function Navbar(props) {
 
                 <div className="collapse navbar-collapse" id="navbarsExampleXxl">
                     <ul className="navbar-nav ms-auto text-center">
-                        <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">Home</Link>
-                        </li>
+                        
                         <li className="nav-item ms-4">
                             <Link to="/" className="nav-link active text-white">About</Link>
                         </li>
@@ -28,6 +28,13 @@ function Navbar(props) {
                         </li>
                         <li className="nav-item ms-4">
                             <Link to="/" className="nav-link active text-white">Contact</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            { 
+                            getToken() ? 
+                            <Link to="/profile" className="btn btn-light  ">profile</Link> :
+                             <Link to="/login" className="btn btn-light  ">Login</Link>
+                            }
                         </li>
                     </ul>
                 </div>

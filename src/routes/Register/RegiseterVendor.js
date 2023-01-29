@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { UserContext } from "../../UserContext";
+import { useContext, useEffect } from "react";
 
 async function requestdata(url, data) {
     const response = await fetch(url, {
@@ -18,21 +20,24 @@ async function requestdata(url, data) {
 
 
 export const RegisteredVendor = () => {
-    const [user, setUser] = useState({ company_name: "", company_address: "" })
+    const [userAccount, setUserAccount] = useState({ company_name: "", company_address: "" })
     const [account, setAccount] = useState({ email: "", phone: "", state: "", city: "", password: "", password2: "" })
     const navigate = useNavigate()
     const [error, setError] = useState(null)
+    let { user, setUser } = useContext(UserContext)
+    const [acceptPolicy, setAcceptPolicy] = useState(true)
+    
 
     const handleChange = (e) => {
 
         let { name, value } = e.target;
-        setUser({ ...user, [name]: value }) || setAccount({ ...account, [name]: value })
+        setUserAccount({ ...userAccount, [name]: value }) || setAccount({ ...account, [name]: value })
 
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let params = { ...user, account: { ...account } };
+        let params = { ...userAccount, account: { ...account } };
 
         const url = "https://errandzbackend-production.up.railway.app/api/register/customer/";
 
@@ -61,6 +66,16 @@ export const RegisteredVendor = () => {
 
     }
 
+    useEffect(() => {
+        if (user) {
+            return navigate('/dashboard');
+        }
+    }, [user, navigate])
+
+    const setPolicy = () => {
+        setAcceptPolicy((acceptPolicy)=> !acceptPolicy);
+    }
+
     return <>
 
         <div className="">
@@ -78,12 +93,12 @@ export const RegisteredVendor = () => {
                     <form className="">
 
                         <div class="mb-3">
-                            <input type="text" name="first_name" class="form-control" placeholder="Company Name" defaultValue={user.company_name} onChange={handleChange} required />
+                            <input type="text" name="first_name" class="form-control" placeholder="Company Name" defaultValue={userAccount.company_name} onChange={handleChange} required />
                             {error?.account && <>{error?.account?.company_name || null}</>}
 
                         </div>
                         <div class="mb-3">
-                            <input type="text" name="last_name" class="form-control" placeholder="Company Address" defaultValue={user.company_address} onChange={handleChange} />
+                            <input type="text" name="last_name" class="form-control" placeholder="Company Address" defaultValue={userAccount.company_address} onChange={handleChange} />
                             {error?.account && <>{error?.account?.company_address || null}</>}
                         </div>
                         <div class="mb-3">
@@ -115,15 +130,15 @@ export const RegisteredVendor = () => {
                         </div>
 
                         <div class="mb-3 form-check w-75 mx-auto align-items-center p-3">
-                            <input type="checkbox" class="form-check-input" id="show-password" />
+                            <input type="checkbox" class="form-check-input" id="show-password" onClick={setPolicy}/>
                             <label class="form-check-label" for="show-password">By clicking the button you agree to
                                 Privacy policy and terms of service</label>
                         </div>
                         <div class="mb-3">
-                            <button onClick={handleSubmit} class="w-100 btn btn-dark" >Register Now</button>
+                            <button onClick={handleSubmit} class="w-100 btn btn-dark"  disabled={acceptPolicy}>Register Now</button>
                         </div>
                     </form>
-                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                    <p class="d-none d-md-block text-center mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none">Login</Link></p>
                 </div>
                
             </div>

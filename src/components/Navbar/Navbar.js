@@ -33,7 +33,7 @@ function Navbar(props) {
                             { 
                             getToken() ? 
                             <Link to="/profile" className="btn btn-light  ">profile</Link> :
-                             <Link to="/login" className="btn btn-light  ">Login</Link>
+                             <Link to="/login" className="btn btn-light btn-large outline-none ">Login</Link>
                             }
                         </li>
                     </ul>

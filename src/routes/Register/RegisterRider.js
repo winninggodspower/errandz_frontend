@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./register.css"
 import Navbar from "../../components/Navbar/Navbar";
-import errandzid from "../../images/erranzid.png"
+import errandzid from "../../images/erranzid.png";
+import { BASE_URL } from "../../globalVariable";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../UserContext";
 
 async function requestdata(url, data) {
     const response = await fetch(url, {
@@ -20,23 +23,25 @@ async function requestdata(url, data) {
 
 
 export const RegisteredRider = () => {
-    const [user, setUser] = useState({ first_name: "", last_name: "" })
+    const [userAccount, setUserAccount] = useState({ first_name: "", last_name: "" })
     const [account, setAccount] = useState({ email: "", phone: "", state: "", city: "", password: "", password2: "" })
-    const navigate = useNavigate()
-    const [error, setError] = useState(null)
+    const navigate = useNavigate();
+    const [error, setError] = useState(null);
+    let { user, setUser } = useContext(UserContext);
+    const [acceptPolicy, setAcceptPolicy] = useState(true)
     
 
     const handleChange = (e) => {
 
         let { name, value } = e.target;
-        setUser({ ...user, [name]: value }) || setAccount({ ...account, [name]: value })
+        setUserAccount({ ...userAccount, [name]: value }) || setAccount({ ...account, [name]: value })
 
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        let params = { ...user, account: { ...account } };
+        let params = { ...userAccount, account: { ...account } };
         console.log(params)
 
         const url = "https://errandzbackend-production.up.railway.app/api/register/rider/";
@@ -64,6 +69,16 @@ export const RegisteredRider = () => {
             .catch((e) => console.log(e))
 
 
+    };
+
+    useEffect(() => {
+        if (user) {
+            return navigate('/dashboard');
+        }
+    }, [user, navigate])
+
+    const setPolicy = () => {
+        setAcceptPolicy((acceptPolicy)=> !acceptPolicy);
     }
 
     return <>
@@ -73,8 +88,8 @@ export const RegisteredRider = () => {
             <Navbar transparent={true} />
             <div className="container row mx-auto py-2 px-0">
                 <div className="col text-white align-items-center my-auto">
-                    <h1>Love Cycling</h1>
-                    <h5>Make cool cash by riding cakes</h5>
+                    <h2 className="text-white fs-1 fw-bolder">Love Cycling?</h2>
+                    <p className="text-white fs-4 fw-small">Make cool cash by riding bicycles</p>
                 </div >
                 <div className="col p-5 d-flex justify-content-center align-items-center pe-4">
                     <span className=""><img src={errandzid} alt="" /></span>
@@ -87,11 +102,11 @@ export const RegisteredRider = () => {
                     <form className="">
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="first_name" placeholder="First Name" defaultValue={user.first_name} onChange={handleChange} required />
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name" defaultValue={userAccount.first_name} onChange={handleChange} required />
                             {error?.account && <p>{error?.account?.first_name || null}</p>}
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" defaultValue={user.last_name} onChange={handleChange} />
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" defaultValue={userAccount.last_name} onChange={handleChange} />
                             {error?.account && <>{error?.account?.last_name || null}</>}
                         </div>
                         <div class="mb-3">
@@ -123,16 +138,16 @@ export const RegisteredRider = () => {
                         </div>
 
                         <div class="mb-3 form-check w-75 mx-auto align-items-center p-3">
-                            <input type="checkbox" class="form-check-input" id="show-password" />
+                            <input type="checkbox" class="form-check-input" id="show-password" onClick={setPolicy}/>
                             <label class="form-check-label" for="show-password">By clicking the button you agree to
                                 Privacy policy and terms of service</label>
                         </div>
                         <div class="mb-3">
-                            <button onClick={handleSubmit} class="w-100 btn btn-dark" >Register Now</button>
+                            <button onClick={handleSubmit} class="w-100 btn btn-dark" disabled={acceptPolicy}>Register Now</button>
                         </div>
                     </form>
                 </div>
-                <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                <p class="d-none d-md-block text-center mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none"> Login</Link></p>
             </div>
         </div>
     </>

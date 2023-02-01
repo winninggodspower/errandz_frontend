@@ -30,13 +30,13 @@ function Delivery() {
             pickupInputRef.current,
             options
             );
-        autoCompletePickupRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompletePickupRef))
+        autoCompletePickupRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompletePickupRef, pickupInputRef))
         
         autoCompleteDeliveryRef.current = new window.google.maps.places.Autocomplete(
             deliveryInputRef.current,
             options
             );
-        autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef))
+        autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef, deliveryInputRef))
         
 
         var chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
@@ -62,14 +62,14 @@ function Delivery() {
         };
 
         directionsService.route(request, function(result, status) {
-            if (status == 'OK') {
+            if (status === 'OK') {
                 directionsRenderer.setDirections(result);
             }
         });
     }
     
 
-    let handlePlaceChanged = async (autocomplete)=>{
+    let handlePlaceChanged = async (autocomplete, input)=>{
         const place = await autocomplete.current.getPlace();
         console.log(place)
 

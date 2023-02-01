@@ -4,7 +4,7 @@ import riderIcon from '../../images/icons/Delivery man.svg'
 import v1 from "../../images/icons/V2.svg";
 import v2 from "../../images/icons/V3.svg"
 import v3 from "../../images/icons/Vector.svg";
-import "./dashboard.module.css"
+import "./dashboard.css"
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom"
 import { UserContext } from "../../UserContext";
@@ -29,7 +29,7 @@ function Dashboard() {
 
                 <div id="profile-heading" className="d-flex justify-content-between mt-5">
                     <div className="profile">
-                        <Link to={"/profile"}>   <img src={profilePic} id="profile-img" className="rounded-circle" alt="profile image" width="100px" />
+                        <Link to={"/profile"}>   <img src={user && user.account.profile_image} id="profile-img" className="rounded-circle" alt="profile image" width="100px" />
                         </Link> <span id="profile-name" className="fs-4 ms-3">Hi, {user && user.first_name}</span>
                     </div>
                     <div className="d-flex align-items-center mx-2">

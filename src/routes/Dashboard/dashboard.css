@@ -63,7 +63,9 @@ body{
 
 @media (max-width: 600px) {
     #profile-img {
-        width: 40px !important;
+        --small-size: 50px;
+        width: var(--small-size) !important;
+        height: var(--small-size) !important;
     }
     #notification-bell{
         width: 20px;

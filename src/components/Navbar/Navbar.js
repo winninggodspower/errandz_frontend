@@ -13,8 +13,8 @@ function Navbar(props) {
                 <Link className="navbar-brand" to={'/'}>
                     <img src={errandLogo} alt="Logo"  className="d-inline-block align-text-top" />
                 </Link>
-                <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                <button className="navbar-toggler border-0 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon "></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarsExampleXxl">

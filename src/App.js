@@ -18,6 +18,9 @@ import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
 import AcceptRequest from './routes/Register-as/accept-request/accept-request';
 import { getUserDetails } from './Utils/AccountUtils';
+import MapTest from './components/Navbar/testmap';
+
+
 
 const router = createBrowserRouter([
   {
@@ -65,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: 'accept/request',
         element: <AcceptRequest />
+      },
+      {
+        path: 'map/',
+        element: <MapTest />
       },
       {
         path: 'register_as/',

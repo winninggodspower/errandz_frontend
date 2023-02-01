@@ -101,7 +101,7 @@ function Login() {
                         </Form>
                     </div>
 
-                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register_as"} className="text-dark text-decoration-none">Sign Up</Link></p>
 
                 </div>
             </div>

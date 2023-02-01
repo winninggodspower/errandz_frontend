@@ -44,7 +44,7 @@ export const RegisteredRider = () => {
         let params = { ...userAccount, account: { ...account } };
         console.log(params)
 
-        const url = "https://errandzbackend-production.up.railway.app/api/register/rider/";
+        const url = BASE_URL + "/api/register/rider/";
 
         requestdata(url, params)
             .then((data) => {

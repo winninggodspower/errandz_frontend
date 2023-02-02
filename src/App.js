@@ -18,7 +18,8 @@ import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
 import AcceptRequest from './routes/Register-as/accept-request/accept-request';
 import { getUserDetails } from './Utils/AccountUtils';
-import MapTest from './components/Navbar/testmap';
+import AboutUs from './routes/errandz/about-us';
+import ContactUs from './routes/errandz/contact-us';
 
 
 
@@ -70,8 +71,12 @@ const router = createBrowserRouter([
         element: <AcceptRequest />
       },
       {
-        path: 'map/',
-        element: <MapTest />
+        path: 'about/us/',
+        element: <AboutUs />
+      },
+      {
+        path: 'contact/us/',
+        element: <ContactUs />
       },
       {
         path: 'register_as/',

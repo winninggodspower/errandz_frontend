@@ -1,0 +1,13 @@
+
+
+function ContactUs(){
+    return (
+        <>
+            <div>
+                <h1>About Us</h1>
+            </div>
+        </>
+    )
+}
+
+export default ContactUs

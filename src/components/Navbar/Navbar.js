@@ -21,13 +21,13 @@ function Navbar(props) {
                     <ul className="navbar-nav ms-auto text-center">
                         
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">About</Link>
+                            <Link to="about/us" className="nav-link active text-white">About</Link>
                         </li>
                         <li className="nav-item ms-4">
                             <Link to="/" className="nav-link active text-white">FAQs</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">Contact</Link>
+                            <Link to="contact/us" className="nav-link active text-white">Contact</Link>
                         </li>
                         <li className="nav-item ms-4">
                             { 

@@ -3,15 +3,15 @@
 function AcceptOrder(){
     return <>
     
-        <div class="container h-100 d-md-flex align-items-center my-5 position-absolute mx-auto my-auto">
+        <div className="  mx-auto d-flex">
 
-            <div id="box-container" class="mx-auto my-4" >
+            <div className="mx-auto order-container bg-white position-absolute" >
                 <div>
-                    <p>Recieved your order</p>
+                    <p className="mx-auto">Recieved your order</p>
                 </div>
                 <div className="d-flex justify-content-around">
-                    <button type="submit">yes</button>
-                    <button type="cancel">no</button>
+                    <button type="submit" className="bg-dark text-white py-2">yes</button>
+                    <button type="submit" className="bg-dark text-white py-2">No</button>
                 </div>
             </div>
         </div>

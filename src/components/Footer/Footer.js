@@ -23,8 +23,8 @@ function Footer() {
                     <div class="col">
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Home</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">About</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Contact</Link></li>
+                            <li class="nav-item mb-2"><Link to={'about/us'} class="nav-link p-0 ">About</Link></li>
+                            <li class="nav-item mb-2"><Link to={'contact/us'} class="nav-link p-0 ">Contact</Link></li>
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">FAQs</Link></li>
                         </ul>
                     </div>

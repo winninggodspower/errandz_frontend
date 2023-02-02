@@ -86,18 +86,19 @@ export const RegisteredRider = () => {
         <div className="">
             <div className="bg-k">
             <Navbar transparent={true} />
-            <div className="container row mx-auto py-2 px-0">
-                <div className="col text-white align-items-center my-auto">
+            <div className="container row mx-auto py-2 px-0 rider-hero">
+                <div className="col text-white align-items-center my-auto ">
                     <h2 className="text-white fs-1 fw-bolder">Love Cycling?</h2>
                     <p className="text-white fs-4 fw-small">Make cool cash by riding bicycles</p>
                 </div >
-                <div className="col p-5 d-flex justify-content-center align-items-center pe-4">
+                <div className="col p-5 d-flex justify-content-center align-items-center pe-4 e-logo-img">
                     <span className=""><img src={errandzid} alt="" /></span>
                 </div>
             </div>
             </div>
        
             <div className="pad account mx-auto">
+                
                 <div class="container rounded h-100 d-md-flex align-items-center justify-content-center my-5 bg-white py-5 account">
                     <form className="">
 

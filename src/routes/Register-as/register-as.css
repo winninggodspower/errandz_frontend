@@ -12,6 +12,15 @@
     .pad {
         padding-top: 20px;
         padding-bottom: 20px;
+        height: 100vh !important;
+    }
+    .as {
+        display: none;
+    }
+    #register-container {
+        border-radius: 5px;
+        justify-self: end;
+        vertical-align: middle;
     }
 }
 #register-container{

@@ -37,7 +37,7 @@ function Dashboard() {
                         </Link> <span id="profile-name" className="fs-4 ms-3">Hi, {user && user.first_name}</span>
                     </div>
                     <div className="d-flex align-items-center mx-2">
-                        <img src={notificationBell} id="notification-bell" alt="notification bell" />
+                    <Link to={"/dashboard"}> <img src={notificationBell} id="notification-bell" alt="notification bell" />   </Link> 
                     </div>
                 </div>
                 

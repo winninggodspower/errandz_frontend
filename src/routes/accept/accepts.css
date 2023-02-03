@@ -1,0 +1,16 @@
+.order-container button {
+    width: 20px;
+    background: black;
+    color: white;
+    outline: none;
+
+}
+
+.order-container {
+    background: white;
+    border-radius: 20px;
+    z-index: 1001;
+    height: 50px;
+    width: 60px;
+    vertical-align: middle;
+}

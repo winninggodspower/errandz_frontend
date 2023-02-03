@@ -22,12 +22,12 @@ nav{
 @media (max-width: 500px){
     #section-a div:first-child{
         padding-right: 0px !important;
-        padding-left: 0px !important;
+        padding: 0px auto;
     }
 
     #txt-container{
-        margin-right: 5px;
-        margin-left: calc(var(--bs-gutter-x) * .5);
+        padding-right: 5px;
+        padding-left: 5px;
     }
 
     #section-a h1{

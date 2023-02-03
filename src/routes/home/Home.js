@@ -27,8 +27,8 @@ function Home(){
                     </button>
                 </div>
 
-                <div className="col-md-6 col-12 pb-4 px-0 px-md-2 d-md-flex ">
-                    <picture className="ms-auto">
+                <div className="col-md-6 col-12 pb-4 px-0 px-md-2 d-md-flex">
+                    <picture className="mx-auto">
                         <source media="(min-width: 480px)" srcSet={desktopHeroImage} />
                         <source media="(min-width: 992px)" srcSet={desktopHeroImage} />
                         <img className="mw-100" src={mobileHero} alt="Lots of cakes" />

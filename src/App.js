@@ -18,6 +18,11 @@ import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
 import AcceptRequest from './routes/Register-as/accept-request/accept-request';
 import { getUserDetails } from './Utils/AccountUtils';
+import AboutUs from './routes/errandz/about-us';
+import ContactUs from './routes/errandz/contact-us';
+import AcceptOrder from './routes/accept/accept-order';
+
+
 
 const router = createBrowserRouter([
   {
@@ -65,6 +70,18 @@ const router = createBrowserRouter([
       {
         path: 'accept/request',
         element: <AcceptRequest />
+      },
+      {
+        path: 'about/us/',
+        element: <AboutUs />
+      },
+      {
+        path: 'contact/us/',
+        element: <ContactUs />
+      },
+      {
+        path: 'accept/delivery',
+        element: <AcceptOrder />
       },
       {
         path: 'register_as/',

@@ -13,21 +13,21 @@ function Navbar(props) {
                 <Link className="navbar-brand" to={'/'}>
                     <img src={errandLogo} alt="Logo"  className="d-inline-block align-text-top" />
                 </Link>
-                <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                <button className="navbar-toggler border-0 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon "></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarsExampleXxl">
                     <ul className="navbar-nav ms-auto text-center">
                         
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">About</Link>
+                            <Link to="about/us" className="nav-link active text-white">About</Link>
                         </li>
                         <li className="nav-item ms-4">
                             <Link to="/" className="nav-link active text-white">FAQs</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">Contact</Link>
+                            <Link to="contact/us" className="nav-link active text-white">Contact</Link>
                         </li>
                         <li className="nav-item ms-4">
                             { 

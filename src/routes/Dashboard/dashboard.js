@@ -1,4 +1,5 @@
-import profilePic from "../../images/Ellipse8.png"
+/* eslint-disable jsx-a11y/heading-has-content */
+
 import notificationBell from "../../images/icons/notification.svg"
 import riderIcon from '../../images/icons/Delivery man.svg'
 import v1 from "../../images/icons/V2.svg";
@@ -11,6 +12,8 @@ import { UserContext } from "../../UserContext";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { getToken } from "../../Utils/LoginUtils";
+import AcceptOrder from "../accept/accept-order";
+
 
 function Dashboard() {
     let navigate = useNavigate();
@@ -26,14 +29,15 @@ function Dashboard() {
         <>
             <Navbar transparent={false} />
             <div style={{ minHeight: "700px" }} className="container">
+                
 
                 <div id="profile-heading" className="d-flex justify-content-between mt-5">
                     <div className="profile">
-                        <Link to={"/profile"}>   <img src={user && user.account.profile_image} id="profile-img" className="rounded-circle" alt="profile image" width="100px" />
+                        <Link to={"/profile"}>   <img src={user && user.account.profile_image} id="profile-img" className="rounded-circle" alt="profile" style={{width:"100px"}} />
                         </Link> <span id="profile-name" className="fs-4 ms-3">Hi, {user && user.first_name}</span>
                     </div>
                     <div className="d-flex align-items-center mx-2">
-                        <img src={notificationBell} id="notification-bell" alt="notification bell" />
+                    <Link to={"/dashboard"}> <img src={notificationBell} id="notification-bell" alt="notification bell" />   </Link> 
                     </div>
                 </div>
                 
@@ -138,7 +142,7 @@ function Dashboard() {
                             <span className="text-warning">In progress</span>
                         </div>
                     </div>
-
+                    <AcceptOrder />
                     <div className="notification mb-5 d-flex justify-content-between justify-content-center">
                         <div className="d-flex">
                             <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">

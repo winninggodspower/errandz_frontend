@@ -6,20 +6,7 @@ import errandzid from "../../images/erranzid.png";
 import { BASE_URL } from "../../globalVariable";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../UserContext";
-
-async function requestdata(url, data) {
-    const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-
-        },
-        body: JSON.stringify(data)
-    });
-    return response
-}
-
+import {requestdata} from '../../Utils/useFetch';
 
 
 export const RegisteredRider = () => {

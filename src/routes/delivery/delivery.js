@@ -1,11 +1,15 @@
 import mapIcon from "../../images/map.png"
 import Navbar from "../../components/Navbar/Navbar";
-import "./delivery.css"
-import moneyIcon from "../../image/money.svg"
-import walletIcon from "../../image/wallet.svg"
-import dotIcon from "../../image/dot.svg"
-import { useEffect, useRef } from "react";
-
+import "./delivery.css";
+import moneyIcon from "../../image/money.svg";
+import walletIcon from "../../image/wallet.svg";
+import dotIcon from "../../image/dot.svg";
+import { UserContext } from "../../UserContext";
+import { requestdata } from '../../Utils/useFetch'
+import { useEffect, useRef, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import {BASE_URL} from "../../globalVariable"
+import { getToken } from "../../Utils/LoginUtils";
 
 function Delivery() {
 
@@ -14,6 +18,16 @@ function Delivery() {
     const pickupInputRef = useRef();
     const deliveryInputRef = useRef();
     const mapRef = useRef();
+
+    let [is_loading, setLoading] = useState(false);
+    let [deliveryDetails, setDeliveryDetails] = useState({ 
+        pickup_location: '', recipient_name: '', recipient_email: '', recipient_phone_number: '',
+        delivery_location: '',  recievers_name: '', receivers_email: '', receiver_phone_number: '', 
+        goods_description: '', delivery_distance: 3    
+    });
+    let [fieldErrors, setFieldError] = useState({});
+    let { user} = useContext(UserContext)
+    let navigate = useNavigate();
 
     var directionsService = new window.google.maps.DirectionsService();
     var directionsRenderer = new window.google.maps.DirectionsRenderer();
@@ -25,7 +39,14 @@ function Delivery() {
         types: ["establishment"],
     };
 
+    useEffect(() => {
+        if (!user) {
+            return navigate('/login');
+        }
+    }, [user])
+
     useEffect(()=>{
+
         autoCompletePickupRef.current = new window.google.maps.places.Autocomplete(
             pickupInputRef.current,
             options
@@ -86,6 +107,47 @@ function Delivery() {
 
       }
 
+    let handleSubmit = (e)=>{
+        e.preventDefault()
+        setLoading(true);
+        let deliveryPath = '/api/make_delivery';
+        let deliveryUrl = BASE_URL + deliveryPath
+        let headers={
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${getToken()}`
+        }
+
+        let response = requestdata(deliveryUrl, deliveryDetails, headers=headers);
+        response.then(res=>{
+            if (res.status === 400) {
+                res.json()
+                .then((data )=>{
+                    setFieldError(data)
+                    console.log(data)
+                })
+            }
+            else if (res.status === 201){
+                res.json()
+                .then((data)=>{
+                    console.log('Success: ', data);
+                    setFieldError({})
+                    window.location.replace(data.checkout_url)
+                })
+            }
+        })
+            
+            
+        setLoading(false);
+
+    }
+
+    
+    const handleInputChange = (e) => {
+        let { name, value } = e.target;
+        setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value })
+
+    }
+
     return (
         <>
 
@@ -108,7 +170,7 @@ function Delivery() {
                             <div className="px-4 mx-auto" style={{ width: "600px", maxWidth: "100%" }}>
 
 
-                                <form action="" method="post" className="my-3">
+                                <form method="post" onSubmit={handleSubmit} className="my-3">
                                     <fieldset className="pb-1 pb-md-3">
                                         <div id="grid-container" className="d-grid">
                                             <div className="me-2" id="dot1-container">
@@ -119,26 +181,31 @@ function Delivery() {
                                             <div className="forms">
                                                 <legend className="mb-3 mb-md-4 text-uppercase ">Pickup</legend>
                                                 <div className="mb-3">
-                                                    <input className="form-control" id="pickup-name" type="text" placeholder="Name"
-                                                        aria-label="godfred obot" />
+                                                    <input className="form-control" value={deliveryDetails.recipient_name} name="recipient_name" id="pickup-name" type="text" placeholder="Name"
+                                                    aria-label="godfred obot" onChange={handleInputChange} />
+                                                    {fieldErrors.recipient_name && fieldErrors.recipient_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
+                          
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" type="text" placeholder="Location" id="pickup-location" ref={pickupInputRef}
+                                                    <input className="form-control" value={deliveryDetails.pickup_location} name="pickup_location" type="text" placeholder="Location" id="pickup-location" onChange={handleInputChange}
                                                         aria-label="alakahia chaoba" />
+                                                    {fieldErrors.pickup_location && fieldErrors.pickup_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" type="text" placeholder="Phone number"
+                                                    <input className="form-control" value={deliveryDetails.recipient_phone_number} onChange={handleInputChange} name="recipient_phone_number"  type="text" placeholder="Phone number"
                                                         aria-label="08123902721" />
+                                                    {fieldErrors.recipient_phone_number && fieldErrors.recipient_phone_number.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3 d-noee d-md-block">
-                                                    <input className="form-control" type="text" placeholder="Email"
+                                                    <input className="form-control" value={deliveryDetails.recipient_email} name="recipient_email" onChange={handleInputChange} type="text" placeholder="Email"
                                                         aria-label="godfredobot@gmail.com" />
+                                                    {fieldErrors.recipient_email && fieldErrors.recipient_email.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
-                                            </div>
                                         </div>
+                                            </div>
                                     </fieldset>
 
                                     <fieldset className="pb-1 pb-md-3">
@@ -153,35 +220,40 @@ function Delivery() {
                                                 <legend className="mb-3 mb-md-4 text-uppercase">Delivery</legend>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" type="text" placeholder="Name"
+                                                    <input className="form-control" value={deliveryDetails.recievers_name} name="recievers_name" onChange={handleInputChange} type="text" placeholder="Name"
                                                         aria-label="godfred obot" />
+                                                    {fieldErrors.recievers_name && fieldErrors.recievers_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" type="text" placeholder="Location" ref={deliveryInputRef}
+                                                    <input className="form-control" value={deliveryDetails.delivery_location} name="delivery_location" onChange={handleInputChange} type="text" placeholder="Location"
                                                         aria-label="alakahia chaoba" />
+                                                    {fieldErrors.delivery_location && fieldErrors.delivery_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" type="text" placeholder="Phone number"
+                                                    <input className="form-control" value={deliveryDetails.receiver_phone_number} name="receiver_phone_number" onChange={handleInputChange} type="text" placeholder="Phone number"
                                                         aria-label="08123902721" />
+                                                    {fieldErrors.receiver_phone_number && fieldErrors.receiver_phone_number.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3 d-noee d-md-block">
-                                                    <input className="form-control" type="text" placeholder="Email"
+                                                    <input className="form-control" value={deliveryDetails.receivers_email} name="receivers_email" onChange={handleInputChange} type="text" placeholder="Email"
                                                         aria-label="godfredobot@gmail.com" />
+                                                    {fieldErrors.receivers_email && fieldErrors.receivers_email.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <textarea className="form-control" id="parcel description"
+                                                    <textarea className="form-control" value={deliveryDetails.goods_description} name="goods_description" onChange={handleInputChange} id="parcel description"
                                                         placeholder="parcel description" rows="2"></textarea>
+                                                    {fieldErrors.goods_description && fieldErrors.goods_description.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
                                             </div>
                                         </div>
 
                                     </fieldset>
 
-                                    <fieldset className="pb-1 pb-md-3 d-none d-md-block">
+                                    <fieldset className="pb-1 pb-md-3 d-none">
                                         <div className="row">
                                             <div className="col">
                                                 <button className="btn border border-2 w-100 py-2 text-dark"> <img src={moneyIcon}
@@ -194,7 +266,7 @@ function Delivery() {
                                         </div>
                                     </fieldset>
 
-                                    <button type="submit" className="btn btn-dark btn-lg w-100">Request Delivery</button>
+                                    <button type="submit" disabled={is_loading} className="btn btn-dark btn-lg w-100">Request Delivery</button>
 
                                 </form>
 

@@ -10,9 +10,9 @@ import { RegisteredVendor } from './routes/Register/RegiseterVendor';
 import { RegisteredRider } from './routes/Register/RegisterRider';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RegisteredCustomer } from './routes/Register/RegisterCustomer';
-import { useState } from 'react';
-import { UserContext } from './UserContext';
-import { useEffect } from 'react'
+import { useState, useEffect  } from 'react';
+import { UserContext, AlertContext } from './UserContext';
+import { v4 as uuidv4 } from "uuid";
 import Delivery from "../src/routes/delivery/delivery"
 import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
@@ -76,7 +76,23 @@ const router = createBrowserRouter([
 
 
 function App() {
+
   const [user, setUser] = useState(null);
+  const [alert, setAlert] = useState([]);
+  
+  const addAlert = (type, message)=>{
+    setAlert(alert.concat(
+      {
+        id: uuidv4(),
+        type: type,
+        message: message
+      }
+    ))
+  }
+  
+  const deleteAlert = (id)=>{
+    setAlert((alert) => alert.filter((a) => a.id !== id));
+  }
 
   useEffect(() => {
     async function setAccountUser(){
@@ -91,11 +107,12 @@ function App() {
     setAccountUser();
   }, [])
 
-
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <RouterProvider router={router} />
-    </UserContext.Provider>
+    <AlertContext.Provider value={{ alert, addAlert, deleteAlert }} >
+      <UserContext.Provider value={{ user, setUser }}>
+        <RouterProvider router={router} />
+      </UserContext.Provider>
+    </AlertContext.Provider>
   );
 }
 

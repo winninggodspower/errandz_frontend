@@ -7,6 +7,8 @@ import "./login.css"
 import Navbar from '../../components/Navbar/Navbar';
 import { BASE_URL } from '../../globalVariable';
 import { getUserDetails } from '../../Utils/AccountUtils';
+import { AlertContext } from '../../UserContext';
+
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
 
@@ -29,7 +31,8 @@ function Login() {
     let [is_loading, setLoading] = useState(false);
     let [loginDetails, setLoginDetails] = useState({ email: '', password: '' });
     let [fieldErrors, setFieldError] = useState({});
-    let { user, setUser } = useContext(UserContext)
+    let { user, setUser } = useContext(UserContext);
+    let { addAlert } = useContext(AlertContext)
     let [show, setShow] = useState(false)
     let navigate = useNavigate();
 
@@ -53,6 +56,7 @@ function Login() {
         if (response.token) {
             setToken(response.token);
             setUser(await getUserDetails());
+            addAlert('success', 'successfully logged in ')
         } else {
             setFieldError(response)
         }
@@ -101,7 +105,7 @@ function Login() {
                         </Form>
                     </div>
 
-                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register/vendor"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register_as/"} className="text-dark text-decoration-none">Sign Up</Link></p>
 
                 </div>
             </div>

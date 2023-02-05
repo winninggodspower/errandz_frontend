@@ -1,29 +1,56 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-
-import notificationBell from "../../images/icons/notification.svg"
 import riderIcon from '../../images/icons/Delivery man.svg'
+import notificationBell from "../../images/icons/notification.svg";
+import { BASE_URL } from '../../globalVariable';
 import v1 from "../../images/icons/V2.svg";
 import v2 from "../../images/icons/V3.svg"
 import v3 from "../../images/icons/Vector.svg";
 import "./dashboard.css"
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom"
+import History from './History';
 import { UserContext } from "../../UserContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { getToken } from "../../Utils/LoginUtils";
-import AcceptOrder from "../accept/accept-order";
-
+import { requestdata } from "../../Utils/useFetch";
 
 function Dashboard() {
     let navigate = useNavigate();
     let { user } = useContext(UserContext)
-    
+    let [history, setHistory] = useState(null)
+
     useEffect(()=>{
         if (!getToken()) {
             return navigate('/login');
         }
-    }, [user, navigate])
+        let getAccountHistory = ()=>{
+            let historyPath = '/api/make_delivery';
+            let historyUrl = BASE_URL + historyPath
+            let headers={
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${getToken()}`
+            }
+            let method="GET";
+            let response = requestdata(historyUrl, {'NOTHING TO PASS': true}, headers=headers,  method=method);
+            response.then(res=>{
+                if (res.status === 200) {
+                    res.json()
+                    .then(data=>{
+                        setHistory(data)
+                    })
+                }
+                else{
+                    console.log(res.json());
+                }
+            })
+            console.log(response);
+        }
+
+        getAccountHistory();
+
+    }, [user, navigate, history])
+    
 
     return (
         <>
@@ -110,39 +137,13 @@ function Dashboard() {
                 {/* end of if */}
 
                 <div className="notifications mx-auto px-2" style={{ width: "800px", maxWidth: "100%" }}>
-                    <div className="notification mb-5 d-flex justify-content-between justify-content-center">
-                        <div className="d-flex">
 
-                            <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">
-                                <img src={riderIcon} alt="" width="40px" />
-                            </div>
-                            <div className="notification-info d-flex flex-column justify-content-center ms-2">
-                                <p className="mb-0">Favour</p>
-                                <span>12:26 PM * RD1005</span>
-                            </div>
-                        </div>
-                        <div className="notification-status d-flex flex-column justify-content-center ms-2">
-                            <p className="mb-0 fs-6 text-end fs-4">500</p>
-                            <span className="text-warning">In progress</span>
-                        </div>
-                    </div>
-
-                    <div className="notification mb-5 d-flex justify-content-between justify-content-center">
-                        <div className="d-flex">
-                            <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">
-                                <img src={riderIcon} alt="" width="40px" />
-                            </div>
-                            <div className="notification-info d-flex flex-column justify-content-center ms-2">
-                                <p className="mb-0">Favour</p>
-                                <span>12:26 PM * RD1005</span>
-                            </div>
-                        </div>
-                        <div className="notification-status d-flex flex-column justify-content-center ms-2">
-                            <p className="mb-0 fs-6 text-end fs-4">500</p>
-                            <span className="text-warning">In progress</span>
-                        </div>
-                    </div>
-                    <AcceptOrder />
+                    {
+                        history && history.map(h=>{
+                            <History />
+                        })
+                    }
+                    
                     <div className="notification mb-5 d-flex justify-content-between justify-content-center">
                         <div className="d-flex">
                             <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">

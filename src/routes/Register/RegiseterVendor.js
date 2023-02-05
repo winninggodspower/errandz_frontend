@@ -24,7 +24,7 @@ export const RegisteredVendor = () => {
     const [account, setAccount] = useState({ email: "", phone: "", state: "", city: "", password: "", password2: "" })
     const navigate = useNavigate()
     const [error, setError] = useState(null)
-    let { user, setUser } = useContext(UserContext)
+    let { user } = useContext(UserContext)
     const [acceptPolicy, setAcceptPolicy] = useState(true)
 
 
@@ -53,15 +53,14 @@ export const RegisteredVendor = () => {
 
                 } else if (data.status === 400) {
                     data.json()
-                        .then(d => {
-                            setError(d)
-                            console.log(d)
-
+                        .then(error => {
+                            setError(error)
+                            console.log(error)
                         })
                 }
 
             })
-            .catch((e) => console.log(e))
+            .catch((e) => console.log('this is error',e))
 
 
     }
@@ -107,7 +106,7 @@ export const RegisteredVendor = () => {
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" name="phone" placeholder="Phone Number" onChange={handleChange} />
-                            {error?.account && <>{error?.account?.phone || null}</>}
+                            {error && <>{error?.account?.phone || error?.phone}</>}
                         </div>
 
                         <div class="mb-3">

@@ -42,7 +42,7 @@ function Profile() {
 
                         <div className="info d-flex align-items-center mt-3">
                             <img src={Home} style={{ width: "30px" }} alt="" />
-                            <span className="ms-3 ms-md-4 ">Home Address</span>
+                            <span className="ms-3 ms-md-4 ">{ user && `${user.account.state}, ${user.account.city}` }</span>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@ function Profile() {
                         <hr className="my-4" />
                         <div className="exit-container mt-3">
                             <img src={Exit} style={{ width: "30px" }} alt="exit text" />
-                            <Link to={"/logout"}><span className="ms-3 ms-md-4">Log Out</span></Link>
+                            <Link className="text-decoration-none" to={"/logout"}><span className="ms-3 ms-md-4 ">Log Out</span></Link>
                         </div>
                     </div>
 

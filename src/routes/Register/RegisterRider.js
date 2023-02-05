@@ -14,7 +14,7 @@ export const RegisteredRider = () => {
     const [account, setAccount] = useState({ email: "", phone: "", state: "", city: "", password: "", password2: "" })
     const navigate = useNavigate();
     const [error, setError] = useState(null);
-    let { user, setUser } = useContext(UserContext);
+    let { user } = useContext(UserContext);
     const [acceptPolicy, setAcceptPolicy] = useState(true)
     
 
@@ -91,37 +91,37 @@ export const RegisteredRider = () => {
 
                         <div class="mb-3">
                             <input type="text" class="form-control" name="first_name" placeholder="First Name" defaultValue={userAccount.first_name} onChange={handleChange} required />
-                            {error?.account && <p>{error?.account?.first_name || null}</p>}
+                            {error?.account && <span className="text-danger">{error?.first_name || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" name="last_name" placeholder="Last Name" defaultValue={userAccount.last_name} onChange={handleChange} />
-                            {error?.account && <>{error?.account?.last_name || null}</>}
+                            {error?.account && <span className="text-danger">{error?.last_name || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" name="email" placeholder="E-mail" onChange={handleChange} />
-                            {error?.account && <>{error?.account?.email || null}</>}
+                            {error?.account && <span className="text-danger">{error?.account?.email || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" name="phone" placeholder="Phone Number" onChange={handleChange} />
-                            {error?.account && <>{error?.account?.phone || null}</>}
+                            {error && <span className="text-danger">{error?.account?.phone || error?.phone || null}</span>}
                         </div>
 
                         <div class="mb-3">
                             <input type="password" class="form-control" name="password" placeholder="Password" onChange={handleChange} />
-                            {error && <>{error?.account?.password || error?.password || null}</>}
+                            {error && <span className="text-danger">{error?.account?.password || error?.password || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" name="password2" placeholder="Confirm Password" onChange={handleChange} />
-                            {error && <>{error?.account?.password2 || error?.password2 || null}</>}
+                            {error && <span className="text-danger">{error?.account?.password2 || error?.password2 || null}</span>}
                         </div>
                         <div className="d-flex flex-row gap-2  position-relative justify-content-between">
                             <span className="d-flex flex-column flex-fill">
                                 <input type="text" class="form-control" placeholder="State" name="state" onChange={handleChange} />
-                                {error?.account && <>{error?.account?.state || null}</>}
+                                {error?.account && <span className="text-danger">{error?.account?.state || null}</span>}
                             </span>
                             <span className="d-flex flex-column flex-fill">
                                 <input type="text" class="form-control" placeholder="City" name="city" onChange={handleChange} />
-                                {error?.account && <>{error?.account?.city || null}</>}
+                                {error?.account && <span className="text-danger">{error?.account?.city || null}</span>}
                             </span>
                         </div>
 

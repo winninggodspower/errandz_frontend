@@ -1,4 +1,3 @@
-import mapIcon from "../../images/map.png"
 import Navbar from "../../components/Navbar/Navbar";
 import "./delivery.css";
 import moneyIcon from "../../image/money.svg";
@@ -29,8 +28,8 @@ function Delivery() {
     let { user} = useContext(UserContext)
     let navigate = useNavigate();
 
-    var directionsService = new window.google.maps.DirectionsService();
-    var directionsRenderer = new window.google.maps.DirectionsRenderer();
+    let directionsService = new window.google.maps.DirectionsService();
+    let directionsRenderer = new window.google.maps.DirectionsRenderer();
 
     const options = {
         componentRestrictions: { country: "ng" },
@@ -43,7 +42,7 @@ function Delivery() {
         if (!user) {
             return navigate('/login');
         }
-    }, [user])
+    }, [user, navigate])
 
     useEffect(()=>{
 
@@ -60,23 +59,21 @@ function Delivery() {
         autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef, deliveryInputRef))
         
 
-        var chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
-        var mapOptions = {
+        let chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
+        let mapOptions = {
           zoom:10,
           center: chicago
         }
-        var map = new window.google.maps.Map(mapRef.current, mapOptions);
+        let map = new window.google.maps.Map(mapRef.current, mapOptions);
         directionsRenderer.setMap(map);
         
-
     }, [])
     
 
-    
     let calcRoute = ()=> {
-        var start = autoCompletePickupRef.current.getPlace();
-        var end = autoCompletePickupRef.current.getPlace();
-        var request = {
+        let start = autoCompletePickupRef.current.getPlace();
+        let end = autoCompletePickupRef.current.getPlace();
+        let request = {
             origin: start,
             destination: end,
             travelMode: 'BICYCLING'
@@ -143,7 +140,7 @@ function Delivery() {
 
     
     const handleInputChange = (e) => {
-        let { name, value } = e.target;
+        let { name } = e.target;
         setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value })
 
     }

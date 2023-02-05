@@ -55,7 +55,9 @@ function Login() {
 
         if (response.token) {
             setToken(response.token);
-            setUser(await getUserDetails());
+            let currentUserDetails = await getUserDetails()
+            setUser(currentUserDetails);
+            addAlert('success', `successfully logged in as ${currentUserDetails.first_name} `)
         } else {
             setFieldError(response)
         }
@@ -104,11 +106,7 @@ function Login() {
                         </Form>
                     </div>
 
-<<<<<<< HEAD
-                    <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register_as/"} className="text-dark text-decoration-none">Sign Up</Link></p>
-=======
                     <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register_as"} className="text-dark text-decoration-none">Sign Up</Link></p>
->>>>>>> c1748981dc0da40083f6970f655a9e15b8ae97d4
 
                 </div>
             </div>

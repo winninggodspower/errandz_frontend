@@ -3,8 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { BASE_URL } from "../../globalVariable";
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../UserContext";
-
+import { UserContext, AlertContext } from "../../UserContext";
 
 
 async function requestdata(url, data) {
@@ -27,8 +26,9 @@ export const RegisteredCustomer = () => {
     const [account, setAccount] = useState({ email: "", phone: "", state: "", city: "", password: "", password2: "" })
     const navigate = useNavigate()
     const [error, setError] = useState(null)
-    let { user, setUser } = useContext(UserContext)
+    let { user } = useContext(UserContext)
     const [acceptPolicy, setAcceptPolicy] = useState(true)
+    let { addAlert } = useContext(AlertContext)
 
     useEffect(() => {
         if (user) {
@@ -54,9 +54,8 @@ export const RegisteredCustomer = () => {
                 if (data.status === 200) {
                     data.json()
                         .then((d) => {
-                            setTimeout(() => {
-                                navigate("/login")
-                            }, 3000);
+                            addAlert('success', 'successfully created a rider account')
+                            navigate("/login");
                         })
 
                 } else if (data.status === 400) {
@@ -85,7 +84,7 @@ export const RegisteredCustomer = () => {
             <div className="register mx-auto">
                 <Navbar transparent={true} />
                 <div className="mt-5 container text-white">
-                    <h2>Register as a vendor</h2>
+                    <h2>Register as a Customer</h2>
                     <h6>Stress Free deliveries</h6>
                 </div>
             </div>
@@ -107,7 +106,7 @@ export const RegisteredCustomer = () => {
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" name="phone" placeholder="Phone Number" onChange={handleChange} />
-                            {error?.account && <>{error?.account?.phone || null}</>}
+                            {error && <>{error?.account?.phone || error?.phone || null }</>}
                         </div>
 
                         <div class="mb-3">

@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import riderIcon from '../../images/icons/Delivery man.svg'
 import notificationBell from "../../images/icons/notification.svg";
 import { BASE_URL } from '../../globalVariable';
 import v1 from "../../images/icons/V2.svg";

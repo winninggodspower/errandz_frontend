@@ -21,7 +21,7 @@ function History(props){
                 </div>
             </div>
             <div className="notification-status d-flex flex-column justify-content-center ms-2">
-                <p className="mb-0 fs-6 text-end fs-4">500</p>
+                <p className="mb-0 fs-6 text-end fs-4">{data.amount}</p>
                 <span className="text-warning">{data.status}</span>
             </div>
         </div>

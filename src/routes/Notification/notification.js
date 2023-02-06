@@ -1,3 +1,5 @@
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
 import riderIcon from '../../images/icons/Emoji.png'
 import Navbar from '../../components/Navbar/Navbar';
 import './notification.css';
@@ -6,9 +8,16 @@ import { BASE_URL } from '../../globalVariable';
 import { getToken } from '../../Utils/LoginUtils';
 import { requestdata } from '../../Utils/useFetch';
 
+// add language English.
+TimeAgo.addDefaultLocale(en)
+// Create formatter (English).
+const timeAgo = new TimeAgo('en-US')
+
+
 function Notification() {
 
-    let [notifications, setNotifications] = useState([])
+    let [notifications, setNotifications] = useState([]);
+
 
     useEffect(() => {
         let getAccountNotification = ()=>{
@@ -47,8 +56,8 @@ function Notification() {
             <div className='container mt-5'>
                 <h1 className="text-md-center  mb-md-5" >Notification</h1>
 
-                <div className="notifications mx-auto px-2 px-md-5 py-2 bg-white" style={{ width: "1000px", maxWidth: "100%" }}>
 
+                <div className="notifications mx-auto px-2 px-md-5 py-2 bg-white" style={{ width: "1000px", maxWidth: "100%" }}>
                     {
                         notifications.length ? notifications.map(p => {
                             return (
@@ -59,11 +68,11 @@ function Notification() {
                                             <img src={riderIcon} alt="" width="40px" />
                                         </div>
                                         <div className="notification-info ms-3 ms-md-4 d-flex align-items-center">
-                                            <p className="mb-0">Incoming ride order! <span className='text-dark'>🥳</span></p>
+                                            <p className="mb-0 text-capitalize">{p.message} <span className='text-dark'>🥳</span></p>
                                         </div>
                                     </div>
                                     <div className="notification-status ms-2 d-flex align-items-center">
-                                        <p className="mb-0 time">25min ago</p>
+                                        <p className="mb-0 time">{timeAgo.format(new Date(p.date_created))}</p>
                                     </div>
                                 </div>
                             )

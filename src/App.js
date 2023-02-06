@@ -21,6 +21,7 @@ import { getUserDetails } from './Utils/AccountUtils';
 import AboutUs from './routes/errandz/about-us';
 import ContactUs from './routes/errandz/contact-us';
 import AcceptOrder from './routes/accept/accept-order';
+import Notification from './routes/Notification/notification';
 
 
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: 'register_as/',
         element: <RegisterAs />
+      },
+      {
+        path: 'notification/',
+        element: <Notification />
       }
     ]
   }

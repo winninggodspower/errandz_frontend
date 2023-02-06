@@ -18,7 +18,7 @@ import { requestdata } from "../../Utils/useFetch";
 function Dashboard() {
     let navigate = useNavigate();
     let { user } = useContext(UserContext)
-    let [history, setHistory] = useState(null)
+    let [history, setHistory] = useState([])
 
     useEffect(()=>{
         if (!getToken()) {
@@ -37,6 +37,7 @@ function Dashboard() {
                 if (res.status === 200) {
                     res.json()
                     .then(data=>{
+                        console.log(data);
                         setHistory(data)
                     })
                 }
@@ -49,7 +50,7 @@ function Dashboard() {
 
         getAccountHistory();
 
-    }, [user, navigate, history])
+    }, [user, navigate])
     
 
     return (
@@ -64,7 +65,7 @@ function Dashboard() {
                         </Link> <span id="profile-name" className="fs-4 ms-3">Hi, {user && user.first_name}</span>
                     </div>
                     <div className="d-flex align-items-center mx-2">
-                    <Link to={"/dashboard"}> <img src={notificationBell} id="notification-bell" alt="notification bell" />   </Link> 
+                    <Link to={"/notification"}> <img src={notificationBell} id="notification-bell" alt="notification bell" />   </Link> 
                     </div>
                 </div>
                 
@@ -139,26 +140,9 @@ function Dashboard() {
                 <div className="notifications mx-auto px-2" style={{ width: "800px", maxWidth: "100%" }}>
 
                     {
-                        history && history.map(h=>{
-                            <History />
-                        })
+                        history.length ? history.map(h=><History data={h}/>) : 'empty history'
                     }
                     
-                    <div className="notification mb-5 d-flex justify-content-between justify-content-center">
-                        <div className="d-flex">
-                            <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">
-                                <img src={riderIcon} alt="" width="40px" />
-                            </div>
-                            <div className="notification-info d-flex flex-column justify-content-center ms-2">
-                                <p className="mb-0">Favour</p>
-                                <span>12:26 PM * RD1005</span>
-                            </div>
-                        </div>
-                        <div className="notification-status d-flex flex-column justify-content-center ms-2">
-                            <p className="mb-0 fs-6 text-end fs-4">500</p>
-                            <span className="" style={{ color: "rgba(11, 108, 21, 0.6)" }}>Delivered</span>
-                        </div>
-                    </div>
                 </div>
 
             </div>

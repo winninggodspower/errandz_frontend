@@ -1,0 +1,23 @@
+.notification-status .time{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px){
+
+
+    .notification-info p{
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .notification-status .time{
+        font-size: 14px;
+        line-height: 12px;
+    }
+}

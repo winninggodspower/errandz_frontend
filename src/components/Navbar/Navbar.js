@@ -7,7 +7,7 @@ function Navbar(props) {
     let transparent = props.transparent;
 
     return (
-        <nav className="navbar navbar-expand-md  w-100 navbar-fixed" id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
+        <nav className="navbar navbar-expand-md  navbar-dark w-100 navbar-fixed" id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
             <div className="container">
                 
                 <Link className="navbar-brand" to={'/'}>

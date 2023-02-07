@@ -34,7 +34,7 @@ function Notification() {
                     res.json()
                     .then(data=>{
                         console.log(data);
-                        setNotifications(data)
+                        setNotifications(data.reverse())
                     })
                 }
                 else{
@@ -59,8 +59,9 @@ function Notification() {
 
                 <div className="notifications mx-auto px-2 px-md-5 py-2 bg-white" style={{ width: "1000px", maxWidth: "100%" }}>
                     {
-                        notifications.length ? notifications.map(p => {
+                        notifications.length ? notifications.map((p, index )=> {
                             return (
+                                <>
                                 <div className="notification  d-flex justify-content-between justify-content-center py-2">
                                     <div className="d-flex">
             
@@ -75,6 +76,8 @@ function Notification() {
                                         <p className="mb-0 time">{timeAgo.format(new Date(p.date_created))}</p>
                                     </div>
                                 </div>
+                                {index != notifications.length - 1 && <hr />     }
+                                </>
                             )
                         }) : <span className='text-center d-block'>notification empty</span>
                     }

@@ -7,9 +7,11 @@ import { useEffect, useState } from 'react';
 import { BASE_URL } from '../../globalVariable';
 import { getToken } from '../../Utils/LoginUtils';
 import { requestdata } from '../../Utils/useFetch';
+import { useNavigate } from 'react-router-dom';
 
 // add language English.
 TimeAgo.addDefaultLocale(en)
+
 // Create formatter (English).
 const timeAgo = new TimeAgo('en-US')
 
@@ -17,9 +19,10 @@ const timeAgo = new TimeAgo('en-US')
 function Notification() {
 
     let [notifications, setNotifications] = useState([]);
-
+    let navigate = useNavigate();
 
     useEffect(() => {
+
         let getAccountNotification = ()=>{
             let notificationPath = '/api/get_notification';
             let notificationUrl = BASE_URL + notificationPath
@@ -47,6 +50,14 @@ function Notification() {
         getAccountNotification();
     }, [])
 
+    let handleAcceptRequestRedirect = (notification)=>{
+        console.log(notification    );
+
+        if (notification.type === 'request' && notification.model) {
+            return navigate(`/accept-request/${notification.model.ref}`)
+        }
+    }
+
 
     return (
         <>
@@ -61,8 +72,9 @@ function Notification() {
                     {
                         notifications.length ? notifications.map((p, index )=> {
                             return (
-                                <>
-                                <div className="notification  d-flex justify-content-between justify-content-center py-2">
+                                <div key={index}>
+
+                                <div onClick={()=>handleAcceptRequestRedirect(p)} className="notification  d-flex justify-content-between justify-content-center py-2">
                                     <div className="d-flex">
             
                                         <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">
@@ -76,8 +88,9 @@ function Notification() {
                                         <p className="mb-0 time">{timeAgo.format(new Date(p.date_created))}</p>
                                     </div>
                                 </div>
-                                {index != notifications.length - 1 && <hr />     }
-                                </>
+                                
+                                {index !== notifications.length - 1 && <hr />     }
+                                </div>
                             )
                         }) : <span className='text-center d-block'>notification empty</span>
                     }

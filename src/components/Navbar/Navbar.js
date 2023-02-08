@@ -18,25 +18,38 @@ function Navbar(props) {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarsExampleXxl">
+                { 
+                            getToken() ? <ul className="navbar-nav ms-auto text-center">
+                        
+                        <li className="nav-item ms-4">
+                            <Link to="/dashboard" className="nav-link active text-white">Dashboard</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            <Link to="/notifications" className="nav-link active text-white">Notifications</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                            <Link to="/profile" className="nav-link active text-white">Profile</Link>
+                        </li>
+                        <li className="nav-item ms-4">
+                        <Link to="/profile" className="nav-link active text-white"><i class="bi bi-box-arrow-right"></i>Logout</Link>
+                        </li>
+                    </ul> :
+
                     <ul className="navbar-nav ms-auto text-center">
                         
                         <li className="nav-item ms-4">
-                            <Link to="about/us" className="nav-link active text-white">About</Link>
+                            <Link to="/about/us" className="nav-link active text-white">About</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/" className="nav-link active text-white">FAQs</Link>
+                            <Link to="/faq/" className="nav-link active text-white">FAQs</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="contact/us" className="nav-link active text-white">Contact</Link>
+                            <Link to="/contact/us" className="nav-link active text-white">Contact</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            { 
-                            getToken() ? 
-                            <Link to="/profile" className="btn btn-light  ">profile</Link> :
-                             <Link to="/login" className="btn btn-light btn-large outline-none ">Login</Link>
-                            }
+                        <Link to="/login" className="btn btn-transparent active text-white">Login</Link>
                         </li>
-                    </ul>
+                    </ul> }
                 </div>
             </div>
         </nav>

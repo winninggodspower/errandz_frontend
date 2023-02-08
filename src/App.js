@@ -16,13 +16,14 @@ import { v4 as uuidv4 } from "uuid";
 import Delivery from "../src/routes/delivery/delivery"
 import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
-import AcceptRequest from './routes/Register-as/accept-request/accept-request';
+import AcceptRequest, { loader } from './routes/AcceptRequest/accept-request';
 import { getUserDetails } from './Utils/AccountUtils';
 import AboutUs from './routes/errandz/about-us';
 import ContactUs from './routes/errandz/contact-us';
 import AcceptOrder from './routes/accept/accept-order';
 import Notification from './routes/Notification/notification';
-
+import Faq from './routes/FAQ/Faq';
+import { loader as deliverLoader  } from './routes/AcceptRequest/accept-request';
 
 
 const router = createBrowserRouter([
@@ -69,8 +70,9 @@ const router = createBrowserRouter([
         element: <Profile />
       },
       {
-        path: 'accept/request',
-        element: <AcceptRequest />
+        path: 'accept-request/:deliveryRef',
+        element: <AcceptRequest />,
+        loader: deliverLoader
       },
       {
         path: 'about/us/',
@@ -81,7 +83,7 @@ const router = createBrowserRouter([
         element: <ContactUs />
       },
       {
-        path: 'accept/delivery',
+        path: 'accept-delivery/:deliveryId',
         element: <AcceptOrder />
       },
       {
@@ -91,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: 'notification/',
         element: <Notification />
+      },
+      {
+        path: 'faq/',
+        element: <Faq />
       }
     ]
   }
@@ -120,7 +126,6 @@ function App() {
     async function setAccountUser(){
       if (getToken()) {
         setUser(await getUserDetails());
-        console.log(await getUserDetails())
       } else {
         setUser(null)
       }

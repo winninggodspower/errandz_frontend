@@ -84,11 +84,11 @@ function Login() {
 
                         <Form>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
+                                <input type="email" class="form-control" id="email" value={loginDetails.email} placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
                                 {fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>)}
                             </div>
                             <div class="mb-3">
-                                <input type={show ? "text" : "password"} class="form-control" id="password" placeholder="Password" onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
+                                <input type={show ? "text" : "password"} class="form-control" id="password" value={loginDetails.password} placeholder="Password" onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
                                 {fieldErrors.password && fieldErrors.password.map(error => <p key={error} className='text-danger'>{error}</p>)}
                             </div>
                             <div class="d-none d-md-flex justify-content-between">

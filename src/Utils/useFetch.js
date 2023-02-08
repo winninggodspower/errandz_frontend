@@ -1,8 +1,5 @@
 
 export async function requestdata(url, data, headers={'Content-Type': 'application/json'}, method="POST") {
-    console.log(method);
-    console.log(headers);
-
     let params = {
         method: method,
         mode: 'cors',

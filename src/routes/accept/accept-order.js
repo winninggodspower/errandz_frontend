@@ -1,6 +1,7 @@
 
 
-function AcceptOrder(){
+function AcceptOrder({ params }){
+    console.log(params)
     return <>
     
         <div className="  mx-auto d-flex vh-100 align-items-center justify-content-center">

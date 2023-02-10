@@ -134,14 +134,13 @@ function Dashboard() {
                 }
 
                 {/* end of if */}
-                <p id="d6">hiama</p>
 
                 <div className="notifications mx-auto px-2" style={{ width: "800px", maxWidth: "100%" }}>
                     {
-                        history.length ? history.filter(h=>h.status==="pending delivery").map(h=><ConfirmDelivery data={h}/>) : 'empty history'
+                        history.length ? history.map(h=><History data={h}/>) : 'empty history'
                     }
                     {
-                        history.length ? history.map(h=><History data={h}/>) : 'empty history'
+                        history.length ? history.filter(h=>h.status==="pending delivery").map(h=><ConfirmDelivery data={h}/>) : 'empty history'
                     }
                     
                 </div>

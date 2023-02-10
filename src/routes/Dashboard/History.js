@@ -10,6 +10,11 @@ function History(props) {
         hour12: true
     };
     const formatedDate = new window.Date(data.date_created).toLocaleTimeString('en-US', dateOptions);
+
+    let raisePopUp =()=>{
+        new window.bootstrap.Modal(document.getElementById('REF' + data.ref), {})
+    }
+
     return (
         <>
             <div className="notification mb-5 d-flex justify-content-between justify-content-center">
@@ -27,8 +32,8 @@ function History(props) {
                     <p className="mb-0 fs-6 text-end fs-4">{data.amount}</p>
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
-                        data.status == "pending delivery" ?
-                           <a data-bs-toggle="modal" data-bs-target={"REF" + data.ref} c lassName="text-decoration-none text-primary" >{data.status}</a> :
+                        data.status === "pending delivery" ?
+                           <a data-bs-toggle="modal" onClick={raisePopUp} data-bs-target={"REF" + data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
                             <span className="text-warning">{data.status}</span>
                     }
                 </div>

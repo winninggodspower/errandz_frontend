@@ -9,7 +9,7 @@ export default function confirmDelivery(props) {
     }
     return (
         
-            <div className="modal" tabindex="-1" id={"REF" + data.ref} aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal" tabindex="-1" id={id} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" style={{maxWidth: "350px"}}>
                     <div className="modal-content">
                         <div className="modal-header border-0 mb-0">

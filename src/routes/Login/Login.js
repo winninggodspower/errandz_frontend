@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../UserContext';
 import { Form, Link, useNavigate } from 'react-router-dom';
 import { setToken } from '../../Utils/LoginUtils';
-import Footer from "../../components/Footer/Footer"
+
 import "./login.css"
 import Navbar from '../../components/Navbar/Navbar';
 import { BASE_URL } from '../../globalVariable';
@@ -70,25 +70,25 @@ function Login() {
     return (
         <>
             <Navbar transparent={false} />
-            <div class="container h-100 d-md-flex align-items-center my-5">
+            <div class="container h-100 d-md-flex align-items-center my-5 bnav">
 
                 <div id="box-container" class="mx-auto my-4" >
-                    <h1 class="text-center d-none d-md-block">Sign into your account</h1>
+                    <h1 class="text-center d-none d-md-block fs-1 text-black">Signin Now</h1>
 
 
                     <div id="form-container" class="px-4 py-5 px-md-5 mx-3">
-                        <h2 class="text-center d-md-none mb-3 fs-5">Sign Into your Account</h2>
+                        <h2 class="text-center d-md-none mb-3 fs-5">Signin Now</h2>
                         {fieldErrors.non_field_errors && fieldErrors.non_field_errors.map(error => {
                             return <div key={error} className="text-center text-danger"> {error}</div>
                         })}
 
                         <Form>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" id="email" value={loginDetails.email} placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
+                            <div class="mb-4">
+                                <input type="email" class="form-control p-2" id="email" value={loginDetails.email} placeholder="Email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
                                 {fieldErrors.username && fieldErrors.username.map(error => <p key={error} className='text-danger'>{error}</p>)}
                             </div>
                             <div class="mb-3">
-                                <input type={show ? "text" : "password"} class="form-control" id="password" value={loginDetails.password} placeholder="Password" onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
+                                <input type={show ? "text" : "password"} class="form-control p-2" id="password" value={loginDetails.password} placeholder="Password" onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
                                 {fieldErrors.password && fieldErrors.password.map(error => <p key={error} className='text-danger'>{error}</p>)}
                             </div>
                             <div class="d-none d-md-flex justify-content-between">
@@ -101,16 +101,20 @@ function Login() {
                                     <span><a href="/forgot-password" class="text-dark text-decoration-none">forgot password?</a></span>
                                 </div>
                             </div>
-
+                            <div className='up-div'>
                             <button type="submit" onClick={handleSubmit} class="btn btn-dark w-100" disabled={is_loading}>Sign In</button>
+                            <p class="d-none d-fall text-center mt-3">Don't have an account?  <Link to={"/register_as"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                            </div>
                         </Form>
                     </div>
 
+                    
                     <p class="d-none d-md-block text-center mt-3">Don't have an account?  <Link to={"/register_as"} className="text-dark text-decoration-none">Sign Up</Link></p>
+                    
 
                 </div>
             </div>
-            <Footer />
+            
         </>
     )
 }

@@ -1,6 +1,5 @@
 import "./register-as.css"
 import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import {Link} from "react-router-dom"
 function RegisterAs(){
     return (
@@ -8,7 +7,7 @@ function RegisterAs(){
         <div className="as">
             <Navbar transparent={false} />
         </div>
-
+  
         <div className="pad">
             <div class="container h-100 d-flex align-items-center">
         
@@ -22,15 +21,16 @@ function RegisterAs(){
                 </div>
                 
                 <div className="mb-3 mx-auto">
-                <Link to={"/register/customer"} className="btn register-button btn-lg border rounded-1" >Customer/Vendor</Link>
+                <Link to={"/register/customer"} className="btn register-button btn-lg border rounded-1" >Customer</Link>
+                
+                </div>
+                <div className="mb-3 mx-auto">
+                <Link to={"/register/vendor"} className="btn register-button btn-lg border rounded-1" >Vendor</Link>
                 
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    <div className="as">
-    <Footer />
     </div>
     
         </>

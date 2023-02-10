@@ -33,7 +33,8 @@ function History(props) {
                     <p className="mb-0 fs-6 text-end fs-4">{data.amount}</p>
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
-                        data.status == "pending delivery" ?
+                        data.status === "pending delivery" ?
+                            // eslint-disable-next-line jsx-a11y/anchor-is-valid
                             <a onClick={()=>{addConfirmModal(data)}} data-bs-toggle="modal" data-bs-target={data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
                             <span className="text-warning">{data.status}</span>
                     }

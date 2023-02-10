@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { UserContext } from "../../UserContext";
 import { useContext, useEffect } from "react";
 
+
 async function requestdata(url, data) {
     const response = await fetch(url, {
         method: 'POST',
@@ -32,6 +33,7 @@ export const RegisteredVendor = () => {
 
         let { name, value } = e.target;
         setUserAccount({ ...userAccount, [name]: value }) || setAccount({ ...account, [name]: value })
+        console.log(userAccount)
 
     }
 
@@ -39,7 +41,7 @@ export const RegisteredVendor = () => {
         e.preventDefault()
         let params = { ...userAccount, account: { ...account } };
 
-        const url = "https://errandzbackend-production.up.railway.app/api/register/customer/";
+        const url = "https://errandzbackend-production.up.railway.app/api/register/vendor/";
 
         requestdata(url, params)
             .then((data) => {
@@ -72,9 +74,9 @@ export const RegisteredVendor = () => {
     }, [user, navigate])
 
     const setPolicy = () => {
-        setAcceptPolicy((acceptPolicy) => !acceptPolicy);
+        setAcceptPolicy((policy) => !policy);
     }
-
+    
     return <>
 
         <div className="">
@@ -85,56 +87,57 @@ export const RegisteredVendor = () => {
                     <h6>Stress Free deliveries</h6>
                 </div>
             </div>
-            <div className="pad account mx-auto">
+            <div className="pad account mx-auto" id="vendorForm">
 
-                <div class="container rounded h-100 d-md-flex flex-column align-items-center justify-content-center my-5 bg-white py-5">
+                <div class="container account rounded h-100 d-md-flex flex-column align-items-center justify-content-center my-5 bg-white py-5">
                     <h3 className="pb-4">Create an account</h3>
                     <form className="">
-
+                           
                         <div class="mb-3">
-                            <input type="text" name="first_name" class="form-control" placeholder="Company Name" defaultValue={userAccount.company_name} onChange={handleChange} required />
-                            {error?.account && <>{error?.account?.company_name || null}</>}
+                            <input aria-required type="text" name="company_name" className="form-control" placeholder="Company Name" defaultValue={userAccount.company_name} onChange={handleChange} required />
+                            {error && <span className="text-danger">{error?.company_name || null}</span>}
 
                         </div>
                         <div class="mb-3">
-                            <input type="text" name="last_name" class="form-control" placeholder="Company Address" defaultValue={userAccount.company_address} onChange={handleChange} />
-                            {error?.account && <>{error?.account?.company_address || null}</>}
+                            <input type="text" name="company_address" className="form-control" placeholder="Company Address" defaultValue={userAccount.company_address} onChange={handleChange} />
+                            {error && <span className="text-danger">{error?.company_address || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="email" class="form-control" name="email" placeholder="E-mail" onChange={handleChange} />
-                            {error?.account && <>{error?.account?.email || null}</>}
+                            {error?.account && <span className="text-danger">{error?.account?.email || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" name="phone" placeholder="Phone Number" onChange={handleChange} />
-                            {error && <>{error?.account?.phone || error?.phone}</>}
+                            {error && <span className="text-danger">{error?.account?.phone || error?.phone}</span>}
                         </div>
 
                         <div class="mb-3">
                             <input type="password" class="form-control" name="password" placeholder="Password" onChange={handleChange} />
-                            {error && <>{error?.account?.password || error?.password || null}</>}
+                            {error && <span className="text-danger">{error?.account?.password || error?.password || null}</span>}
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" name="password2" placeholder="Confirm Password" onChange={handleChange} />
-                            {error && <>{error?.account?.password2 || error?.password2 || null}</>}
+                            {error && <span className="text-danger">{error?.account?.password2 || error?.password2 || null}</span>}
                         </div>
                         <div className="d-flex flex-row gap-2  position-relative justify-content-between">
                             <span className="d-flex flex-column flex-fill">
                                 <input type="text" class="form-control" placeholder="State" name="state" onChange={handleChange} />
-                                {error?.account && <>{error?.account?.state || null}</>}
+                                {error?.account && <span className="text-danger">{error?.account?.state || null}</span>}
                             </span>
                             <span className="d-flex flex-column flex-fill">
                                 <input type="text" class="form-control" placeholder="City" name="city" onChange={handleChange} />
-                                {error?.account && <>{error?.account?.city || null}</>}
+                                {error?.account && <span className="text-danger">{error?.account?.city || null}</span>}
                             </span>
                         </div>
 
                         <div class="mb-3 form-check w-75 mx-auto align-items-center p-3">
-                            <input type="checkbox" class="form-check-input" id="show-password" onClick={setPolicy} />
+                            <input type="checkbox" class="form-check-input" checked={acceptPolicy} id="show-password" onClick={setPolicy} />
                             <label class="form-check-label" for="show-password">By clicking the button you agree to
                                 Privacy policy and terms of service</label>
                         </div>
                         <div class="mb-3">
-                            <button onClick={handleSubmit} class="w-100 btn btn-dark" disabled={acceptPolicy}>Register Now</button>
+                            <button onClick={handleSubmit}  class="w-100 btn btn-dark" disabled={acceptPolicy} >Register Now</button>
+                            <p class="d-none text-center  d-fall mb-3 mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none">Login</Link></p>
                         </div>
                     </form>
                     <p class="d-none d-md-block text-center mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none">Login</Link></p>

@@ -1,13 +1,13 @@
 body{
     /* background: #1E1E1E; */
     background : #F5F5F5;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #box-container h1{
     color: #262626F2 !important;
     font-weight: 700 !important;
-    font-size: 30px !important;
+    font-size: 50px !important;
     line-height: 48px !important;
 }
 
@@ -34,4 +34,37 @@ body{
         padding-top: 100px !important;
         padding-bottom: 100px !important;
     }   
+}
+
+@media (max-width: 700px){
+    .bnav, #box-container {
+        background: #ffffff;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        min-height: 93vh !important;
+    }
+    #form-container {
+        min-height: 75vh !important;
+    }
+    #form-container form {
+        display: block;
+        min-height: 100% !important;
+    }
+    #form-container form button {
+        vertical-align: baseline !important;
+        float: inline-end;
+    }
+    .up-div {
+        min-height: 100% !important;
+        padding-top: 67%;
+    }
+    #box-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .d-fall {
+        display: block !important;
+    }
+    
+    
 }

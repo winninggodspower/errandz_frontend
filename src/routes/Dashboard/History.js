@@ -2,12 +2,6 @@ import riderIcon from '../../images/icons/Delivery man.svg'
 import { useState } from 'react';
 
 function History(props) {
-    let [deliveryModal, setConfirmModal] = useState([])
-    
-    let addConfirmModal = (data)=>{
-        deliveryModal.push(data)
-        setConfirmModal(deliveryModal)
-    }
 
     const data = props.data
     var dateOptions = {
@@ -34,7 +28,7 @@ function History(props) {
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
                         data.status == "pending delivery" ?
-                            <a onClick={()=>{addConfirmModal(data)}} data-bs-toggle="modal" data-bs-target={data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
+                           <a data-bs-toggle="modal" data-bs-target={"REF" + data.ref} c lassName="text-decoration-none text-primary" >{data.status}</a> :
                             <span className="text-warning">{data.status}</span>
                     }
                 </div>

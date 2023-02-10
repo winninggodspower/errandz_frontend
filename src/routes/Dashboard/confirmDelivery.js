@@ -1,70 +1,31 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
-import { BASE_URL } from '../../globalVariable';
-import { getToken } from '../../Utils/LoginUtils';
-import { requestdata } from '../../Utils/useFetch';
 
-export default function ConfirmDelivery() {
-    let [history, setHistory] = useState([])
+export default function confirmDelivery(props) {
+    let data = props.data
+    let id = "REF" + data.ref
+    console.log(id);
+    let handleSubmit = ()=>{
 
-    useEffect(() => {
-        let getAccountHistory = ()=>{
-            let historyPath = '/api/make_delivery';
-            let historyUrl = BASE_URL + historyPath
-            let headers={
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${getToken()}`
-            }
-            let method="GET";
-            let response = requestdata(historyUrl, {'NOTHING TO PASS': true}, headers=headers,  method=method);
-            response.then(res=>{
-                if (res.status === 200) {
-                    res.json()
-                    .then(data=>{
-                        setHistory(data)
-                        let pending = data.filter((items)=>{
-                            return items.status === "pending delivery";
-                        })
-                        console.log(pending)
-                        // console.log(data.filter(h=>h.status="pending delivery"));
-                    })
-                }
-                else{
-                    console.log(res.json());
-                }
-            })
-        }
-    
-        getAccountHistory();
-    }, [])
-    
-
+    }
     return (
         
-        <>
-            <h1>fadf</h1>
-            {
-                history.filter(h=>h.status==="pending delivery").map(h=>{
-                    <div className="modal" tabindex="-1" id={h.ref}>
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title">Modal title</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <p>Modal body text goes here.</p>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
+            <div className="modal" tabindex="-1" id={"REF" + data.ref} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" style={{maxWidth: "350px"}}>
+                    <div className="modal-content">
+                        <div className="modal-header border-0 mb-0">
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </div>    
-                })
-            }
-        </>        
+                        <div className="modal-body border-0 py-0">
+                            <p className='text-center text-dark pb-0 mb-0'>Received your order?</p>
+                        </div>
+                        <div className="modal-footer border-0 d-flex justify-content-center py-3">
+                            <button type="button" className="btn btn-dark me-3" onClick={handleSubmit}>Yes</button>
+                            <button type="button" className="btn btn-dark" data-bs-dismiss="modal">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
 
     )
 }

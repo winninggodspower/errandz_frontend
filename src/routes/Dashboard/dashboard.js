@@ -13,6 +13,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { getToken } from "../../Utils/LoginUtils";
 import { requestdata } from "../../Utils/useFetch";
+import ConfirmDelivery from "./confirmDelivery";
 
 function Dashboard() {
     let navigate = useNavigate();
@@ -36,7 +37,6 @@ function Dashboard() {
                 if (res.status === 200) {
                     res.json()
                     .then(data=>{
-                        console.log(data);
                         setHistory(data)
                     })
                 }
@@ -44,7 +44,6 @@ function Dashboard() {
                     console.log(res.json());
                 }
             })
-            console.log(response);
         }
 
         getAccountHistory();
@@ -56,6 +55,7 @@ function Dashboard() {
         <>
             <Navbar transparent={false} />
             <div style={{ minHeight: "700px" }} className="container">
+                <ConfirmDelivery/>
                 
 
                 <div id="profile-heading" className="d-flex justify-content-between mt-5">
@@ -67,7 +67,7 @@ function Dashboard() {
                     <Link to={"/notification"}> <img src={notificationBell} id="notification-bell" alt="notification bell" />   </Link> 
                     </div>
                 </div>
-                
+
                 {/* if statem,ent */}
                 {user ? (user.account.user_type === 'rider' ?
                     <div className="rounded-3 bg-dark p-3 my-3 my-md-5 mx-auto text-light" style={{ width: "800px", maxWidth: "100%" }}>

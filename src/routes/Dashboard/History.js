@@ -33,7 +33,7 @@ function History(props) {
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
                         data.status === "pending delivery" ?
-                           <a data-bs-toggle="modal" onClick={raisePopUp} data-bs-target={"REF" + data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
+                            <a onClick={()=>{raisePopUp(data)}} data-bs-toggle="modal" data-bs-target={data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
                             <span className="text-warning">{data.status}</span>
                     }
                 </div>

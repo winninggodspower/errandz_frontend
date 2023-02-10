@@ -47,7 +47,7 @@ function AcceptRequest() {
                 addAlert('danger', "request already accepted")
                 return navigate("/dashboard")
             }
-            return res.json()
+            // return res.json()
         })
         .then(data=>{
             return data

@@ -16,7 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import Delivery from "../src/routes/delivery/delivery"
 import RegisterAs from './routes/Register-as/Register-as';
 import Profile from './routes/Profile/Profile';
-import AcceptRequest, { loader } from './routes/AcceptRequest/accept-request';
+import AcceptRequest from './routes/AcceptRequest/accept-request';
 import { getUserDetails } from './Utils/AccountUtils';
 import AboutUs from './routes/errandz/about-us';
 import ContactUs from './routes/errandz/contact-us';

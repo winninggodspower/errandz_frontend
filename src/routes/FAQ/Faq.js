@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react'
+/* eslint-disable jsx-a11y/no-redundant-roles */
+import React, {useEffect} from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 
-export default function () {
+export default function Faq() {
     
     useEffect(()=>{
         let myCollapsibles = window.document.querySelectorAll('.collapse');

@@ -12,7 +12,7 @@ function Home(){
         <Navbar transparent={false} />
         {/* FIRST SECTION */}
         <section id="section-a" className="" >
-            <div className="row container mx-auto pb-5 pt-0 pt-md-5">
+            <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
                 {/* <!--INTRO TEXT--> */}
                 <div id="txt-container" className="col-md-12 col-lg-6 d-flex flex-column justify-content-center order-1 order-md-0 ">
                     <h1>
@@ -31,7 +31,7 @@ function Home(){
                     <picture className="mx-auto">
                         <source media="(min-width: 480px)" srcSet={desktopHeroImage} />
                         <source media="(min-width: 992px)" srcSet={desktopHeroImage} />
-                        <img className="mw-100" src={mobileHero} alt="Lots of cakes" />
+                        <img className="w-100" src={mobileHero} alt="hero design" />
                     </picture>
                 </div>
             </div>

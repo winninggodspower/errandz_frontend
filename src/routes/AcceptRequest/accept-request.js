@@ -26,6 +26,9 @@ function AcceptRequest() {
     let { addAlert } = useContext(AlertContext)
 
     let handleAcceptRequest = async ()=> {
+        if (deliveryInfo.has_driver_accepted_request) {
+            return
+        }
         const acceptRequestPath = "/api/accept_delivery_request";
         let headers = {
             'Content-Type': 'application/json',
@@ -37,7 +40,7 @@ function AcceptRequest() {
         
         let response = await requestdata(BASE_URL + acceptRequestPath, body, headers=headers)
         .then(res=>{
-            if (res.status === "200") {
+            if (res.status === "201") {
                 addAlert('success', "successfully accepted delivery request")
                 return navigate("/dashboard")
             }else{
@@ -91,7 +94,7 @@ function AcceptRequest() {
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-dark" onClick={handleAcceptRequest} style={{ width: "150px", height: "45px" }}>Accept</button>
+                        <button class="btn btn-dark" onClick={handleAcceptRequest} style={{ width: "150px", minWidth: "fit-content", height: "45px" }}>{deliveryInfo.has_driver_accepted_request ? (deliveryInfo.rider_who_accepted.account === user ? "Delivery Already Accepted By You" : "Someone Else Already Accepted" ): 'Accept'}</button>
                     </div>
 
                 </div>

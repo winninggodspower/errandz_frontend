@@ -1,5 +1,6 @@
 import riderIcon from '../../images/icons/Delivery man.svg'
 import { useState } from 'react';
+import ConfirmDelivery from './confirmDelivery';
 
 function History(props) {
 
@@ -10,10 +11,6 @@ function History(props) {
         hour12: true
     };
     const formatedDate = new window.Date(data.date_created).toLocaleTimeString('en-US', dateOptions);
-
-    let raisePopUp =()=>{
-        new window.bootstrap.Modal(document.getElementById('REF' + data.ref), {})
-    }
 
     return (
         <>
@@ -32,9 +29,10 @@ function History(props) {
                     <p className="mb-0 fs-6 text-end fs-4">{data.amount}</p>
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
-                        data.status === "pending delivery" ?
-                            <a onClick={()=>{raisePopUp(data)}} data-bs-toggle="modal" data-bs-target={data.ref} className="text-decoration-none text-primary" >{data.status}</a> :
-                            <span className="text-warning">{data.status}</span>
+                    data.status === "pending delivery" ?
+                        < ConfirmDelivery data={data} />
+                     :
+                        <span className="text-warning text-end">{data.status}</span>
                     }
                 </div>
             </div>

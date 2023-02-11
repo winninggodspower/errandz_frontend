@@ -139,9 +139,6 @@ function Dashboard() {
                     {
                         history.length ? history.map(h=><History data={h}/>) : 'empty history'
                     }
-                    {
-                        history.length ? history.filter(h=>h.status==="pending delivery").map(h=><ConfirmDelivery data={h}/>) : 'empty history'
-                    }
                     
                 </div>
 

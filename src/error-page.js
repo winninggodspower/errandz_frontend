@@ -5,8 +5,8 @@ function ErrorPage() {
   console.error(error);
 
   return (
-    <div id="error-page d-flex justify-content-center align-items-center">
-      <div className="error h-25 w-50 bg-light text-center">
+    <div id="d-flex justify-content-center align-items-center">
+      <div className="p-5 my-5 bg-light text-center">
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>

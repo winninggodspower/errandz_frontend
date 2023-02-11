@@ -129,7 +129,7 @@ export const RegisteredCustomer = () => {
                         </div>
 
                         <div class="mb-3 form-check w-75 mx-auto align-items-center p-3">
-                            <input type="checkbox" checked={acceptPolicy} class="form-check-input" id="show-password" onClick={setPolicy}/>
+                            <input type="checkbox" checked={!acceptPolicy} class="form-check-input" id="show-password" onClick={setPolicy}/>
                             <label class="form-check-label" for="show-password">By clicking the button you agree to
                                 Privacy policy and terms of service</label>
                         </div>

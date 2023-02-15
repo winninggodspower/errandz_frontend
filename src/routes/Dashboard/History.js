@@ -13,7 +13,7 @@ function History(props) {
     const formatedDate = new window.Date(data.date_created).toLocaleTimeString('en-US', dateOptions);
 
     return (
-        <>
+        <div key={data.ref} >
             <div className="notification mb-5 d-flex justify-content-between justify-content-center">
                 <div className="d-flex">
 
@@ -37,7 +37,7 @@ function History(props) {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }
 

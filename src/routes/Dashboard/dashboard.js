@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { getToken } from "../../Utils/LoginUtils";
 import { requestdata } from "../../Utils/useFetch";
 import ConfirmDelivery from "./confirmDelivery";
+import BottomNav from '../../components/BottomNav/BottomNav';
 
 function Dashboard() {
     let navigate = useNavigate();
@@ -24,6 +25,7 @@ function Dashboard() {
         if (!getToken()) {
             return navigate('/login');
         }
+
         let getAccountHistory = ()=>{
             let historyPath = '/api/make_delivery';
             let historyUrl = BASE_URL + historyPath
@@ -49,7 +51,7 @@ function Dashboard() {
         getAccountHistory();
 
     }, [user, navigate])
-    
+
 
     return (
         <>
@@ -143,6 +145,8 @@ function Dashboard() {
                 </div>
 
             </div>
+
+            <BottomNav />
         </>
     );
 }

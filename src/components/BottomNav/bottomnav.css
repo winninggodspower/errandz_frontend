@@ -1,0 +1,12 @@
+.bottomnav-text{
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #8F8F8F;
+}
+
+@media (max-width: 650px) {
+    #botom-nav{
+        display: block !important;
+    } 
+}

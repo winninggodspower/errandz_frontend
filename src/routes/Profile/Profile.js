@@ -5,6 +5,7 @@ import Home from "../../image/Home.svg"
 import Exit from "../../image/Exit.svg"
 import Navbar from "../../components/Navbar/Navbar"
 import { getToken } from "../../Utils/LoginUtils"
+import BottomNav from "../../components/BottomNav/BottomNav"
 
 import { Link , useNavigate} from "react-router-dom"
 import { UserContext } from "../../UserContext";
@@ -56,6 +57,7 @@ function Profile() {
 
                 </div>
             </div>
+            <BottomNav />
         </>
     )
 }

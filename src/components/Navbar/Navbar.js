@@ -2,12 +2,37 @@ import errandLogo from '../../images/errandz-logo.svg';
 import './navbar.css';
 import { Link } from 'react-router-dom';
 import { getToken } from '../../Utils/LoginUtils';
+import { useLocation } from 'react-router-dom';
+import { useRef, useEffect } from 'react';
 
 function Navbar(props) {
     let transparent = props.transparent;
+    const { pathname } = useLocation();
+    const navRef = useRef();
+
+    useEffect(() => {
+        
+        const setNavDisplay = ()=> {
+            const { innerWidth: width, innerHeight: height } = window;
+            if (width <= 650) {
+                navRef.current.style.display = "none";
+            }else{
+                navRef.current.style.display = "block";
+            }
+            if (pathname === "/") {
+                console.log(navRef.current);
+                navRef.current.style.display = "block";
+            }
+        };
+        setNavDisplay();
+        window.onresize = setNavDisplay;
+
+
+    }, [])
+    
 
     return (
-        <nav className="navbar navbar-expand-md  navbar-dark w-100 navbar-fixed" id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
+        <nav ref={navRef} className={`navbar navbar-expand-md  navbar-dark w-100 navbar-fixed ${pathname === '/'? "d-blok": "babalue"}`} id={transparent?"nav-transparent":"nav-black"} aria-label="Seventh navbar example">
             <div className="container">
                 
                 <Link className="navbar-brand" to={'/'}>
@@ -25,7 +50,7 @@ function Navbar(props) {
                             <Link to="/dashboard" className="nav-link active text-white">Dashboard</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/notifications" className="nav-link active text-white">Notifications</Link>
+                            <Link to="/notification" className="nav-link active text-white">Notifications</Link>
                         </li>
                         <li className="nav-item ms-4">
                             <Link to="/profile" className="nav-link active text-white">Profile</Link>

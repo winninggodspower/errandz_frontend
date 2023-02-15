@@ -8,6 +8,7 @@ import { BASE_URL } from '../../globalVariable';
 import { getToken } from '../../Utils/LoginUtils';
 import { requestdata } from '../../Utils/useFetch';
 import { useNavigate } from 'react-router-dom';
+import BottomNav from '../../components/BottomNav/BottomNav';
 
 // add language English.
 TimeAgo.addDefaultLocale(en)
@@ -99,7 +100,7 @@ function Notification() {
                 </div>
 
             </div>
-
+            <BottomNav />
         </>
     )
 }

@@ -5,6 +5,9 @@ import { getToken } from '../../Utils/LoginUtils';
 import { useLocation } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
 
+
+const mustShowPages = ["/", "/register/rider"]
+
 function Navbar(props) {
     let transparent = props.transparent;
     const { pathname } = useLocation();
@@ -13,13 +16,13 @@ function Navbar(props) {
     useEffect(() => {
         
         const setNavDisplay = ()=> {
-            const { innerWidth: width, innerHeight: height } = window;
+            const { innerWidth: width } = window;
             if (width <= 650) {
                 navRef.current.style.display = "none";
             }else{
                 navRef.current.style.display = "block";
             }
-            if (pathname === "/") {
+            if (mustShowPages.find(showpage=>pathname===showpage)) {
                 console.log(navRef.current);
                 navRef.current.style.display = "block";
             }

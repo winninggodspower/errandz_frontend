@@ -9,6 +9,7 @@ import { useEffect, useRef, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {BASE_URL} from "../../globalVariable"
 import { getToken } from "../../Utils/LoginUtils";
+import { AlertContext } from "../../UserContext";
 
 function Delivery() {
 
@@ -27,6 +28,7 @@ function Delivery() {
     let [fieldErrors, setFieldError] = useState({});
     let { user} = useContext(UserContext)
     let navigate = useNavigate();
+    let { addAlert } = useContext(AlertContext)
 
     let directionsService = new window.google.maps.DirectionsService();
     let directionsRenderer = new window.google.maps.DirectionsRenderer();
@@ -131,6 +133,9 @@ function Delivery() {
                     window.location.replace(data.checkout_url)
                 })
             }
+        })
+        .catch((error)=>{
+            addAlert('danger', `${error}`)
         })
             
             

@@ -41,7 +41,7 @@ export default function ConfirmDelivery(props) {
             <a  onClick={handleShow} data-bs-target={"REF" + data.ref} className="text-decoration-none text-primary text-end" >{data.status}</a>
         
             <div className="modal mx-auto" style={{display: (show ? "block" : "none")}} tabindex="-1" id={"REF" + data.ref}>
-                <div className="modal-dialog modal-dialog-centered " style={{width: "350px", maxWidth: "100%"}}>
+                <div className="modal-dialog modal-dialog-centered mx-auto" style={{width: "350px", maxWidth: "100%"}}>
                     <div className="modal-content">
                         {/* <div className="modal-header border-0 mb-0">
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

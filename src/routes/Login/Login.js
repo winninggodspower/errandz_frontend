@@ -12,7 +12,7 @@ import { AlertContext } from '../../UserContext';
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
 
-const FetchUser = async (data) => {
+const FetchUser = async (data, errorFunc) => {
 
     let response = await fetch(loginPath, {
         method: 'POST',
@@ -23,7 +23,13 @@ const FetchUser = async (data) => {
         },
 
     })
-    return response.json()
+    .catch((error)=>{
+        errorFunc(error);
+    })
+    
+    if (response) {
+        return response.json()
+    }
 }
 
 function Login() {
@@ -51,15 +57,21 @@ function Login() {
         e.preventDefault();
         setLoading(true)
 
-        let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password })
+        let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password }, (error)=>{
+            setLoading(false);
+            addAlert('danger', `${error}`)
+            console.log(error);
+        })
 
-        if (response.token) {
-            setToken(response.token);
-            let currentUserDetails = await getUserDetails()
-            setUser(currentUserDetails);
-            addAlert('success', `successfully logged in as ${currentUserDetails.first_name} `)
-        } else {
-            setFieldError(response)
+        if (response) {
+            if (response.token) {
+                setToken(response.token);
+                let currentUserDetails = await getUserDetails()
+                setUser(currentUserDetails);
+                addAlert('success', `successfully logged in as ${currentUserDetails.first_name} `)
+            } else {
+                setFieldError(response)
+            }
         }
 
         setLoading(false)
@@ -110,7 +122,6 @@ function Login() {
 
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

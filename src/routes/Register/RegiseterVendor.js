@@ -5,7 +5,7 @@ import { UserContext } from "../../UserContext";
 import { useContext, useEffect } from "react";
 
 
-async function requestdata(url, data) {
+async function requestdata(url, data, errorCallback) {
     const response = await fetch(url, {
         method: 'POST',
         mode: 'cors',
@@ -14,7 +14,10 @@ async function requestdata(url, data) {
 
         },
         body: JSON.stringify(data)
-    });
+    })
+    .catch(error=>{
+        errorCallback(error);
+    })
     return response
 }
 
@@ -27,6 +30,7 @@ export const RegisteredVendor = () => {
     const [error, setError] = useState(null)
     let { user } = useContext(UserContext)
     const [acceptPolicy, setAcceptPolicy] = useState(true)
+    
 
 
     const handleChange = (e) => {
@@ -43,7 +47,9 @@ export const RegisteredVendor = () => {
 
         const url = "https://errandzbackend-production.up.railway.app/api/register/vendor/";
 
-        requestdata(url, params)
+        requestdata(url, params, (error)=>{
+            
+        })
             .then((data) => {
                 if (data.status === 200) {
                     data.json()

@@ -34,18 +34,16 @@ function Dashboard() {
                 'Authorization': `Token ${getToken()}`
             }
             let method="GET";
-            let response = requestdata(historyUrl, {'NOTHING TO PASS': true}, headers=headers,  method=method);
-            response.then(res=>{
+            requestdata(historyUrl, {'NOTHING TO PASS': true}, headers=headers,  method=method)
+                    .then(res=>{
                 if (res.status === 200) {
                     res.json()
                     .then(data=>{
                         setHistory(data)
                     })
                 }
-                else{
-                    console.log(res.json());
-                }
-            })
+                
+            }).catch(E=>console.log("this is the error",E))
         }
 
         getAccountHistory();

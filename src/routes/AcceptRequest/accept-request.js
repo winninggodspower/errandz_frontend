@@ -9,6 +9,7 @@ import { requestdata } from "../../Utils/useFetch"
 import { BASE_URL } from "../../globalVariable"
 import { getToken } from "../../Utils/LoginUtils"
 import { UserContext, AlertContext } from "../../UserContext"
+import BottomNav from "../../components/BottomNav/BottomNav"
 
 import { useEffect, useContext } from "react"
 
@@ -38,22 +39,21 @@ function AcceptRequest() {
             delivery_ref: deliveryRef
         }
         
-        let response = await requestdata(BASE_URL + acceptRequestPath, body, headers=headers)
-        .then(res=>{
-            if (res.status === "201") {
+        await requestdata(BASE_URL + acceptRequestPath, body, headers)
+            .then(res=>{
+                console.log(typeof res.status)
+            if (res.status === 200) {
+                console.log("this ran")
                 addAlert('success', "successfully accepted delivery request")
                 return navigate("/dashboard")
             }else{
                 addAlert('danger', "request already accepted")
                 return navigate("/dashboard")
             }
-            // return res.json()
+            
         })
-        .then(data=>{
-            return data
-        })
-
-        console.log(response);
+        
+       
 
     }
 
@@ -100,6 +100,9 @@ function AcceptRequest() {
                 </div>
 
             </div>
+            <br />
+            <br />
+            <BottomNav />
         </>
     )
 }

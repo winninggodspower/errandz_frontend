@@ -4,7 +4,8 @@ import ConfirmDelivery from './confirmDelivery';
 
 function History(props) {
 
-    const data = props.data
+    const deliveryData = props.data
+    const [data, setData] = useState(deliveryData)
     var dateOptions = {
         hour: 'numeric',
         minute: 'numeric',
@@ -30,7 +31,7 @@ function History(props) {
                     {data.status === "payment not verified" ?
                         <a href={data.checkout_url} className="text-decoration-none text-danger" >{data.status}</a> :
                     data.status === "pending delivery" ?
-                        < ConfirmDelivery data={data} />
+                        < ConfirmDelivery data={data} setData={setData} deliveryData={data} />
                      :
                         <span className="text-warning text-end">{data.status}</span>
                     }

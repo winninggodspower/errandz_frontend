@@ -32,21 +32,23 @@ function Notification() {
                 'Authorization': `Token ${getToken()}`
             }
             let method="GET";
-            let response = requestdata(notificationUrl, {'NOTHING TO PASS': true}, headers=headers,  method=method);
-            response.then(res=>{
-                if (res.status === 200) {
-                    res.json()
-                    .then(data=>{
-                        console.log(data);
-                        setNotifications(data.reverse())
-                    })
-                }
-                else{
-                    console.log(res.json());
-                }
-            })
-            console.log(response);
-        }
+            requestdata(notificationUrl, {'NOTHING TO PASS': true}, headers,  method)
+                        .then(res=>{
+                            if (res.status === 200) {
+                                res.json()
+                                    .then(r=> {
+                                        
+                                        console.log(r);
+                                        setNotifications(r.reverse());
+                                    })
+                                
+                                // 
+                               }else{
+                                console.log(res.json());
+                            }
+                        })
+                        
+                    }
 
         getAccountNotification();
     }, [])

@@ -7,34 +7,35 @@ import { requestdata } from '../../Utils/useFetch';
 
 export default function ConfirmDelivery(props) {
     let data = props.data
+    let {setData, deliveryData} = props;
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     let handleSubmit = async (ref)=>{
-        let confirmDeliveryPath = '/api/acccept_delivery_request/';
+        let confirmDeliveryPath = '/api/confirm_deliery';
         let confirmDeliveryUrl = BASE_URL + confirmDeliveryPath
-        let headers={
+        let Headers={
             'Content-Type': 'application/json',
             'Authorization': `Token ${getToken()}`,
         }
-        let method="POST";
+        let Method="POST";
         console.log(ref)
-        let response = await requestdata(confirmDeliveryUrl, {'reference': ref}, headers=headers,  method=method);
-        response.then(res=>{
-            if (res.status === 200) {
-                res.json()
-                .then(data=>{
-                    console.log(data);
+        await requestdata(confirmDeliveryUrl, {'reference': ref}, Headers,  Method)
+                 .then(res=>{
+                    console.log("i am not running ........")
+                    if (res.status === 200) {
+                        setData({...deliveryData, status: "completed"})
+                        handleClose()
+                        res.json()
+                    
+                    }else{
+                        console.log(res.json())
+                    }
                 })
+                
             }
-            else{
-                console.log(res.json())
-            }
-        })
-        console.log(response);
-    }
 
     return (
         <>

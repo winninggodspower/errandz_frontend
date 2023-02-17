@@ -149,9 +149,8 @@ function Delivery() {
     
     const handleInputChange = (e) => {
         let { name, value } = e.target;
-        console.log(e.target.list.name)
-        let placedic = places.map((p)=> [`${p[0]}`, {"id": p[1]}])
-        console.log(placedic)
+        
+        
         setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value })
 
         if(name === "pickup_location" && value){

@@ -149,6 +149,8 @@ function Delivery() {
     
     const handleInputChange = (e) => {
         let { name, value } = e.target;
+        console.log(value)
+        console.log(name)
         
         
         setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value })
@@ -167,13 +169,17 @@ function Delivery() {
                 var abs_price1 = prices[pickup]
                 var abs_cash1 = abs_price1[int_delivery1]
                 console.log(abs_cash1)
-                setDeliveryDetails({...deliveryDetails, delivery_distance: abs_cash1})
+                setDeliveryDetails((d)=>{
+                    return {...d, "delivery_distance":abs_cash1}
+                })
+                
 
 
             }}
-            if(name === "delivery_location"){
+        if(name === "delivery_location" && value){
             
                 if (deliveryDetails.pickup_location){
+
                 var delivery1 = look_up[value].id
                 var pickup2 = look_up[deliveryDetails.pickup_location].id
 
@@ -183,7 +189,7 @@ function Delivery() {
                 var abs_price = prices[pickup2]
                 var abs_cash = abs_price[int_delivery]
                 console.log(abs_cash)
-                setDeliveryDetails({...deliveryDetails, delivery_distance: abs_cash})
+                
                 }}
     }
 
@@ -231,7 +237,7 @@ function Delivery() {
                                                         aria-label="alakahia chaoba" />
                                                     <datalist id="pickuplist">
                                                     
-                                                        {places.map((place)=> <option name={place[1]}>{place[0]}</option>)}
+                                                        {places.map((place)=> <option>{place[0]}</option>)}
                                                     </datalist>
                                                     {fieldErrors.pickup_location && fieldErrors.pickup_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import {BASE_URL} from "../../globalVariable"
 import { getToken } from "../../Utils/LoginUtils";
 import { AlertContext } from "../../UserContext";
+import { places, look_up, prices } from "../../components/mapFile";
 
 function Delivery() {
 
@@ -30,15 +31,15 @@ function Delivery() {
     let navigate = useNavigate();
     let { addAlert } = useContext(AlertContext)
 
-    let directionsService = new window.google.maps.DirectionsService();
-    let directionsRenderer = new window.google.maps.DirectionsRenderer();
+    // let directionsService = new window.google.maps.DirectionsService();
+    // let directionsRenderer = new window.google.maps.DirectionsRenderer();
 
-    const options = {
-        componentRestrictions: { country: "ng" },
-        fields: ["address_components", "place_id", "geometry", "icon", "name"],
-        // strictBounds: false,
-        types: ["establishment"],
-    };
+    // const options = {
+    //     componentRestrictions: { country: "ng" },
+    //     fields: ["address_components", "place_id", "geometry", "icon", "name"],
+    //     // strictBounds: false,
+    //     types: ["establishment"],
+    // };
 
     useEffect(() => {
         if (!user) {
@@ -46,65 +47,65 @@ function Delivery() {
         }
     }, [user, navigate])
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        autoCompletePickupRef.current = new window.google.maps.places.Autocomplete(
-            pickupInputRef.current,
-            options
-            );
-        autoCompletePickupRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompletePickupRef, pickupInputRef))
+    //     autoCompletePickupRef.current = new window.google.maps.places.Autocomplete(
+    //         pickupInputRef.current,
+    //         options
+    //         );
+    //     autoCompletePickupRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompletePickupRef, pickupInputRef))
         
-        autoCompleteDeliveryRef.current = new window.google.maps.places.Autocomplete(
-            deliveryInputRef.current,
-            options
-            );
-        autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef, deliveryInputRef))
+    //     autoCompleteDeliveryRef.current = new window.google.maps.places.Autocomplete(
+    //         deliveryInputRef.current,
+    //         options
+    //         );
+    //     autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef, deliveryInputRef))
         
 
-        let chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
-        let mapOptions = {
-          zoom:10,
-          center: chicago
-        }
-        let map = new window.google.maps.Map(mapRef.current, mapOptions);
-        directionsRenderer.setMap(map);
+    //     let chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
+    //     let mapOptions = {
+    //       zoom:10,
+    //       center: chicago
+    //     }
+    //     let map = new window.google.maps.Map(mapRef.current, mapOptions);
+    //     directionsRenderer.setMap(map);
         
-    }, [])
+    // }, [])
     
 
-    let calcRoute = ()=> {
-        let start = autoCompletePickupRef.current.getPlace();
-        let end = autoCompletePickupRef.current.getPlace();
-        let request = {
-            origin: start,
-            destination: end,
-            travelMode: 'BICYCLING'
-        };
+    // let calcRoute = ()=> {
+    //     let start = autoCompletePickupRef.current.getPlace();
+    //     let end = autoCompletePickupRef.current.getPlace();
+    //     let request = {
+    //         origin: start,
+    //         destination: end,
+    //         travelMode: 'BICYCLING'
+    //     };
 
-        directionsService.route(request, function(result, status) {
-            if (status === 'OK') {
-                directionsRenderer.setDirections(result);
-            }
-        });
-    }
+    //     directionsService.route(request, function(result, status) {
+    //         if (status === 'OK') {
+    //             directionsRenderer.setDirections(result);
+    //         }
+    //     });
+    // }
     
 
-    let handlePlaceChanged = async (autocomplete, input)=>{
-        const place = await autocomplete.current.getPlace();
-        console.log(place)
+    // let handlePlaceChanged = async (autocomplete, input)=>{
+    //     const place = await autocomplete.current.getPlace();
+    //     console.log(place)
 
-        if (!place.geometry){
-            // user did not select a prediction; reset input field
-            input.placeholder = 'Enter a place';
-        } else {
-            // display details about the valid place
-            alert(place.name);
+    //     if (!place.geometry){
+    //         // user did not select a prediction; reset input field
+    //         input.placeholder = 'Enter a place';
+    //     } else {
+    //         // display details about the valid place
+    //         alert(place.name);
 
-            // plot map direction
-            calcRoute();
-        }
+    //         // plot map direction
+    //         calcRoute();
+    //     }
 
-      }
+    //   }
 
     let handleSubmit = (e)=>{
         e.preventDefault()
@@ -144,10 +145,47 @@ function Delivery() {
     }
 
     
+
+    
     const handleInputChange = (e) => {
-        let { name } = e.target;
+        let { name, value } = e.target;
+        console.log(e.target.list.name)
+        let placedic = places.map((p)=> [`${p[0]}`, {"id": p[1]}])
+        console.log(placedic)
         setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value })
 
+        if(name === "pickup_location" && value){
+            
+            if (deliveryDetails.delivery_location){
+                
+                var pickup = look_up[value].id
+                var delivery = look_up[deliveryDetails.delivery_location].id
+
+                console.log(pickup)
+                console.log(delivery)
+               
+                var int_delivery1 = parseInt(delivery)
+                var abs_price1 = prices[pickup]
+                var abs_cash1 = abs_price1[int_delivery1]
+                console.log(abs_cash1)
+                setDeliveryDetails({...deliveryDetails, delivery_distance: abs_cash1})
+
+
+            }}
+            if(name === "delivery_location"){
+            
+                if (deliveryDetails.pickup_location){
+                var delivery1 = look_up[value].id
+                var pickup2 = look_up[deliveryDetails.pickup_location].id
+
+                console.log(pickup2)
+                console.log(delivery1)
+                var int_delivery = parseInt(delivery1)
+                var abs_price = prices[pickup2]
+                var abs_cash = abs_price[int_delivery]
+                console.log(abs_cash)
+                setDeliveryDetails({...deliveryDetails, delivery_distance: abs_cash})
+                }}
     }
 
     return (
@@ -190,8 +228,12 @@ function Delivery() {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" value={deliveryDetails.pickup_location} name="pickup_location" type="text" placeholder="Location" id="pickup-location" onChange={handleInputChange}
+                                                    <input className="form-control" list="pickuplist" value={deliveryDetails.pickup_location} name="pickup_location" type="text" placeholder="Location" id="pickup-location" onChange={handleInputChange}
                                                         aria-label="alakahia chaoba" />
+                                                    <datalist id="pickuplist">
+                                                    
+                                                        {places.map((place)=> <option name={place[1]}>{place[0]}</option>)}
+                                                    </datalist>
                                                     {fieldErrors.pickup_location && fieldErrors.pickup_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 
@@ -228,8 +270,13 @@ function Delivery() {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <input className="form-control" value={deliveryDetails.delivery_location} name="delivery_location" onChange={handleInputChange} type="text" placeholder="Location"
+                                                    <input className="form-control" list="deliverylist" value={deliveryDetails.delivery_location} name="delivery_location" onChange={handleInputChange} type="text" placeholder="Location"
                                                         aria-label="alakahia chaoba" />
+
+                                                <datalist id="deliverylist">
+                                                    
+                                                    {places.map((place)=> <option >{place[0]}</option>)}
+                                                </datalist>
                                                     {fieldErrors.delivery_location && fieldErrors.delivery_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
 

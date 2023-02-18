@@ -72,21 +72,21 @@ function Dashboard() {
                     <div className="rounded-3 bg-dark p-3 my-3 my-md-5 mx-auto text-light" style={{ width: "800px", maxWidth: "100%" }}>
                         <div>
                             <h5 className="fs-5 mb-0" id="wallet-text">Total Earning</h5>
-                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 2500</h4>
+                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
                         </div>
 
                         <div className="pb-1"></div>
 
                         <div className="text-end">
                             <h5 className="fs-5 mb-0" id="wallet-text">Today's Earning</h5>
-                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 400</h4>
+                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
                         </div>
 
                     </div> :
 
                     <div className="rounded-3 bg-dark p-3 my-3 my-md-5 mx-auto text-light" style={{ width: "800px", maxWidth: "100%" }}>
                         <h5 className="fs-5" id="wallet-text">Wallet Ballance</h5>
-                        <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 3000</h4>
+                        <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
 
                         <div className="icons d-flex justify-content-around">
                             <div className="icon d-flex flex-column align-items-center">

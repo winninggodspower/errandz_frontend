@@ -106,7 +106,7 @@ function Home(){
         </section>
 
         <section className="section section-dark pt-5" >
-            <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
+            <div className="row container mx-auto pb-5 px-0 pt-0 pt-md-5">
 
                 <div className="col-md-5 col-12 pb-4 px-0 px-md-2 d-md-flex">
                     <picture className="mx-auto">

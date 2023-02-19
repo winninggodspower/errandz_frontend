@@ -24,7 +24,6 @@ import AcceptOrder from './routes/accept/accept-order';
 import Notification from './routes/Notification/notification';
 import Faq from './routes/FAQ/Faq';
 import { loader as deliverLoader  } from './routes/AcceptRequest/accept-request';
-import Suspension from './components/Suspense/suspens';
 import CommingSoon from './routes/Comming/comming';
 
 const router = createBrowserRouter([
@@ -102,10 +101,6 @@ const router = createBrowserRouter([
       {
         path: 'comming_soon/',
         element: <CommingSoon />
-      },
-      {
-        path:"suspense/",
-        element: <Suspension />
       }
     ]
   }

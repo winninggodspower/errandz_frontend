@@ -20,7 +20,7 @@ function Footer() {
                         <a href='https://www.facebook.com/errandzhq'>
                             <img className='me-3' width={30} src={facebookIcon} />
                         </a>
-                        <a href=''>
+                        <a href='https://www.instagram.com/errandzhq/'>
                             <img className='me-3' width={30} src={instagramIcon} />
                         </a>
                         <a href='https://twitter.com/errandzhq'>

@@ -5,8 +5,12 @@ import Footer from '../../components/Footer/Footer';
 import { getToken } from '../../Utils/LoginUtils';
 import './home.css';
 import Navbar from '../../components/Navbar/Navbar';
-import riderHeroImage from "../../images/rider-picture.png"
-import mobileRiderImage from "../../images/rider-picture-mobile.png"
+import riderHeroImage from "../../images/rider-bike.png"
+import mobileRiderImage from "../../images/rider-bike-mobile.png";
+import errandzMockup from "../../images/mockup.png";
+import errandzMobileMockup from "../../images/mobile-mockup.png"
+import appleStoreImage from "../../images/apple store.svg"
+import googleStoreImage from "../../images/Google store.svg"
 
 function Home(){
     return (
@@ -20,13 +24,14 @@ function Home(){
                     <h1>
                         Quick, safe and affordable deliveries for businesses in an eco-friendly way
                     </h1>
-                    <button className="btn btn-light mt-3">
                         { getToken() ?
-                         <Link to={"/dashboard"} className="text-dark text-decoration-none" >Dashboard</Link> : 
-                         <Link to={"/register_as"} className="text-dark text-decoration-none" >Get Started</Link>
+                         <Link to={"/dashboard"} className="btn btn-light text-dark text-decoration-none d-md-inline-flex justify-content-center align-items-center" >Dashboard</Link> : 
+                         <div>
+                            <Link to={"/register/customer"} className="btn btn-light mt-3 me-3 text-dark d-inline-flex justify-content-center align-items-center" >Get Started</Link>
+                            <Link to={"/login"} className="btn btn-light mt-3 text-dark d-none d-md-inline-flex justify-content-center align-items-center" >Sign Up</Link>
+                         </div>
                         }
                        
-                    </button>
                 </div>
 
                 <div className="col-md-6 col-12 pb-4 px-0 px-md-2 d-md-flex">
@@ -41,7 +46,7 @@ function Home(){
 
 
         {/* <!--SECOND SECTION--> */}
-        <section id="section-b" className="container my-5">
+        <section id="section-b" className="container my-5 py-5">
             <div className="headercontainer ">
                 <h2 className="text-center mb-5">
                     WHY CHOOSE ERRANDZ
@@ -100,7 +105,7 @@ function Home(){
             </div>
         </section>
 
-        <section id="section-a" className="pt-5" >
+        <section className="section section-dark pt-5" >
             <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
 
                 <div className="col-md-5 col-12 pb-4 px-0 px-md-2 d-md-flex">
@@ -112,10 +117,10 @@ function Home(){
                 </div>
 
                 {/* <!--INTRO TEXT--> */}
-                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 ps-4 ps-md-2">
-                    <h1>
+                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 ps-4 pe-2 ps-md-2">
+                    <h2>
                     Make money while riding a bicycle.
-                    </h1>
+                    </h2>
                     <button className="btn btn-light mt-3">
                         { getToken() ?
                          <Link to={"/dashboard"} className="text-dark text-decoration-none" >Dashboard</Link> : 
@@ -123,6 +128,39 @@ function Home(){
                         }
                        
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <section id='section-d' className="section pt-5 section-dark" >
+            <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
+
+                {/* <!--INTRO TEXT--> */}
+                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 px-2">
+                    <div className='text-center text-sm-start'>
+                        <h2 className='text-white '>
+                        Download our App, Send your delivery in seconds
+                        </h2>
+                        <p className='text-light d-none d-sm-block mb-0'>Available for iOS and Android </p>
+                    </div>
+                    
+                    <div className='d-none d-sm-block'>
+                        <img src={googleStoreImage} width={150} alt="google playstore" />
+                        <img src={appleStoreImage} width={130} alt="apple store" />
+                    </div>
+                </div>
+
+                <div className="col-md-5 col-12 pb-0 pb-sm-4 px-0 px-md-2 d-md-flex">
+                    <picture className="mx-auto">
+                        <source media="(min-width: 480px)" srcSet={errandzMockup} />
+                        <source media="(min-width: 992px)" srcSet={errandzMockup} />
+                        <img className="w-100" src={errandzMobileMockup} alt="errandz mockup design" />
+                    </picture>
+                </div>
+
+                <div className='d-flex d-sm-none justify-content-around'>
+                    <img src={googleStoreImage} width={150} alt="google playstore" />
+                    <img src={appleStoreImage} width={130} alt="apple store" />
                 </div>
             </div>
         </section>

@@ -14,9 +14,9 @@ function Footer() {
             <div className="row container mx-auto justify-content-between mb-5 mb-md-2">
 
                 {/* <!--ERRANZ LOGO ET TEXT--> */}
-                <div  className="col-12 col-sm-6 mb-3">
+                <div  className="col-12 col-sm-7 mb-3">
                     <img src={ErrandzLogo} alt="errandz logo" className="img-fluid" height="140px" width="200px" />
-                    <div className='py-1'>
+                    <div className='py-1 ps-2'>
                         <a href='https://www.facebook.com/errandzhq'>
                             <img className='me-3' width={30} src={facebookIcon} />
                         </a>

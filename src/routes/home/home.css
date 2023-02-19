@@ -7,6 +7,14 @@ nav{
 /*HEADER STYLES*/
 /*FIRST SECTION STYLES*/
 
+.section-dark{
+    background-color: var(--primary-dark);
+}
+
+.section h2{
+    color: rgba(255, 255, 255, 0.9);
+}
+
 #section-a{
     background-color: var(--primary-dark);
     color: white;
@@ -33,14 +41,22 @@ nav{
     #section-a h1{
         font-size: 25px;
     }
+
+    .section h2{
+        font-size: 25px;
+    }
 }
 
-#section-a button{
+#section-a .btn{
     width: 143px;
     height: 48px;
 
 }
 
+.section .btn{
+    width: 143px;
+    height: 48px;
+}
 
 /*SECOND SECTION STYLES*/
 #section-b{

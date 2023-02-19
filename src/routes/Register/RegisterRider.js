@@ -78,7 +78,7 @@ export const RegisteredRider = () => {
                     <h2 className="text-white fs-1 fw-bolder">Love Cycling?</h2>
                     <p className="text-white fs-4 fw-small">Make cool cash by riding bicycles</p>
                 </div >
-                <div className="col p-5 d-flex justify-content-center align-items-center pe-4 e-logo-img">
+                <div className="col d-flex justify-content-center align-items-center pe-4 e-logo-img">
                     <span className=""><img src={errandzid} alt="" /></span>
                 </div>
             </div>

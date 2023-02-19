@@ -5,6 +5,8 @@ import Footer from '../../components/Footer/Footer';
 import { getToken } from '../../Utils/LoginUtils';
 import './home.css';
 import Navbar from '../../components/Navbar/Navbar';
+import riderHeroImage from "../../images/rider-picture.png"
+import mobileRiderImage from "../../images/rider-picture-mobile.png"
 
 function Home(){
     return (
@@ -14,7 +16,7 @@ function Home(){
         <section id="section-a" className="" >
             <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
                 {/* <!--INTRO TEXT--> */}
-                <div id="txt-container" className="col-md-12 col-lg-6 d-flex flex-column justify-content-center order-1 order-md-0 ">
+                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center order-1 order-md-0 ps-4 ps-md-2">
                     <h1>
                         Quick, safe and affordable deliveries for businesses in an eco-friendly way
                     </h1>
@@ -94,6 +96,33 @@ function Home(){
                             </div>
                         </div>
 
+                </div>
+            </div>
+        </section>
+
+        <section id="section-a" className="pt-5" >
+            <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
+
+                <div className="col-md-5 col-12 pb-4 px-0 px-md-2 d-md-flex">
+                    <picture className="mx-auto">
+                        <source media="(min-width: 480px)" srcSet={riderHeroImage} />
+                        <source media="(min-width: 992px)" srcSet={riderHeroImage} />
+                        <img className="w-100" src={mobileRiderImage} alt="hero design" />
+                    </picture>
+                </div>
+
+                {/* <!--INTRO TEXT--> */}
+                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 ps-4 ps-md-2">
+                    <h1>
+                    Make money while riding a bicycle.
+                    </h1>
+                    <button className="btn btn-light mt-3">
+                        { getToken() ?
+                         <Link to={"/dashboard"} className="text-dark text-decoration-none" >Dashboard</Link> : 
+                         <Link to={"/register/rider"} className="text-dark text-decoration-none" >Get Started</Link>
+                        }
+                       
+                    </button>
                 </div>
             </div>
         </section>

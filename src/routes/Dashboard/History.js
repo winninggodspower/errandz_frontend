@@ -1,6 +1,7 @@
 import riderIcon from '../../images/icons/Delivery man.svg'
 import { useState } from 'react';
 import ConfirmDelivery from './confirmDelivery';
+import RiderDetailDashboard from './RiderDetailDashboard';
 
 function History(props) {
 
@@ -23,7 +24,11 @@ function History(props) {
                     </div>
                     <div className="notification-info d-flex flex-column justify-content-center ms-2">
                         <p className="mb-0">{data.recipient_name}</p>
-                        <span>{formatedDate} * RD{data.ref.slice(0, 4)}</span>
+                        {
+                            data.status === "pending delivery" ?
+                            <RiderDetailDashboard rider={data.rider_who_accepted} sideText={`${formatedDate} * RD${data.ref.slice(0, 4)}`} /> :
+                            <span>{formatedDate} * RD{data.ref.slice(0, 4)}</span>
+                        }
                     </div>
                 </div>
                 <div className="notification-status d-flex flex-column justify-content-center ms-2">

@@ -11,6 +11,7 @@ import {BASE_URL} from "../../globalVariable"
 import { getToken } from "../../Utils/LoginUtils";
 import { AlertContext } from "../../UserContext";
 import { places, look_up, prices } from "../../components/mapFile";
+import BottomNav from "../../components/BottomNav/BottomNav";
 
 function Delivery() {
 
@@ -321,19 +322,30 @@ function Delivery() {
                                                     style={{ width: "30px" }} alt="wallet icon" /> Wallet</button>
                                             </div>
                                         </div>
+
                                     </fieldset>
 
-                                    <button type="submit" disabled={is_loading} className="btn btn-dark btn-lg w-100">Request Delivery</button>
+                                    <div id="grid-container" className="d-grid">
+                                        <div className="me-2 opacity-0">
+                                            <div id="dot2">
+                                                <img src={dotIcon} alt="" />
+                                            </div>
+                                        </div>
+                                        <button type="submit" disabled={is_loading} className="btn btn-dark btn-lg w-100">Request Delivery</button>
+                                    </div>
 
                                 </form>
-
+                                <br className="mb-5 pb-5" />
+                                <br className="mb-5 pb-5" />
                             </div>
 
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
+            
+            <BottomNav />
         </>
     )
 }

@@ -83,7 +83,7 @@ export const RegisteredCustomer = () => {
 
             <div className="register mx-auto">
                 <Navbar transparent={true} />
-                <div className="mt-5 container text-white">
+                <div className="pt-5 container text-white">
                     <h2>Register as a Customer</h2>
                     <h6>Stress Free deliveries</h6>
                 </div>

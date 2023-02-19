@@ -89,8 +89,8 @@ function Dashboard() {
                         <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
 
                         <div className="icons d-flex justify-content-around">
-                            <div className="icon d-flex flex-column align-items-center">
-                               <Link to={"/delivery"} >
+                            <div className="icon ">
+                               <Link to={"/delivery" } className="d-flex flex-column align-items-center text-decoration-none">
                                     <div className="icon-wrapper p-3 rounded-circle bg-white d-flex text-center justify-content-center" style={{ width: "50px", height: "50px" }}>
                                             <img src={v1} alt="" />
                                     </div>
@@ -98,18 +98,22 @@ function Dashboard() {
                                 <p className="text-center text-white">Book a Ride</p>
                             </div>
 
-                            <div className="icon d-flex flex-column align-items-center">
-                                <div className="icon-wrapper p-3 rounded-circle bg-white d-flex text-center justify-content-center" style={{ width: "50px", height: "50px" }}>
-                                    <img src={v2} alt="" />
-                                </div>
-                                <p className="text-center text-white">Top up</p>
+                            <div className="icon ">
+                                <Link to={"/comming_soon"}  className="d-flex flex-column align-items-center text-decoration-none">
+                                    <div className="icon-wrapper p-3 rounded-circle bg-white d-flex text-center justify-content-center" style={{ width: "50px", height: "50px" }}>
+                                        <img src={v2} alt="" />
+                                    </div>
+                                    <p className="text-center text-white">Top up</p>
+                                </Link>
                             </div>
 
-                            <div className="icon d-flex flex-column align-items-center">
-                                <div className="icon-wrapper p-3 rounded-circle bg-white d-flex text-center justify-content-center" style={{ width: "50px", height: "50px" }}>
-                                    <img src={v3} alt="" />
-                                </div>
-                                <p className="text-center text-white">Add card</p>
+                            <div className="icon ">
+                                <Link to={"/comming_soon"}  className="d-flex flex-column align-items-center text-decoration-none">
+                                    <div className="icon-wrapper p-3 rounded-circle bg-white d-flex text-center justify-content-center" style={{ width: "50px", height: "50px" }}>
+                                        <img src={v3} alt="" />
+                                    </div>
+                                    <p className="text-center text-white">Add card</p>
+                                </Link>
                             </div>
                         </div>
 

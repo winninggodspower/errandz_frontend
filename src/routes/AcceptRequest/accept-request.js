@@ -52,6 +52,9 @@ function AcceptRequest() {
             }
             
         })
+        .catch(error=>{
+            console.log(error);
+        })
         
        
 

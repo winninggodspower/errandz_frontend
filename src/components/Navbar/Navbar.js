@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
 
 
-const mustShowPages = ["/", "/register/rider"]
+const mustShowPages = ["/"]
 
 function Navbar(props) {
     let transparent = props.transparent;

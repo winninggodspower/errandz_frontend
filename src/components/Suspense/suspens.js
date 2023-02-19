@@ -1,35 +1,21 @@
 import React from 'react'
+import "./suspense.css"
 
 function Suspension() {
-  return (
-    <div>
-            {/* <div class="spinner-grow text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-secondary" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-success" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-warning" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-info" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
-        </div> */}
-        {/* <div className="spinner-grow text-dark" role="status">
-        <span className="visually-hidden">Loading...</span>
-        </div> */}
+  return (<div className='container d-flex justify-content-center align-items-center vh-100 vw-100'>
 
-        this is a suspense
-    </div>
+<div className="loading w-25 h-25 d-flex justify-content-center align-items-center">
+    
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+    
   )
 }
 

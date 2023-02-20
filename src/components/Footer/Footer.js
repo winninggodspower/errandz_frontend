@@ -18,13 +18,13 @@ function Footer() {
                     <img src={ErrandzLogo} alt="errandz logo" className="img-fluid" height="140px" width="200px" />
                     <div className='py-1'>
                         <a href='https://www.facebook.com/errandzhq'>
-                            <img className='me-3' width={30} src={facebookIcon} />
+                            <img className='me-3' width={30} src={facebookIcon} alt=" " />
                         </a>
                         <a href='https://www.instagram.com/errandzhq/'>
-                            <img className='me-3' width={30} src={instagramIcon} />
+                            <img className='me-3' width={30} src={instagramIcon} alt=" " />
                         </a>
                         <a href='https://twitter.com/errandzhq'>
-                            <img className='me-3' width={30} src={twitterIcon} />
+                            <img className='me-3' width={30} src={twitterIcon}  alt=" " />
                         </a>
                     </div>
                 </div>

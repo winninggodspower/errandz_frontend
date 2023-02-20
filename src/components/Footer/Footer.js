@@ -4,12 +4,16 @@ import instagramIcon from "../../images/icons/instagramIcon.svg";
 import twitterIcon from "../../images/icons/twitterIcon.svg";
 import './footer.css';
 import { Link } from 'react-router-dom';
+import TermsPage from '../../routes/errandz/terms';
 
 
 function Footer() {
 
     return (
         <footer className="py-5">
+            <div id='myModal'>
+                <TermsPage />
+            </div>
 
             <div className="row container mx-auto justify-content-between mb-5 mb-md-2">
 
@@ -45,7 +49,7 @@ function Footer() {
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Licence</Link></li>
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Terms of Services</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Copyright</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Privacy policy</Link></li>
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Email</Link></li>
                         </ul>
                     </div>

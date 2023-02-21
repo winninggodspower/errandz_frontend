@@ -38,8 +38,10 @@
 }
 
 .account {
-  max-width: 880px;
+  max-width: 700px;
+  padding-top: 50px;
 }
+
 .flex-1 {
   flex-grow: 1;
   flex-basis: 1;
@@ -74,4 +76,15 @@
   padding: 0 0;
   flex-grow: 1;
   overflow-x: none;
+  margin: 0 auto;
+}
+
+.privacybody {
+  max-width: 800px;
+}
+
+@media screen and (max-width: 360px) {
+  .contactus {
+    min-width: 100% !important;
+  }
 }

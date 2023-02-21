@@ -90,7 +90,7 @@ export const RegisteredCustomer = () => {
             </div>
             <div className="pad account mx-auto" id="customerForm">
                 <div class="container rounded h-100 d-md-flex align-items-center justify-content-center my-5 bg-white py-5 account">
-                    <form className="">
+                    <form className="px-4 pt-5">
 
                         <div class="mb-3">
                             <input type="text" class="form-control" name="first_name" placeholder="First Name" defaultValue={userAccount.first_name} onChange={handleChange} required />
@@ -131,15 +131,15 @@ export const RegisteredCustomer = () => {
                         <div class="mb-3 form-check w-75 mx-auto align-items-center p-3">
                             <input type="checkbox" checked={!acceptPolicy} class="form-check-input" id="show-password" onClick={setPolicy}/>
                             <label class="form-check-label" for="show-password">By clicking the button you agree to
-                                Privacy policy and terms of service</label>
+                               <Link to={"/privacy"} className="text-primary text-decoration-none"> Privacy policy</Link> and <Link to={"/privacy"} className="text-primary text-decoration-none"> terms of service</Link></label>
                         </div>
                         <div class="mb-3">
                             <button onClick={handleSubmit} class="w-100 btn btn-dark" disabled={acceptPolicy}>Register Now</button>
-                            <p class="d-none text-center  d-fall mb-3 mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none">Login</Link></p>
+                            <p class="d-none text-center  d-fall mb-3 mt-3">Already have an account?   <Link to={"/login"} className="text-primary text-decoration-none">Login</Link></p>
                         </div>
                     </form>
                 </div>
-                <p class="d-none d-md-block text-center mt-3">Already have an account?   <Link to={"/login"} className="text-dark text-decoration-none">Login</Link></p>
+                <p class="d-none d-md-block text-center mt-3">Already have an account?   <Link to={"/login"} className="text-primary text-decoration-none">Login</Link></p>
             </div>
         </div>
     </>

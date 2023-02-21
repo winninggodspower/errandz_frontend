@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
 
 function PrivacyPage() {
   return (
@@ -9,7 +10,7 @@ function PrivacyPage() {
         <h1 className='fs-1'> PRIVACY POLICY </h1>
       </div>
 
-      <div className='p-3' style={{wordBreak: "break-word",
+      <div className='p-3 privacybody mx-auto' style={{wordBreak: "break-word",
     wordSpacing: "3px"}}>
         <h2 className='py-3'>
         INTRODUCTION
@@ -405,6 +406,7 @@ If you have questions regarding your data privacy rights or would like to submit
 <p className='text-black'>Cabek Errandz may revise this Privacy Policy from time to time by posting a revised Privacy Policy on our Website. We reserve the right to modify this Privacy Policy at any time. Notice of the amendment shall be posted on our website and the revised version will be effective from the date of publication. You are advised to read and review our terms/privacy policy frequently. 
 </p>
    </div>
+   <Footer />
     </div>
   )
 }

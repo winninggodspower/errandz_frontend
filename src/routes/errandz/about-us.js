@@ -12,7 +12,9 @@ function AboutUs(){
       <div className='p-3 privacybody mx-auto' style={{wordBreak: "break-word",
     wordSpacing: "3px"}}>
         <p>
+        <b>Errandz</b> is an eco-friendly delivery service company that offers quick, safe and affordable deliveries for small businesses.
 
+We  provide convenience that customers expect by helping to reduce purchase and pickup hassle, make the process of ordering faster and easier and provide a more cost-effective option.
         </p>
     </div>
                 

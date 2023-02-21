@@ -17,7 +17,7 @@ function PrivacyPage() {
 
         </h2>
         <p className='text-black'>
-        Cabek Errandz, recognizes your privacy rights as guaranteed under the 1999 Constitution of the Federal Republic of Nigeria; the Nigerian Data Protection Regulation 2019 issued by the National Information Technology Development Agency (NITDA), and the privacy provisions in other relevant laws applicable to our business in Nigeria. 
+        Errandz, recognizes your privacy rights as guaranteed under the 1999 Constitution of the Federal Republic of Nigeria; the Nigerian Data Protection Regulation 2019 issued by the National Information Technology Development Agency (NITDA), and the privacy provisions in other relevant laws applicable to our business in Nigeria. 
 Thus, it is important to us as a law-abiding organization that your Personal Data is managed, processed and protected in accordance with the provisions of the applicable laws. 
 In the course of our business and/or your engagement with us and third parties through our Platforms (this includes but are not limited to our websites, digital platforms, mobile applications, physical operations/offices, amongst others), we may process your Personal Data, subject however to the terms of this Policy. 
 This Privacy Policy therefore explains our privacy practices with respect to how we process your Personal Data and describes your rights as a user of any of our services and Platforms. 
@@ -104,7 +104,7 @@ We collect a variety of information from visitors to the website. As described b
 </li>
 <li>To help us identify accounts and services which you could have from us from time to time. 
 </li>
-<li>Enable us to operate, protect, improve, and optimize Cabek Errandz by carrying out marketing analysis and customer profiling (including transactional information), conduct research, including creating statistical and testing information. 
+<li>Enable us to operate, protect, improve, and optimize Errandz by carrying out marketing analysis and customer profiling (including transactional information), conduct research, including creating statistical and testing information. 
 </li>
 <li>Personalize or otherwise customize your experience by, among other things, ranking search results or showing ads based on your search, booking history, and preferences. 
 </li>
@@ -138,7 +138,7 @@ We collect a variety of information from visitors to the website. As described b
 </p>
 <h2>Processing Your Information</h2>
 
-<p className='text-black'>In order to execute our obligations to you or process your transactions, we may be required to process your Information, such as your name, account number, account ID, contact details, shipping, delivery and billing address, or other information needed to complete the transaction. We also work with third parties, including financial institutions, vendors, service providers, logistics partners and outlets who at one point or the other facilitate transactions executed on our Platforms. For completeness, in the course of your engagement with us or use of our services and Platforms, we may share your information with different stakeholders, including but not limited to Financial institutions; service providers; and collection agencies to report account or credit information; Cabek Errandz (including subsidiaries and affiliates); Regulatory or judicial authorities; or other third parties pursuant to a subpoena, court order, or other legal process or requirement applicable to Cabek Errandz. Please note that the parties mentioned above may be within or outside Nigeria. 
+<p className='text-black'>In order to execute our obligations to you or process your transactions, we may be required to process your Information, such as your name, account number, account ID, contact details, shipping, delivery and billing address, or other information needed to complete the transaction. We also work with third parties, including financial institutions, vendors, service providers, logistics partners and outlets who at one point or the other facilitate transactions executed on our Platforms. For completeness, in the course of your engagement with us or use of our services and Platforms, we may share your information with different stakeholders, including but not limited to Financial institutions; service providers; and collection agencies to report account or credit information; Errandz (including subsidiaries and affiliates); Regulatory or judicial authorities; or other third parties pursuant to a subpoena, court order, or other legal process or requirement applicable to Errandz. Please note that the parties mentioned above may be within or outside Nigeria. 
 We may also process your Information when we believe, in our sole discretion, that the disclosure of your Information is necessary to comply with applicable laws and judicial/regulatory orders; conduct investigations; manage existing or imminent risks, prevent fraud, crime or financial loss, or for public safety or to report suspected illegal activity or to investigate violations of our Terms and Conditions. 
 In all cases, we will ensure that your Information is safe, and notify the receiving party of the confidential nature of your Information, particularly the need to maintain the confidentiality of same and prevent unlawful or unauthorised usage.</p>
 
@@ -212,7 +212,7 @@ Software
 </p>
 <h2>Cross Border Data Transfer Policy</h2>
 <p className='text-black'>Cabek Errandz is an Independent company with the holding company in Nigeria and affiliates and partners spread across different parts of the world. Consequently, in the course of providing you with our services and in a bid to serve you better, we may be required to transfer your Information/Data (electronically or otherwise) across the borders of Nigeria. Nonetheless, we have an unwavering commitment to ethical and responsible practices in ensuring that your Personal Information is adequately protected regardless of where the data is transferred or hosted. </p>
-<p className='text-black'>This Policy defines our global standards for management and protection of Information/Data by or on behalf of Cabek Errandz regardless of the country from which it originates or to which Information may be transferred. This Policy will apply to any transfer of information which is undergoing processing or is intended for processing after transfer to a foreign country or to an international organisation. </p>
+<p className='text-black'>This Policy defines our global standards for management and protection of Information/Data by or on behalf of Errandz regardless of the country from which it originates or to which Information may be transferred. This Policy will apply to any transfer of information which is undergoing processing or is intended for processing after transfer to a foreign country or to an international organisation. </p>
 <p className='text-black'>We will only transfer Information or allow it to be processed by third parties in a different jurisdiction if such country has an adequate level of data protection as determined by the appropriate regulatory authority (that includes the National Information Technology Development Agency; Honorable Attorney General of the Federation; etc.) in accordance with the provisions of the Nigeria Data Protection Regulation or any other privacy laws in force. </p>
 <p className='text-black'>In the absence of any decision by the appropriate regulatory authority as to the adequacy of safeguards in a foreign country to which your Information may be transferred, we will only transfer your Information to a foreign country or an international organisation only if any of the following requirements have been met</p>
 
@@ -220,9 +220,9 @@ Software
 
 <li>Your explicit consent has been obtained (Please note that such foreign country or international organisation may have privacy laws or policies less stringent that Nigerian privacy regulation or laws. However, we will ensure that the recipient of such Information undertakes to protect your Information and handle it with utmost confidentiality); 
 </li>
-<li>The transfer is necessary for the performance of a contract between you and the Cabek Errandz or the implementation of pre-contractual measures taken at your request;
+<li>The transfer is necessary for the performance of a contract between you and the Errandz or the implementation of pre-contractual measures taken at your request;
 </li>
-<li>The transfer is necessary for the conclusion or performance of a contract concluded in your interest between the Cabek Errandz and another natural or legal person; 
+<li>The transfer is necessary for the conclusion or performance of a contract concluded in your interest between the Errandz and another natural or legal person; 
 </li>
 <li>The transfer is necessary for public interest; 
 </li>
@@ -241,7 +241,7 @@ Software
 <li>conduct privacy due diligence to evaluate the privacy practices and risks associated with third parties in a foreign country. 
 </li>
 
-<li>obtain contractual assurances from those third parties that they will process your Information pursuant only to Cabek Errandz’s instructions, and in accordance with our Privacy Policy, and that they will notify Cabek Errandz promptly of any Privacy Incident, including any inability to comply with the standards set forth in this Policy and applicable laws, and that they will not engage another organisation to process the Personal Information without putting in place an agreement imposing equivalent data protection standards.
+<li>obtain contractual assurances from those third parties that they will process your Information pursuant only to Errandz’s instructions, and in accordance with our Privacy Policy, and that they will notify Errandz promptly of any Privacy Incident, including any inability to comply with the standards set forth in this Policy and applicable laws, and that they will not engage another organisation to process the Personal Information without putting in place an agreement imposing equivalent data protection standards.
 </li>
 
 <li>ensure that in providing your Information, that we will, where necessary, ensure that it is anonymized, and we will obtain written assurances from any third parties that they will only use the Information for the legal purpose for which it was provided, and in accordance with applicable laws;; 
@@ -315,8 +315,8 @@ Software
      <h2>Data Retention</h2>
      <h3>Introduction </h3>
      <p className='text-black'>
-     This Data Retention Policy (the “Policy”) sets out how Cabek Errandz retains Records (defined below) necessary for its business operations, contractual obligations, legal, audit and regulatory compliance, and when we may destroy such Records, whilst promoting orderly and efficient data management. This ensures compliance with the data protection laws and the duty of confidentiality to which we are bound. We retain your information for as long as necessary for the purpose(s) for which it was collected. The period of data storage and retention is subject to legal, regulatory, administrative and operational requirements. 
-Records include Information, data, documents (contractual, personal), correspondence, policies, confidential information, etc. regardless of media; created, received, and maintained by Cabek Errandz as evidence, and in compliance with regulatory requirements, legal obligations, business practices, legal policies, contractual obligations, financial transactions, administrative activities, business decisions or other actions. Records provide information about, and evidence of Cabek Errandz’s transactions, customers, employment and activities, and may be created, received or maintained in hard copy or electronic format.
+     This Data Retention Policy (the “Policy”) sets out how Errandz retains Records (defined below) necessary for its business operations, contractual obligations, legal, audit and regulatory compliance, and when we may destroy such Records, whilst promoting orderly and efficient data management. This ensures compliance with the data protection laws and the duty of confidentiality to which we are bound. We retain your information for as long as necessary for the purpose(s) for which it was collected. The period of data storage and retention is subject to legal, regulatory, administrative and operational requirements. 
+Records include Information, data, documents (contractual, personal), correspondence, policies, confidential information, etc. regardless of media; created, received, and maintained by Errandz as evidence, and in compliance with regulatory requirements, legal obligations, business practices, legal policies, contractual obligations, financial transactions, administrative activities, business decisions or other actions. Records provide information about, and evidence of Errandz’s transactions, customers, employment and activities, and may be created, received or maintained in hard copy or electronic format.
 
      </p>
      <h2>Scope of this Policy </h2>
@@ -326,7 +326,7 @@ This Policy applies to all our Platforms, and all related sites, applications, s
 <h2>Policy Administrator </h2>
 <p className='text-black'>Cabek Errandz’s Data Compliance Officer (DCO) shall oversee the administration, implementation and the procedure of this Policy. The DCO work with the company’s management and legal & compliance department and shall ensure that the retention policy is followed to the latter. The DCO has the authority to review the data retention procedures; monitor compliance; make modifications to the data retention schedule when necessary to ensure it complies with the relevant laws, encompasses new developments and contains the appropriate records and document. </p>
 <h2>Security measures</h2>
-<p className='text-black'>In addition to other existing data protection measures being implemented by Cabek Errandz, we will ensure that the following measures are in place to protect the security of retained Records: </p>
+<p className='text-black'>In addition to other existing data protection measures being implemented by Errandz, we will ensure that the following measures are in place to protect the security of retained Records: </p>
 
 <ul className='text-black'>
 
@@ -353,8 +353,8 @@ This Policy applies to all our Platforms, and all related sites, applications, s
 </ul>
 
 <h2>Retention period and procedures</h2>
-<p className='text-black'>For all Records obtained, used and stored by Cabek Errandz, we will conduct periodic reviews of the Records retained, confirming their purpose, continued validity, accuracy and requirement to retain such Records. Records will be kept for as long as they are needed to meet the operational or contractual needs of Cabek Errandz, together with legal and regulatory requirements. Cabek Errandz may transfer paper-based Records to an alternative media format in instances of long retention periods. As a general principle, Cabek Errandz will only need to retain one copy of the final version of a Record. Draft documents may be destroyed immediately unless they contain vital information which were not otherwise contained the final document. 
-The retention periods for Records provided under this Policy takes into consideration: the requirements of Cabek Errandz for such Records; the type, sensitivity and importance of such Record; contractual obligations; the purpose of processing such record; lawful basis for processing the records; the requirements of the law. Where it is not possible to define a statutory or legal retention period in line with the applicable data protection/privacy laws, we will identify the criteria by which the period can be determined (such as industry standards) and update this Policy as may be necessary. 
+<p className='text-black'>For all Records obtained, used and stored by Errandz, we will conduct periodic reviews of the Records retained, confirming their purpose, continued validity, accuracy and requirement to retain such Records. Records will be kept for as long as they are needed to meet the operational or contractual needs of Errandz, together with legal and regulatory requirements. Errandz may transfer paper-based Records to an alternative media format in instances of long retention periods. As a general principle, Errandz will only need to retain one copy of the final version of a Record. Draft documents may be destroyed immediately unless they contain vital information which were not otherwise contained the final document. 
+The retention periods for Records provided under this Policy takes into consideration: the requirements of Errandz for such Records; the type, sensitivity and importance of such Record; contractual obligations; the purpose of processing such record; lawful basis for processing the records; the requirements of the law. Where it is not possible to define a statutory or legal retention period in line with the applicable data protection/privacy laws, we will identify the criteria by which the period can be determined (such as industry standards) and update this Policy as may be necessary. 
 </p>
 <h2>Destruction of Records</h2>
 <p className='text-black'>Destruction of Records is a critical component of a data retention policy. Once the retention period has elapsed, the Records are either reviewed, archived, returned, anonymized or confidentially destroyed depending on their purpose, importance and legal requirements. When a Record has reached its designated destruction date, the DCO shall refer to the retention register to determine the next action to be taken. Not all data or records are expected to be deleted upon expiration; sometimes it is sufficient to anonymise the data, return the Record or to archive Records for a further period.</p>
@@ -364,7 +364,7 @@ The retention periods for Records provided under this Policy takes into consider
 
 <li>the Record is the subject of a pending litigation, administrative or regulatory proceedings. In these circumstances, destruction will be delayed until such regulatory proceedings have been completed, at which time a new retention period will be created. 
 </li>
-<li>the Record has long-term value for Cabek Errandz’s statutory or regulatory obligations. 
+<li>the Record has long-term value for Errandz’s statutory or regulatory obligations. 
 </li>
 <li>Cabek Errandz determines that such Record will be permanently stored, provided that no legal, regulatory or contractual breach will occur by the permanent retention of such record. 
 </li>

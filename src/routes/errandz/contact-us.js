@@ -1,7 +1,11 @@
-import React from "react"
+import React, {useState} from "react"
 import Navbar from "../../components/Navbar/Navbar"
 
 function ContactUs(){
+    const [send, setSend] = useState(false)
+    const HandleClick =() => {
+        setSend((s)=> !s)
+    }
     return (
         
             
@@ -22,16 +26,24 @@ function ContactUs(){
                     </div>
                     <div className="col d-flex justify-content-center align-items-center w-100 contactus" style={{minWidth:"350px"}}>
                         <div className="mx-auto w-100">
-                        <h2 className="d-md-none">GET IN TOUCH WITH US</h2>
+                        {send ? <div>
+                            <h1 className="fs-1 text-primary p-1"> Thanks For </h1>
+                            <h1 className="fs-1 text-primary p-1"> The Message</h1>
+
+                        </div>
+                        :
+                        
                             <form>
+                                <h2 className="d-md-none">GET IN TOUCH WITH US</h2>
                                <div className="d-flex flex-column justify-content-center align-items-center">
                                <input type="text" placeholder="Name" className="px-3 py-2 border mt-3 w-100" style={{borderRadius:"8px",minWidth:"220px", border:"3px solid #6c757d "}}/>
                                 <input type="email" placeholder="E-mail" className="px-3 py-2 border mt-3 w-100" style={{borderRadius:"8px",minWidth:"220px", border:"1px solid dark"}} />
                                 <input type={"tel"} placeholder="Phone number" className="px-3 py-2 border mt-3 w-100" style={{borderRadius:"8px",minWidth:"220px", border:"1px solid dark"}} />
                                 <textarea type="text" placeholder="Message" className="ps-3 py-2 border mt-3 w-100" style={{borderRadius:"8px",minWidth:"220px", border:"1px solid dark", height:"110px"}} />
                                </div>
-                               <div> <input type={"submit"} className="btn align-self-end btn-dark float-right mt-3" style={{float:"inline-end"}} /></div>
+                               <div> <input type={"submit"} onClick={HandleClick} className="btn align-self-end btn-dark float-right mt-3" style={{float:"inline-end"}} /></div>
                             </form>
+                        }
                         </div>
                     </div>
                 </div>

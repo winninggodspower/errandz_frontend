@@ -65,18 +65,47 @@ link:hover {
         display: flex;
         justify-content: center;
         align-items: center;
+        
      
 }
 
 #myModal div h1 {
-    font-size: .75em;
-    color: red;
+    font-weight: .75em;
+    color: black;
+    font-size: small;
+    
+    
 }
 
 #myModal h2 {
-    font-size: .50em;
+    
+    color: black;
+    font-size: small;
 }
 
 #myModal p {
-    font-size: .25em;
+    
+    color: black;
+    font-size: small;
+}
+
+#myModal li {
+    
+    color: black;
+    font-size: small;
+}
+
+#myModal .termspage{
+    max-width: 900px;
+    max-height: 100%;
+    overscroll-behavior: none;
+    overflow-y: auto;
+    border-radius: 100px;
+}
+
+@media screen and (max-width: 920px) {
+    #myModal .termspage {
+        max-width: 80vw;
+    }
+    
 }

@@ -64,3 +64,14 @@
 #nav-black {
   background: #0C0C0C;
 }
+#privacypage {
+  display: flex;
+  flex-direction: column;
+  
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 28px;
+  flex-grow: 1;
+  overflow-x: none;
+}

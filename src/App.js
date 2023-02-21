@@ -25,6 +25,7 @@ import Notification from './routes/Notification/notification';
 import Faq from './routes/FAQ/Faq';
 import { loader as deliverLoader  } from './routes/AcceptRequest/accept-request';
 import CommingSoon from './routes/Comming/comming';
+import PrivacyPage from './routes/errandz/privacy';
 
 const router = createBrowserRouter([
   {
@@ -101,7 +102,11 @@ const router = createBrowserRouter([
       {
         path: 'comming_soon/',
         element: <CommingSoon />
-      }
+      },
+      {
+        path: 'privacy/',
+        element: <PrivacyPage />
+      },
     ]
   }
 ]);

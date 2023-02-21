@@ -5,14 +5,22 @@ import twitterIcon from "../../images/icons/twitterIcon.svg";
 import './footer.css';
 import { Link } from 'react-router-dom';
 import TermsPage from '../../routes/errandz/terms';
+import { useState } from 'react';
 
 
 function Footer() {
+    const [modal, setModal] = useState("none")
+    const CloseModal = ()=> {
+        setModal("none")
+    }
 
+    const OpenModal = ()=> {
+        setModal("flex")
+    }
     return (
         <footer className="py-5">
-            <div id='myModal'>
-                <TermsPage />
+            <div id='myModal' className='py-2' onClick={CloseModal} style={{display:modal}} >
+                <TermsPage close={CloseModal} />
             </div>
 
             <div className="row container mx-auto justify-content-between mb-5 mb-md-2">
@@ -48,8 +56,8 @@ function Footer() {
                     <div class="col">
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Licence</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Terms of Services</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Privacy policy</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 " onClick={OpenModal}>Terms of Services</Link></li>
+                            <li class="nav-item mb-2"><Link to={'/privacy'} class="nav-link p-0 ">Privacy policy</Link></li>
                             <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Email</Link></li>
                         </ul>
                     </div>

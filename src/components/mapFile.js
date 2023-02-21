@@ -26,7 +26,24 @@ export const prices = {
 export const places =[["Old GRA" ,1], ["Government house" , 1],["Forces Avenue - Hospital Rd", 1],["Eastern bypass---- Ohia street", 1],
 ["Nzimiro street to Boro park", 1], ["Lagos Bus stop",2], ["Aggrey Rd", 2],
 ["Creek Rd. -------- Cemetery Rd",2], [["New layout market" ,3]],["Bishop Johnson" ,3],
-["Moore house ------- New road" ,3],["Egbema" ,3],["Borikiri sand field" ,3],["Okarki street to Newlayout market" ,3],["UTC junction", 4], ["CFC junction", 4], ["Emenike street", 4], ["Eloabuchi", 4], ["Njemanze street ", 4], ["UTC junction", 4], ["Abonema Wharf", 4], ["Garrison", 5],["Ogbunabali", 5],["Nzimiro street", 5],["Eastern by pass", 5],[" NLNG road", 5],["Mile 2", 6],["Mile 3", 6],["UST/Rivers State University", 6],["Ikwerre road round about", 6],["Kaduna street", 7],["water line junction by Aba Rd", 7],["Okija street", 7],["Olu-obasenjo way", 7],["D-line", 7],["Ikoku", 7],["Building Materials road", 7],["Trans Amadi Industrial Layout", 8], ["Ordinance Road", 8], ["Slaughter", 8],["Rumuomasi", 9], ["Elekahia Estate", 9],[" Elekahia road", 9], ["Stadium road", 9], ["Rumuobiakani", 9],["GRA", 10], ["GRA junction", 10],[" Orazi", 10], ["Presidential Estate", 10], ["Rumuola junction", 10],[" Portharcourt Polytechnic", 10], ["Psychiatric Road", 10],["Bori camp", 11], ["G.U.Ake road by Aba Rd", 11], ["Pleasure Park", 11],["Rumuokwuta junction", 13], ["Rumuigbo junction", 13], ["Rumuokoro by Ikwerre Rd", 13],["Bori camp by Ikwerre road", 13],[" Nkpolu/Rumuigbo", 13], ["Eliozu road through Rumuokoro East west road", 13], ["Elingbu", 13], ["Eneka", 13],[" Rumuodomaya", 13],
+["Moore house ------- New road" ,3],["Egbema" ,3],["Borikiri sand field" ,3],
+["Okarki street to Newlayout market" ,3],["UTC junction", 4], ["CFC junction", 4], 
+["Emenike street", 4], ["Eloabuchi", 4], ["Njemanze street ", 4], ["UTC junction", 4], 
+["Abonema Wharf", 4], ["Garrison", 5],["Ogbunabali", 5],["Nzimiro street", 5],
+["Eastern by pass", 5],[" NLNG road", 5],["Mile 2", 6],["Mile 3", 6],
+["UST/Rivers State University", 6],["Ikwerre road round about", 6],["Kaduna street", 7],
+["water line junction by Aba Rd", 7],["Okija street", 7],["Olu-obasenjo way", 7],["D-line", 7],
+["Ikoku", 7],["Building Materials road", 7],["Trans Amadi Industrial Layout", 8], ["Ordinance Road", 8], 
+["Slaughter", 8],["Rumuomasi", 9], ["Elekahia Estate", 9],[" Elekahia road", 9], ["Stadium road", 9], 
+["Rumuobiakani", 9],["GRA", 10], ["GRA junction", 10],[" Orazi", 10], ["Presidential Estate", 10], 
+["Rumuola junction", 10],[" Portharcourt Polytechnic", 10], ["Psychiatric Road", 10],["Bori camp", 11], 
+["G.U.Ake road by Aba Rd", 11], ["Pleasure Park", 11],["Rumuokwuta junction", 13], ["Rumuigbo junction", 13], 
+["Rumuokoro by Ikwerre Rd", 13],["Bori camp by Ikwerre road", 13],[" Nkpolu/Rumuigbo", 13], 
+["Eliozu road through Rumuokoro East west road", 13], ["Elingbu", 13], ["Eneka", 13],[" Rumuodomaya", 13],
+["Wimpy junction", 14], ["Iwofe-Epirikon road", 14], ["Elioparanwo road", 14], ["Ignatius Ajuru campus", 14], ["Ada George road", 14],
+ ["Ozuoba, Ngbuoba", 14], 
+ ["Amadi round about", 15], ["Abuloma road", 15],["Abuloma", 15],["Mother cat", 15], ["Nkpogu", 15],  ["School road", 15], ["Peter odili road", 15],
+  ["Golf Estate", 15],["Eleme",16],[" Eleme junction",16], ["Elelenwo",16], ["Onne",16],[" Intels camp",16], ["Akpajo",16]
 
 ]
 
@@ -105,6 +122,27 @@ export const look_up = {
     "Eneka":{"id":13},
     "Rumuodomaya":{"id":13},
     "Rumuigbo junction":{"id":13},
+    "Wimpy junction": {"id":14},
+    "Elioparanwo road": {"id":14},
+    "Ignatius Ajuru campus": {"id":14},
+    "Ada George road": {"id":14},
+    "Ozuoba, Ngbuoba": {"id":14}, 
+    "Amadi round about": {"id":15},
+    "Abuloma road": {"id":15} ,
+    "Abuloma": {"id":15} ,
+    "Mother cat": {"id":15},
+    "Nkpogu": {"id":15},
+    "School road": {"id":15},
+    "Peter odili road": {"id":15},
+    "Golf Estate": {"id":15},
+    "Iwofe-Epirikon road": {"id":14},
+    "Eleme junction":{"id":16},
+    "Elelenwo":{"id":16},
+    "Onne":{"id":16},
+    " Intels camp":{"id":16},
+    "Akpajo":{"id":16},
+    "Eleme":{"id":16},
+
  
 }
 
@@ -130,3 +168,6 @@ export const Cash_prices = {
     "18":[],
     "19":[]
 }
+
+
+

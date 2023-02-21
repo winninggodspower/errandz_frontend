@@ -48,3 +48,64 @@ link:hover {
         font-size: 12px;
     }
 }
+
+
+#myModal {
+    
+        display: block; 
+        position: fixed; 
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100vw; 
+        height: 100vh; 
+        overflow: scroll; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+     
+}
+
+#myModal div h1 {
+    font-weight: .75em;
+    color: black;
+    font-size: small;
+    
+    
+}
+
+#myModal h2 {
+    
+    color: black;
+    font-size: small;
+}
+
+#myModal p {
+    
+    color: black;
+    font-size: small;
+}
+
+#myModal li {
+    
+    color: black;
+    font-size: small;
+}
+
+#myModal .termspage{
+    max-width: 900px;
+    max-height: 100%;
+    overscroll-behavior: none;
+    overflow-y: auto;
+    border-radius: 100px;
+}
+
+@media screen and (max-width: 920px) {
+    #myModal .termspage {
+        max-width: 80vw;
+    }
+    
+}

@@ -1,18 +1,21 @@
 import React from 'react'
+import Navbar from '../../components/Navbar/Navbar'
 
 function PrivacyPage() {
   return (
-    <div id='privacypage'>
-      <div className='bg-dark text-white fs-1 text-center p-4'>
-        <h1 className='text-white'> PRIVACY POLICY </h1>
+    <div id='privacypage' style={{background:"white"}}>
+      <Navbar />
+      <div className='text-black fs-5 text-center p-4 mt-5'>
+        <h1 className='fs-1'> PRIVACY POLICY </h1>
       </div>
 
-      <div>
-        <h2>
+      <div className='p-3' style={{wordBreak: "break-word",
+    wordSpacing: "3px"}}>
+        <h2 className='py-3'>
         INTRODUCTION
 
         </h2>
-        <p>
+        <p className='text-black'>
         Cabek Errandz, recognizes your privacy rights as guaranteed under the 1999 Constitution of the Federal Republic of Nigeria; the Nigerian Data Protection Regulation 2019 issued by the National Information Technology Development Agency (NITDA), and the privacy provisions in other relevant laws applicable to our business in Nigeria. 
 Thus, it is important to us as a law-abiding organization that your Personal Data is managed, processed and protected in accordance with the provisions of the applicable laws. 
 In the course of our business and/or your engagement with us and third parties through our Platforms (this includes but are not limited to our websites, digital platforms, mobile applications, physical operations/offices, amongst others), we may process your Personal Data, subject however to the terms of this Policy. 
@@ -23,76 +26,76 @@ This Policy applies to all our Applications, Platforms, and all related sites, s
         <h2>
         DEFINITIONS
         </h2>
-        <p>For the purpose of this Policy</p>
-        <p><em>Data/Information</em> means any information relating to you, including your name, identification number, location data, online identifier address, photo, email address, pins, passwords, bank details, posts on our Platforms, religion, date of birth, health, race/tribe, nationality, ethnicity, your location, trades union membership, criminal records, medical information, and other unique identifiers such as but not limited to MAC address, IP address, International Mobile Equipment Identity (IMEI) number, Bank Verification Number, International Mobile Subscriber Identity (IMSI) number, Subscriber Identification Module (SIM) and others. It also includes factors specific to your physical, physiological, genetic, mental, economic, cultural or social identity. </p>
-        <p>
-        <em>Process/Processing </em>means any operation or set of operations which is performed on your Personal Data or sets of Personal Data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction. 
+        <p className='text-black'>For the purpose of this Policy</p>
+        <p className='text-black'><b>Data/Information</b> means any information relating to you, including your name, identification number, location data, online identifier address, photo, email address, pins, passwords, bank details, posts on our Platforms, religion, date of birth, health, race/tribe, nationality, ethnicity, your location, trades union membership, criminal records, medical information, and other unique identifiers such as but not limited to MAC address, IP address, International Mobile Equipment Identity (IMEI) number, Bank Verification Number, International Mobile Subscriber Identity (IMSI) number, Subscriber Identification Module (SIM) and others. It also includes factors specific to your physical, physiological, genetic, mental, economic, cultural or social identity. </p>
+        <p className='text-black'>
+        <b>Process/Processing </b>means any operation or set of operations which is performed on your Personal Data or sets of Personal Data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction. 
 
         </p>
         <h2>CONSENT</h2>
-        <p>We kindly request that you carefully read through this Policy and click on the ‘Agree’ icon below, if you consent to the terms of this Policy, particularly with respect to the processing of your Personal Data. That notwithstanding, if you proceed to use any of our Platforms and services, it will deemed that you have provided your express consent to the terms of this Policy.
+        <p className='text-black'>We kindly request that you carefully read through this Policy and click on the ‘Agree’ icon below, if you consent to the terms of this Policy, particularly with respect to the processing of your Personal Data. That notwithstanding, if you proceed to use any of our Platforms and services, it will deemed that you have provided your express consent to the terms of this Policy.
 
 </p>
 <h2>AGE</h2>
-<p>You must be at least 18 years old to use our services or any of our Platforms. Individuals under the age of 18, or applicable age of maturity, may utilize our Platforms services only with involvement of a parent or legal guardian, under such person’s account. Regardless, all Personal Data which we may process shall be in accordance with this Policy and other applicable laws.</p>
+<p className='text-black'>You must be at least 18 years old to use our services or any of our Platforms. Individuals under the age of 18, or applicable age of maturity, may utilize our Platforms services only with involvement of a parent or legal guardian, under such person’s account. Regardless, all Personal Data which we may process shall be in accordance with this Policy and other applicable laws.</p>
 <h2>Information We Collect</h2>
-<p>
+<p className='text-black'>
 We collect a variety of information from visitors to the website. As described below some information is automatically collected when you visit our website, and some you provide to us when registering or filling out a form, creating a transaction on our platform or communicating with us and some we collect when you interact with us via our platform or even through third parties in the following ways:
 </p>
-<ul>
+<ul className='text-black'>
     <li>
-    <em>Information Collected Automatically:</em> Whenever you visit our website, our web servers automatically collect non-personal information such as the domain name of the internet access provider, the internet protocol address used to connect the computer to the internet, the average time spent on our website, pages viewed, information searched for, access times, and other relevant statistics. 
+    <b>Information Collected Automatically:</b> Whenever you visit our website, our web servers automatically collect non-personal information such as the domain name of the internet access provider, the internet protocol address used to connect the computer to the internet, the average time spent on our website, pages viewed, information searched for, access times, and other relevant statistics. 
     </li>
     <li>
-    <em>Information you Provide Us:</em> If you provide us with personal information by, registering for an account or contacting us, we collect that personal information. For example, if you register on our website, we collect your name, e-mail address and password. If you initiate or commence a transaction, we collect the personal information you provide us such as your billing and payment information. If you contact our customer service agents, you may also provide us with personal information that we collect. 
+    <b>Information you Provide Us:</b> If you provide us with personal information by, registering for an account or contacting us, we collect that personal information. For example, if you register on our website, we collect your name, e-mail address and password. If you initiate or commence a transaction, we collect the personal information you provide us such as your billing and payment information. If you contact our customer service agents, you may also provide us with personal information that we collect. 
     </li>
     <li>
-    <em>Log and Usage Data:</em> Log and usage data is service-related, diagnostic, usage and performance information our servers automatically collect when you access or use our Services and which we record in log files. Depending on how you interact with us, this log data may include your IP address, device information, browser type and settings and information about your activity in the Services (such as the date/time stamps associated with your usage, pages and files viewed, searches and other actions you take such as which features you use), device event information (such as system activity, error reports (sometimes called ‘crash dumps’) and hardware settings). 
+    <b>Log and Usage Data:</b> Log and usage data is service-related, diagnostic, usage and performance information our servers automatically collect when you access or use our Services and which we record in log files. Depending on how you interact with us, this log data may include your IP address, device information, browser type and settings and information about your activity in the Services (such as the date/time stamps associated with your usage, pages and files viewed, searches and other actions you take such as which features you use), device event information (such as system activity, error reports (sometimes called ‘crash dumps’) and hardware settings). 
     </li>
     <li>
-    <em>Device Data:</em> We collect device data such as information about your computer, phone, tablet or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model Internet service provider and/or mobile carrier, operating system and system configuration information. 
+    <b>Device Data:</b> We collect device data such as information about your computer, phone, tablet or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model Internet service provider and/or mobile carrier, operating system and system configuration information. 
     </li>
     <li>
-    <em>Location Data:</em> We collect location data such as information about your device’s location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access our Services. For example, we may use GPS and other technologies to collect geo-location data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. Note however, if you choose to opt out, you may not be able to use certain aspects of the Services. 
+    <b>Location Data:</b> We collect location data such as information about your device’s location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access our Services. For example, we may use GPS and other technologies to collect geo-location data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. Note however, if you choose to opt out, you may not be able to use certain aspects of the Services. 
 
     </li>
     <li>
-    <em>Third Parties:</em> We also receive Information through your engagements with us on social media sites (e.g., Facebook, Instagram, LinkedIn, Twitter, and WhatsApp). These include but are not limited to your replies to our posts, your comments, enquiries, messages to us, etc. 
+    <b>Third Parties:</b> We also receive Information through your engagements with us on social media sites (e.g., Facebook, Instagram, LinkedIn, Twitter, and WhatsApp). These include but are not limited to your replies to our posts, your comments, enquiries, messages to us, etc. 
 
     </li>
     <li>
-    <em>Social Media</em>: We may also receive your information from third parties such as relatives, guardians, financial institutions, vendors, and service providers etc. 
+    <b>Social Media</b>: We may also receive your information from third parties such as relatives, guardians, financial institutions, vendors, and service providers etc. 
 
     </li>
 </ul>
 
 <h2>Information Collected through our Mobile Application</h2>
-<p>We collect information regarding your geo-location, mobile device, push notifications, when you use our mobile Application (App). </p>
+<p className='text-black'>We collect information regarding your geo-location, mobile device, push notifications, when you use our mobile Application (App). </p>
 
-<p>If you use our App, we also collect the following information:</p>
-<ul>
+<p className='text-black'>If you use our App, we also collect the following information:</p>
+<ul className='text-black'>
 
-<li><em>Geo-Location Information:</em> We may request access or permission to and track location-based information from your mobile device, either continuously or while you are using our App, to provide certain location-based services. If you wish to change our access or permissions, you may do so in your device’s settings. 
+<li><b>Geo-Location Information:</b> We may request access or permission to and track location-based information from your mobile device, either continuously or while you are using our App, to provide certain location-based services. If you wish to change our access or permissions, you may do so in your device’s settings. 
 </li>
-<li><em>Mobile Device Access:</em> We may request access or permission to certain features from your mobile device, including your mobile device’s camera, contacts, microphone, sensors, SMS messages, storage, and other features. If you wish to change our access or permissions, you may do so in your device’s settings. 
+<li><b>Mobile Device Access:</b> We may request access or permission to certain features from your mobile device, including your mobile device’s camera, contacts, microphone, sensors, SMS messages, storage, and other features. If you wish to change our access or permissions, you may do so in your device’s settings. 
 </li>
-<li><em>Mobile Device Data:</em> We automatically collect device information (such as your mobile device ID, model and manufacturer), operating system, version information and system configuration information, device and application identification numbers, browser type and version, hardware model Internet service provider and/or mobile carrier, and Internet Protocol (IP) address (or proxy server). If you are using our App, we may also collect information about the phone network associated with your mobile device, your mobile device’s operating system or platform, the type of mobile device you use, your mobile device’s unique device ID and information about the features of our App you accessed. 
+<li><b>Mobile Device Data:</b> We automatically collect device information (such as your mobile device ID, model and manufacturer), operating system, version information and system configuration information, device and application identification numbers, browser type and version, hardware model Internet service provider and/or mobile carrier, and Internet Protocol (IP) address (or proxy server). If you are using our App, we may also collect information about the phone network associated with your mobile device, your mobile device’s operating system or platform, the type of mobile device you use, your mobile device’s unique device ID and information about the features of our App you accessed. 
 </li>
-<li><em>Push Notifications:</em> We may request to send you push notifications regarding your account or certain features of the App. If you wish to opt-out from receiving these types of communications, you may turn them off in your device’s settings. 
+<li><b>Push Notifications:</b> We may request to send you push notifications regarding your account or certain features of the App. If you wish to opt-out from receiving these types of communications, you may turn them off in your device’s settings. 
 </li>
-<li><em>Contacts:</em> We may request for permission to access, view contacts on your phone, this feature is strictly for our riders. We use this to enable us safeguard, trace and verify our riders, to ensure our properties and our user’s properties will be safe with them. 
+<li><b>Contacts:</b> We may request for permission to access, view contacts on your phone, this feature is strictly for our riders. We use this to enable us safeguard, trace and verify our riders, to ensure our properties and our user’s properties will be safe with them. 
 </li>
 </ul>
 
-<p>This information is primarily needed to maintain the security and operation of our App, for troubleshooting and for our internal analytics and reporting purposes. 
+<p className='text-black'>This information is primarily needed to maintain the security and operation of our App, for troubleshooting and for our internal analytics and reporting purposes. 
 </p>
 <h2>How we Use Your Personal Information
 </h2>
-<p>In the course of your engagements with us or through our Platforms, we collect personal information for various legal reasons, largely to enable us to personalize your experience and to provide a more efficient service to you. Some of the reasons we collect Information are: 
+<p className='text-black'>In the course of your engagements with us or through our Platforms, we collect personal information for various legal reasons, largely to enable us to personalize your experience and to provide a more efficient service to you. Some of the reasons we collect Information are: 
 </p>
 
 
-    <ul>
+    <ul className='text-black'>
 
  <li>   To help us verify your identity 
 </li>
@@ -126,24 +129,24 @@ We collect a variety of information from visitors to the website. As described b
 </li>
     </ul>
 
-    <p>We may monitor and record communications with you (including phone conversations and emails) for quality assurance and compliance purposes. We will not disclose your personal data to any third party except in accordance with this privacy policy and the relevant laws.</p>
+    <p className='text-black'>We may monitor and record communications with you (including phone conversations and emails) for quality assurance and compliance purposes. We will not disclose your personal data to any third party except in accordance with this privacy policy and the relevant laws.</p>
     <h2>Storage and Protection of Your Data</h2>
-    <p>We protect your personal Information using physical, technical, and administrative security measures to reduce the risks of loss, misuse, unauthorized access, disclosure and alteration. Some of our safeguards include ensuring that sensitive data are encrypted and stored in a secure manner with only authorised users having access to this information. Access to our various platforms is restricted to authorized users only. Your Information is also stored on our secure servers as well as secure physical locations and cloud infrastructure. All information are stored in data centers which is collocated out our office environment, this is to ensure security of data and also availability of data when required. 
+    <p className='text-black'>We protect your personal Information using physical, technical, and administrative security measures to reduce the risks of loss, misuse, unauthorized access, disclosure and alteration. Some of our safeguards include ensuring that sensitive data are encrypted and stored in a secure manner with only authorised users having access to this information. Access to our various platforms is restricted to authorized users only. Your Information is also stored on our secure servers as well as secure physical locations and cloud infrastructure. All information are stored in data centers which is collocated out our office environment, this is to ensure security of data and also availability of data when required. 
 </p>
-<p>We will take all necessary measure to ensure that your Personal Data is safe, however, you are also required to ensure that access codes, PINs, passwords, usernames, and all other information or hints that may enable third party access to your accounts on our Platforms are secure. We therefore strongly advise you to keep such information secure and confidential. If you use a third party’s device (laptops, phones, public internet, etc.) to access your account, kindly ensure that you always log out. Kindly note however that certain devices are programmed to save passwords or usernames, as such, we therefore advise that you use third party devices with extreme caution. If you believe that an unauthorized person has accessed your information, please contact us immediately. 
+<p className='text-black'>We will take all necessary measure to ensure that your Personal Data is safe, however, you are also required to ensure that access codes, PINs, passwords, usernames, and all other information or hints that may enable third party access to your accounts on our Platforms are secure. We therefore strongly advise you to keep such information secure and confidential. If you use a third party’s device (laptops, phones, public internet, etc.) to access your account, kindly ensure that you always log out. Kindly note however that certain devices are programmed to save passwords or usernames, as such, we therefore advise that you use third party devices with extreme caution. If you believe that an unauthorized person has accessed your information, please contact us immediately. 
 </p>
 <h2>Processing Your Information</h2>
 
-<p>In order to execute our obligations to you or process your transactions, we may be required to process your Information, such as your name, account number, account ID, contact details, shipping, delivery and billing address, or other information needed to complete the transaction. We also work with third parties, including financial institutions, vendors, service providers, logistics partners and outlets who at one point or the other facilitate transactions executed on our Platforms. For completeness, in the course of your engagement with us or use of our services and Platforms, we may share your information with different stakeholders, including but not limited to Financial institutions; service providers; and collection agencies to report account or credit information; Cabek Errandz (including subsidiaries and affiliates); Regulatory or judicial authorities; or other third parties pursuant to a subpoena, court order, or other legal process or requirement applicable to Cabek Errandz. Please note that the parties mentioned above may be within or outside Nigeria. 
+<p className='text-black'>In order to execute our obligations to you or process your transactions, we may be required to process your Information, such as your name, account number, account ID, contact details, shipping, delivery and billing address, or other information needed to complete the transaction. We also work with third parties, including financial institutions, vendors, service providers, logistics partners and outlets who at one point or the other facilitate transactions executed on our Platforms. For completeness, in the course of your engagement with us or use of our services and Platforms, we may share your information with different stakeholders, including but not limited to Financial institutions; service providers; and collection agencies to report account or credit information; Cabek Errandz (including subsidiaries and affiliates); Regulatory or judicial authorities; or other third parties pursuant to a subpoena, court order, or other legal process or requirement applicable to Cabek Errandz. Please note that the parties mentioned above may be within or outside Nigeria. 
 We may also process your Information when we believe, in our sole discretion, that the disclosure of your Information is necessary to comply with applicable laws and judicial/regulatory orders; conduct investigations; manage existing or imminent risks, prevent fraud, crime or financial loss, or for public safety or to report suspected illegal activity or to investigate violations of our Terms and Conditions. 
 In all cases, we will ensure that your Information is safe, and notify the receiving party of the confidential nature of your Information, particularly the need to maintain the confidentiality of same and prevent unlawful or unauthorised usage.</p>
 
 
 <h2>Your Rights</h2>
-<p>You have the following rights regarding your personal information collected by us: 
+<p className='text-black'>You have the following rights regarding your personal information collected by us: 
 </p>
 
-<ul>
+<ul className='text-black'>
 
 <li>Right to access your personal information being held by us. Request for such information may be sent to help@errandz.com.ng 
 </li>
@@ -166,11 +169,11 @@ In all cases, we will ensure that your Information is safe, and notify the recei
 <h2>
 Software
 </h2>
-<p>If you download or use our software, such as a stand-alone software product, an app, or a browser plugin, you agree that from time to time, the software may download and install upgrades, updates and additional features from us in order to improve, enhance, and further develop the software</p>
+<p className='text-black'>If you download or use our software, such as a stand-alone software product, an app, or a browser plugin, you agree that from time to time, the software may download and install upgrades, updates and additional features from us in order to improve, enhance, and further develop the software</p>
 
 <h2>Disclosure
 </h2>
-<ul>
+<ul className='text-black'>
 
 
 <li>Cabek Errandz will not sell, publish, disclose, or rent to third parties your personally identifiable information collected at our web site, through our servers or otherwise obtained by us, other than to provide our services and as set forth in this privacy policy. 
@@ -200,19 +203,19 @@ Software
 <li>Required by Law We may disclose Personally Identifiable Information if required to do so by law or in the good faith belief that such action is necessary to (a) conform with the requirements of the law or comply with legal process served on us, or (b) act in urgent circumstances to protect the personal safety of users of our service or members of the public. 
 </li>
 </ul>
-<p>To the extent practicable and legally permitted, we will attempt to advise you prior to any such disclosure, so that you may seek a protective order or other relief limiting such disclosure. </p>
+<p className='text-black'>To the extent practicable and legally permitted, we will attempt to advise you prior to any such disclosure, so that you may seek a protective order or other relief limiting such disclosure. </p>
 <h2>Communications from Our Site</h2>
-<p>Upon registering on our site, you will receive emails that confirm specific actions you requested. You will receive notifications confirming your registration, the successful verification of email addresses and bank accounts, if required, and confirmation of successful transactions. You will also receive progress updates on the status of your transactions. These are transactional notifications that you cannot opt out of receiving, as they are in place to protect the security of your account and your personal information. We may also send you responses to emails you send us, if appropriate or applicable. 
+<p className='text-black'>Upon registering on our site, you will receive emails that confirm specific actions you requested. You will receive notifications confirming your registration, the successful verification of email addresses and bank accounts, if required, and confirmation of successful transactions. You will also receive progress updates on the status of your transactions. These are transactional notifications that you cannot opt out of receiving, as they are in place to protect the security of your account and your personal information. We may also send you responses to emails you send us, if appropriate or applicable. 
 </p>
-<p>From time to time, we will also send user surveys, requests for user feedback regarding user experience and site operations or marketing offers from us or from us on behalf of our marketing partners. The completion of these surveys or requests for feedback or acceptance of any offer is strictly voluntary. If you do not wish to receive these offers, surveys or user feedback emails, please opt out in any offer email you receive from us. 
+<p className='text-black'>From time to time, we will also send user surveys, requests for user feedback regarding user experience and site operations or marketing offers from us or from us on behalf of our marketing partners. The completion of these surveys or requests for feedback or acceptance of any offer is strictly voluntary. If you do not wish to receive these offers, surveys or user feedback emails, please opt out in any offer email you receive from us. 
 </p>
 <h2>Cross Border Data Transfer Policy</h2>
-<p>Cabek Errandz is an Independent company with the holding company in Nigeria and affiliates and partners spread across different parts of the world. Consequently, in the course of providing you with our services and in a bid to serve you better, we may be required to transfer your Information/Data (electronically or otherwise) across the borders of Nigeria. Nonetheless, we have an unwavering commitment to ethical and responsible practices in ensuring that your Personal Information is adequately protected regardless of where the data is transferred or hosted. </p>
-<p>This Policy defines our global standards for management and protection of Information/Data by or on behalf of Cabek Errandz regardless of the country from which it originates or to which Information may be transferred. This Policy will apply to any transfer of information which is undergoing processing or is intended for processing after transfer to a foreign country or to an international organisation. </p>
-<p>We will only transfer Information or allow it to be processed by third parties in a different jurisdiction if such country has an adequate level of data protection as determined by the appropriate regulatory authority (that includes the National Information Technology Development Agency; Honorable Attorney General of the Federation; etc.) in accordance with the provisions of the Nigeria Data Protection Regulation or any other privacy laws in force. </p>
-<p>In the absence of any decision by the appropriate regulatory authority as to the adequacy of safeguards in a foreign country to which your Information may be transferred, we will only transfer your Information to a foreign country or an international organisation only if any of the following requirements have been met</p>
+<p className='text-black'>Cabek Errandz is an Independent company with the holding company in Nigeria and affiliates and partners spread across different parts of the world. Consequently, in the course of providing you with our services and in a bid to serve you better, we may be required to transfer your Information/Data (electronically or otherwise) across the borders of Nigeria. Nonetheless, we have an unwavering commitment to ethical and responsible practices in ensuring that your Personal Information is adequately protected regardless of where the data is transferred or hosted. </p>
+<p className='text-black'>This Policy defines our global standards for management and protection of Information/Data by or on behalf of Cabek Errandz regardless of the country from which it originates or to which Information may be transferred. This Policy will apply to any transfer of information which is undergoing processing or is intended for processing after transfer to a foreign country or to an international organisation. </p>
+<p className='text-black'>We will only transfer Information or allow it to be processed by third parties in a different jurisdiction if such country has an adequate level of data protection as determined by the appropriate regulatory authority (that includes the National Information Technology Development Agency; Honorable Attorney General of the Federation; etc.) in accordance with the provisions of the Nigeria Data Protection Regulation or any other privacy laws in force. </p>
+<p className='text-black'>In the absence of any decision by the appropriate regulatory authority as to the adequacy of safeguards in a foreign country to which your Information may be transferred, we will only transfer your Information to a foreign country or an international organisation only if any of the following requirements have been met</p>
 
-<ul>
+<ul className='text-black'>
 
 <li>Your explicit consent has been obtained (Please note that such foreign country or international organisation may have privacy laws or policies less stringent that Nigerian privacy regulation or laws. However, we will ensure that the recipient of such Information undertakes to protect your Information and handle it with utmost confidentiality); 
 </li>
@@ -228,10 +231,10 @@ Software
 </li>
 
 </ul>
-<p>In order to ensure that any cross-border transfer of your Information is adequately protected, we may</p>
+<p className='text-black'>In order to ensure that any cross-border transfer of your Information is adequately protected, we may</p>
 
 
-<ul>
+<ul className='text-black'>
 
 
 <li>conduct privacy due diligence to evaluate the privacy practices and risks associated with third parties in a foreign country. 
@@ -254,23 +257,23 @@ Software
 </ul>
 
 <h2>Cookies policy</h2>
-<p>Cookies are small pieces of data, stored in text files, that are stored on your computer or other device when websites are loaded in a browser, and which collects information about user actions on a site</p>
-<p>When you access our Platforms, we may place small data files on your computer or other device. These data files may be cookies, pixel tags, flash cookies, or other local storage provided by your browser or associated applications (collectively referred to as “cookies”). These technologies are used to recognize users as customers; customize services, content, and advertising; measure promotional effectiveness; help ensure that account security is not compromised; mitigate risk and prevent fraud; and to promote trust and safety on our Platform. We also use cookies to collect and use data as part of our services, recognise your browser or device, learn more about your interests, and provide you with essential features and services. </p>
+<p className='text-black'>Cookies are small pieces of data, stored in text files, that are stored on your computer or other device when websites are loaded in a browser, and which collects information about user actions on a site</p>
+<p className='text-black'>When you access our Platforms, we may place small data files on your computer or other device. These data files may be cookies, pixel tags, flash cookies, or other local storage provided by your browser or associated applications (collectively referred to as “cookies”). These technologies are used to recognize users as customers; customize services, content, and advertising; measure promotional effectiveness; help ensure that account security is not compromised; mitigate risk and prevent fraud; and to promote trust and safety on our Platform. We also use cookies to collect and use data as part of our services, recognise your browser or device, learn more about your interests, and provide you with essential features and services. </p>
 
-<p>This Cookies Policy apply to our websites, Applications and Platforms alone. We do not exercise control over the sites displayed or linked from within our various services. These other sites may place their own cookies or other files on your computer, collect data or solicit personal information from you. 
+<p className='text-black'>This Cookies Policy apply to our websites, Applications and Platforms alone. We do not exercise control over the sites displayed or linked from within our various services. These other sites may place their own cookies or other files on your computer, collect data or solicit personal information from you. 
 </p>
 
 <h2>What Type of Cookies do we Use?
 </h2>
-<p>
-<em>Temporary cookies:</em> This is also known as 'session cookies'; it helps our sites and platforms to recognise users, temporary memorize their online activities and the information provided when they navigate through a website. Session cookies only retain information about your activities for as long as you are on the website. Once the web browser is closed, the cookies are automatically deleted.</p>
-<p><em>Permanent cookies:</em> This is also known as 'persistent cookies' or ‘first-party cookies’; they remain in operation even after the web browser has closed. It helps our sites or platforms remember your information, preferences and settings such as language selection and internal bookmarks for when you revisit in the future</p>
+<p className='text-black'>
+<b>Temporary cookies:</b> This is also known as 'session cookies'; it helps our sites and platforms to recognise users, temporary memorize their online activities and the information provided when they navigate through a website. Session cookies only retain information about your activities for as long as you are on the website. Once the web browser is closed, the cookies are automatically deleted.</p>
+<p className='text-black'><b>Permanent cookies:</b> This is also known as 'persistent cookies' or ‘first-party cookies’; they remain in operation even after the web browser has closed. It helps our sites or platforms remember your information, preferences and settings such as language selection and internal bookmarks for when you revisit in the future</p>
       
       <h2>Why We Use Cookies?</h2>
-      <p>Cookies store helpful information to enhance users' experiences on our site, and possibly to improve our ability to reconnect with you later. They are used to remember you and your preferences such as your preferred language, device settings, browsing activities and other useful information, help you navigate between pages efficiently, and generally improve your experience in using our services.</p>
-      <p>We use these cookies are used are as follows:</p>
+      <p className='text-black'>Cookies store helpful information to enhance users' experiences on our site, and possibly to improve our ability to reconnect with you later. They are used to remember you and your preferences such as your preferred language, device settings, browsing activities and other useful information, help you navigate between pages efficiently, and generally improve your experience in using our services.</p>
+      <p className='text-black'>We use these cookies are used are as follows:</p>
       
-      <ul>
+      <ul className='text-black'>
       
       
  <li> Authentication: We use cookies and similar technologies to recognize you when you visit our site. If you’re signed into our website or mobile app, it helps us show you the right information and personalize your experience in line with your settings. Cookies also enables us to identify you and verify your account. 
@@ -288,9 +291,9 @@ Software
 </ul>
 
 <h2>Where we place cookies</h2>
-<p>We set cookies in a number of different locations across our services. These locations may include</p>
+<p className='text-black'>We set cookies in a number of different locations across our services. These locations may include</p>
 
-<ul>
+<ul className='text-black'>
 
 
 <li>Our websites (including www.errandz.com.ng ) and other Services; 
@@ -304,27 +307,27 @@ Software
 </ul>
 
 <h2>Controlling Cookies</h2>
-<p>We will always ask for your consent to accept the use of cookies on your device. You can freely decline our cookies when you see our “accept cookies” request or through your browser settings. Cookies are optional unless they are required to prevent fraud or ensure the security of Platforms we control. You may also configure your specific browser or email settings to automatically reject cookies. You may also erase cookies stored on your device through your browser settings or by deleting the folder or file where they are stored on your device.</p>
-<p>Declining our Cookies may affect your ability to fully utilize of our Platform and services. Without cookies you may not have access to certain features on the site, including access to certain personalized content. </p>
-    <p>Cabek Errandz may revise this Cookies Policy to reflect changes in the law, our data collection and use practices, the features of our site, or advancements in technology. If we make any material changes, we will notify you by email or through a prominent notice on our sites/platforms prior to such change.</p>
+<p className='text-black'>We will always ask for your consent to accept the use of cookies on your device. You can freely decline our cookies when you see our “accept cookies” request or through your browser settings. Cookies are optional unless they are required to prevent fraud or ensure the security of Platforms we control. You may also configure your specific browser or email settings to automatically reject cookies. You may also erase cookies stored on your device through your browser settings or by deleting the folder or file where they are stored on your device.</p>
+<p className='text-black'>Declining our Cookies may affect your ability to fully utilize of our Platform and services. Without cookies you may not have access to certain features on the site, including access to certain personalized content. </p>
+    <p className='text-black'>Cabek Errandz may revise this Cookies Policy to reflect changes in the law, our data collection and use practices, the features of our site, or advancements in technology. If we make any material changes, we will notify you by email or through a prominent notice on our sites/platforms prior to such change.</p>
 
      <h2>Data Retention</h2>
      <h3>Introduction </h3>
-     <p>
+     <p className='text-black'>
      This Data Retention Policy (the “Policy”) sets out how Cabek Errandz retains Records (defined below) necessary for its business operations, contractual obligations, legal, audit and regulatory compliance, and when we may destroy such Records, whilst promoting orderly and efficient data management. This ensures compliance with the data protection laws and the duty of confidentiality to which we are bound. We retain your information for as long as necessary for the purpose(s) for which it was collected. The period of data storage and retention is subject to legal, regulatory, administrative and operational requirements. 
 Records include Information, data, documents (contractual, personal), correspondence, policies, confidential information, etc. regardless of media; created, received, and maintained by Cabek Errandz as evidence, and in compliance with regulatory requirements, legal obligations, business practices, legal policies, contractual obligations, financial transactions, administrative activities, business decisions or other actions. Records provide information about, and evidence of Cabek Errandz’s transactions, customers, employment and activities, and may be created, received or maintained in hard copy or electronic format.
 
      </p>
      <h2>Scope of this Policy </h2>
-     <p>The main objective of this Policy is to ensure that complete and accurate Records are identified, retained, stored, protected and subsequently destroyed or archived appropriately under such terms and within such periods set out in this Policy. 
+     <p className='text-black'>The main objective of this Policy is to ensure that complete and accurate Records are identified, retained, stored, protected and subsequently destroyed or archived appropriately under such terms and within such periods set out in this Policy. 
 This Policy applies to all our Platforms, and all related sites, applications, services and tools regardless of how they are accessed or used. It also covers all Records stored on company-owned, leased, and otherwise company-provided systems and media, regardless of location, including our servers, third-party servers; computer systems (desktops or laptops), mobile devices, physical records stored at our offices or other locations.
 </p>
 <h2>Policy Administrator </h2>
-<p>Cabek Errandz’s Data Compliance Officer (DCO) shall oversee the administration, implementation and the procedure of this Policy. The DCO work with the company’s management and legal & compliance department and shall ensure that the retention policy is followed to the latter. The DCO has the authority to review the data retention procedures; monitor compliance; make modifications to the data retention schedule when necessary to ensure it complies with the relevant laws, encompasses new developments and contains the appropriate records and document. </p>
+<p className='text-black'>Cabek Errandz’s Data Compliance Officer (DCO) shall oversee the administration, implementation and the procedure of this Policy. The DCO work with the company’s management and legal & compliance department and shall ensure that the retention policy is followed to the latter. The DCO has the authority to review the data retention procedures; monitor compliance; make modifications to the data retention schedule when necessary to ensure it complies with the relevant laws, encompasses new developments and contains the appropriate records and document. </p>
 <h2>Security measures</h2>
-<p>In addition to other existing data protection measures being implemented by Cabek Errandz, we will ensure that the following measures are in place to protect the security of retained Records: </p>
+<p className='text-black'>In addition to other existing data protection measures being implemented by Cabek Errandz, we will ensure that the following measures are in place to protect the security of retained Records: </p>
 
-<ul>
+<ul className='text-black'>
 
 <li>All Records received and retained through emails must be encrypted and/or password protected and will only be transmitted and stored over secure networks. 
 </li>
@@ -349,14 +352,14 @@ This Policy applies to all our Platforms, and all related sites, applications, s
 </ul>
 
 <h2>Retention period and procedures</h2>
-<p>For all Records obtained, used and stored by Cabek Errandz, we will conduct periodic reviews of the Records retained, confirming their purpose, continued validity, accuracy and requirement to retain such Records. Records will be kept for as long as they are needed to meet the operational or contractual needs of Cabek Errandz, together with legal and regulatory requirements. Cabek Errandz may transfer paper-based Records to an alternative media format in instances of long retention periods. As a general principle, Cabek Errandz will only need to retain one copy of the final version of a Record. Draft documents may be destroyed immediately unless they contain vital information which were not otherwise contained the final document. 
+<p className='text-black'>For all Records obtained, used and stored by Cabek Errandz, we will conduct periodic reviews of the Records retained, confirming their purpose, continued validity, accuracy and requirement to retain such Records. Records will be kept for as long as they are needed to meet the operational or contractual needs of Cabek Errandz, together with legal and regulatory requirements. Cabek Errandz may transfer paper-based Records to an alternative media format in instances of long retention periods. As a general principle, Cabek Errandz will only need to retain one copy of the final version of a Record. Draft documents may be destroyed immediately unless they contain vital information which were not otherwise contained the final document. 
 The retention periods for Records provided under this Policy takes into consideration: the requirements of Cabek Errandz for such Records; the type, sensitivity and importance of such Record; contractual obligations; the purpose of processing such record; lawful basis for processing the records; the requirements of the law. Where it is not possible to define a statutory or legal retention period in line with the applicable data protection/privacy laws, we will identify the criteria by which the period can be determined (such as industry standards) and update this Policy as may be necessary. 
 </p>
 <h2>Destruction of Records</h2>
-<p>Destruction of Records is a critical component of a data retention policy. Once the retention period has elapsed, the Records are either reviewed, archived, returned, anonymized or confidentially destroyed depending on their purpose, importance and legal requirements. When a Record has reached its designated destruction date, the DCO shall refer to the retention register to determine the next action to be taken. Not all data or records are expected to be deleted upon expiration; sometimes it is sufficient to anonymise the data, return the Record or to archive Records for a further period.</p>
-<p>Records will not be kept after the retention period unless:</p>
+<p className='text-black'>Destruction of Records is a critical component of a data retention policy. Once the retention period has elapsed, the Records are either reviewed, archived, returned, anonymized or confidentially destroyed depending on their purpose, importance and legal requirements. When a Record has reached its designated destruction date, the DCO shall refer to the retention register to determine the next action to be taken. Not all data or records are expected to be deleted upon expiration; sometimes it is sufficient to anonymise the data, return the Record or to archive Records for a further period.</p>
+<p className='text-black'>Records will not be kept after the retention period unless:</p>
 
-<ul>
+<ul className='text-black'>
 
 <li>the Record is the subject of a pending litigation, administrative or regulatory proceedings. In these circumstances, destruction will be delayed until such regulatory proceedings have been completed, at which time a new retention period will be created. 
 </li>
@@ -366,9 +369,9 @@ The retention periods for Records provided under this Policy takes into consider
 </li>
 <li>there is a legal or regulatory reason or order to maintain the Records either permanently or for a longer period. 
 </li></ul>
-<p>Cabek Errandz is committed to the secure and safe disposal of any Record in accordance with our contractual and legal obligations. Accordingly, when the Records have been retained until the end of their retention period, they can be destroyed in the following ways:</p>
+<p className='text-black'>Cabek Errandz is committed to the secure and safe disposal of any Record in accordance with our contractual and legal obligations. Accordingly, when the Records have been retained until the end of their retention period, they can be destroyed in the following ways:</p>
    
-<ul>
+<ul className='text-black'>
 
 <li>Hardcopy of documents will be destroyed by shredding or burning. 
 </li>
@@ -382,11 +385,11 @@ The retention periods for Records provided under this Policy takes into consider
 </li>
   </ul>   
    <h2>Use Google Maps Platform APIs</h2>
-   <p>We use Google Maps Platform APIs for the purpose of providing better service.
+   <p className='text-black'>We use Google Maps Platform APIs for the purpose of providing better service.
 This Website or App uses Google Maps Platform APIs which are subject to Google’s Terms of Service. You may find the Google Maps Platform Terms of Service here. To find out more about Google’s Privacy Policy, please refer to this link. We obtain and store on your device (‘cache’) your location. You may revoke your consent anytime by contacting us at the contact details provided at the end of this document.
 </p>
 <h2>Contact Us</h2>
-<ul>
+<ul className='text-black'>
 If you have questions regarding your data privacy rights or would like to submit a related data privacy right request, kindly contact us via the information below: 
 
 
@@ -399,7 +402,7 @@ If you have questions regarding your data privacy rights or would like to submit
 </ul>
 
 <h2>Amendments</h2>
-<p>Cabek Errandz may revise this Privacy Policy from time to time by posting a revised Privacy Policy on our Website. We reserve the right to modify this Privacy Policy at any time. Notice of the amendment shall be posted on our website and the revised version will be effective from the date of publication. You are advised to read and review our terms/privacy policy frequently. 
+<p className='text-black'>Cabek Errandz may revise this Privacy Policy from time to time by posting a revised Privacy Policy on our Website. We reserve the right to modify this Privacy Policy at any time. Notice of the amendment shall be posted on our website and the revised version will be effective from the date of publication. You are advised to read and review our terms/privacy policy frequently. 
 </p>
    </div>
     </div>

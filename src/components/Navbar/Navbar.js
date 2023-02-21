@@ -31,7 +31,7 @@ function Navbar(props) {
         window.onresize = setNavDisplay;
 
 
-    }, [])
+    }, [pathname])
     
 
     return (

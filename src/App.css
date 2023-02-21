@@ -71,7 +71,7 @@
   position: relative;
   max-width: 1440px;
   width: 100%;
-  padding: 0 28px;
+  padding: 0 0;
   flex-grow: 1;
   overflow-x: none;
 }

@@ -26,6 +26,7 @@ import Faq from './routes/FAQ/Faq';
 import { loader as deliverLoader  } from './routes/AcceptRequest/accept-request';
 import CommingSoon from './routes/Comming/comming';
 import PrivacyPage from './routes/errandz/privacy';
+import EditAccount from './routes/edit/EditAccount';
 
 const router = createBrowserRouter([
   {
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: 'privacy/',
         element: <PrivacyPage />
+      },
+      {
+        path: 'edit_account_details/',
+        element: <EditAccount />
       },
     ]
   }

@@ -26,8 +26,9 @@ function ContactUs(){
                     </div>
                     <div className="col d-flex justify-content-center align-items-center w-100 contactus" style={{minWidth:"350px"}}>
                         <div className="mx-auto w-100">
-                        {send ? <div>
+                        {send ? <div className="text-center">
                             <h1 className="fs-1 text-primary p-1"> Thanks For </h1>
+                            <h1 className="fs-1 text-primary p-1">  For </h1>
                             <h1 className="fs-1 text-primary p-1"> The Message</h1>
 
                         </div>

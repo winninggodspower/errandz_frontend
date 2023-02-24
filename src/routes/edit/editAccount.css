@@ -8,6 +8,12 @@
     padding: 100px 50px;
 }
 
+@media screen and (min-width:760px) {
+  .edit-form {
+    padding: 50px 10px;
+  }
+  
+}
 .edit-form input {
     border: 0;
     display: block;

@@ -84,7 +84,7 @@ function Home(){
                             <div className="card mw-100" style={{"height" : "247px"}}>
                                 <div className="card-body d-flex flex-column justify-content-center text-center ">
                                     <h5 className="card-title mb-4">Financial inclusion</h5>
-                                    <p className="card-text">Flexibility and variety gives financial inclusion
+                                    <p className="card-text">We gives financial inclusion
                                     for riders, vendors and also giving back to the society.</p>
                                 </div>
                             </div>
@@ -133,10 +133,10 @@ function Home(){
         </section>
 
         <section id='section-d' className="section pt-5 section-dark" >
-            <div className="row container mx-auto pb-5 ps-0 pt-0 pt-md-5">
+            <div className="row container mx-auto pb-5 ps-0 px-3 px-sm-0 pt-0 pt-md-5">
 
                 {/* <!--INTRO TEXT--> */}
-                <div id="txt-container" className="col-12 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 px-2">
+                <div id="txt-container" className="col-12 px-3 col-md-6 d-flex flex-column justify-content-center ms-auto ms-md-4 px-2">
                     <div className='text-center text-sm-start'>
                         <h2 className='text-white '>
                         Download our App, Send your delivery in seconds
@@ -150,7 +150,7 @@ function Home(){
                     </div>
                 </div>
 
-                <div className="col-md-5 col-12 pb-0 pb-sm-4 px-0 px-md-2 d-md-flex">
+                <div className="col-md-5 col-12 pb-0 pb-sm-4 px-3 d-md-flex">
                     <picture className="mx-auto">
                         <source media="(min-width: 480px)" srcSet={errandzMockup} />
                         <source media="(min-width: 992px)" srcSet={errandzMockup} />
@@ -158,7 +158,7 @@ function Home(){
                     </picture>
                 </div>
 
-                <div className='d-flex d-sm-none justify-content-around'>
+                <div className='d-flex d-sm-none px-3 justify-content-around'>
                     <img src={googleStoreImage} width={150} alt="google playstore" />
                     <img src={appleStoreImage} width={130} alt="apple store" />
                 </div>

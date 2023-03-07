@@ -84,7 +84,7 @@ function Home(){
                             <div className="card mw-100" style={{"height" : "247px"}}>
                                 <div className="card-body d-flex flex-column justify-content-center text-center ">
                                     <h5 className="card-title mb-4">Financial inclusion</h5>
-                                    <p className="card-text">We gives financial inclusion
+                                    <p className="card-text">We give financial inclusion
                                     for riders, vendors and also giving back to the society.</p>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ export default function ConfirmDelivery(props) {
     const handleShow = () => setShow(true);
 
     let handleSubmit = async (ref)=>{
-        let confirmDeliveryPath = '/api/confirm_deliery';
+        let confirmDeliveryPath = '/api/confirm_delivery';
         let confirmDeliveryUrl = BASE_URL + confirmDeliveryPath
         let Headers={
             'Content-Type': 'application/json',

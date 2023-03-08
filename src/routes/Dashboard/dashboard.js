@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import notificationBell from "../../images/icons/notification.svg";
 import { BASE_URL } from '../../globalVariable';
 import v1 from "../../images/icons/V2.svg";
@@ -15,11 +14,13 @@ import { getToken } from "../../Utils/LoginUtils";
 import { requestdata } from "../../Utils/useFetch";
 import ConfirmDelivery from "./confirmDelivery";
 import BottomNav from '../../components/BottomNav/BottomNav';
+import getRiderEarning from "./getRiderEarning";
 
 function Dashboard() {
     let navigate = useNavigate();
     let { user } = useContext(UserContext)
     let [history, setHistory] = useState([])
+    let [earning, setEarning] = useState({todaysEarning: 0, totalEarning: 0}) 
 
     useEffect(()=>{
         if (!getToken()) {
@@ -48,6 +49,17 @@ function Dashboard() {
 
         getAccountHistory();
 
+        let setRiderEarning = async ()=>{
+            let {todaysEarning, totalEarning} = await getRiderEarning(user);
+            console.log({todaysEarning, totalEarning})
+            setEarning({todaysEarning, totalEarning})
+        }
+
+        if (user && user.account.user_type === 'rider'){
+           setRiderEarning();
+        }
+
+
     }, [user, navigate])
 
 
@@ -68,18 +80,18 @@ function Dashboard() {
                 </div>
 
                 {/* if statem,ent */}
-                {user ? (user.account.user_type === 'rider' ?
+                {user ? (user.account.user_type === 'rider' ? 
                     <div className="rounded-3 bg-dark p-3 my-3 my-md-5 mx-auto text-light" style={{ width: "800px", maxWidth: "100%" }}>
                         <div>
                             <h5 className="fs-5 mb-0" id="wallet-text">Total Earning</h5>
-                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
+                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> {earning.totalEarning}.00</h4>
                         </div>
 
                         <div className="pb-1"></div>
 
                         <div className="text-end">
                             <h5 className="fs-5 mb-0" id="wallet-text">Today's Earning</h5>
-                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> 0.00</h4>
+                            <h4 id="wallet-price" className="fs-4"> <span className="d-sm-none">NGN</span> {earning.todaysEarning}.00</h4>
                         </div>
 
                     </div> :

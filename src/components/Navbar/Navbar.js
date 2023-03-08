@@ -59,7 +59,7 @@ function Navbar(props) {
                             <Link to="/profile" className="nav-link active text-white">Profile</Link>
                         </li>
                         <li className="nav-item ms-4">
-                        <Link to="/logout" className="nav-link active text-white "><i class="bi bi-box-arrow-right"></i>  Logout</Link>
+                        <Link to="/logout" className="nav-link active text-white "><i className="bi bi-box-arrow-right"></i>  Logout</Link>
                         </li>
                     </ul> :
 

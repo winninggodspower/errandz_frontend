@@ -21,10 +21,8 @@ export default function ConfirmDelivery(props) {
             'Authorization': `Token ${getToken()}`,
         }
         let Method="POST";
-        console.log(ref)
         await requestdata(confirmDeliveryUrl, {'reference': ref}, Headers,  Method)
                  .then(res=>{
-                    console.log("i am not running ........")
                     if (res.status === 200) {
                         setData({...deliveryData, status: "completed"})
                         handleClose()
@@ -44,9 +42,7 @@ export default function ConfirmDelivery(props) {
             <div className="modal mx-auto" style={{display: (show ? "block" : "none")}} tabindex="-1" id={"REF" + data.ref}>
                 <div className="modal-dialog modal-dialog-centered mx-auto" style={{width: "350px", maxWidth: "100%"}}>
                     <div className="modal-content">
-                        {/* <div className="modal-header border-0 mb-0">
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div> */}
+                        
                         <div className="modal-body border-0 py-0">
                             <p className='text-center text-dark pt-3 pb-0 mb-0'>Received your order?</p>
                         </div>

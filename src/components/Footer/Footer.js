@@ -44,21 +44,21 @@ function Footer() {
                 {/* <!--FOOTER LINKS--> */}
                 <div className="col-12 col-sm row row-col-3">
                     
-                    <div class="col">
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Home</Link></li>
-                            <li class="nav-item mb-2"><Link to={'about/us'} class="nav-link p-0 ">About</Link></li>
-                            <li class="nav-item mb-2"><Link to={'contact/us'} class="nav-link p-0 ">Contact</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/faq'} class="nav-link p-0 ">FAQs</Link></li>
+                    <div className="col">
+                        <ul className="nav flex-column">
+                            <li className="nav-item mb-2"><Link to={'/'} className="nav-link active p-0 ">Home</Link></li>
+                            <li className="nav-item mb-2"><Link to={'about/us'} className="nav-link p-0 ">About</Link></li>
+                            <li className="nav-item mb-2"><Link to={'contact/us'} className="nav-link p-0 ">Contact</Link></li>
+                            <li className="nav-item mb-2"><Link to={'/faq'} className="nav-link p-0 ">FAQs</Link></li>
                         </ul>
                     </div>
 
-                    <div class="col">
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link active p-0 ">Licence</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 " onClick={OpenModal}>Terms of Services</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/privacy'} class="nav-link p-0 ">Privacy policy</Link></li>
-                            <li class="nav-item mb-2"><Link to={'/'} class="nav-link p-0 ">Email</Link></li>
+                    <div className="col">
+                        <ul className="nav flex-column">
+                            <li className="nav-item mb-2"><Link to={'/'} className="nav-link active p-0 ">Licence</Link></li>
+                            <li className="nav-item mb-2"><Link to={'/'} className="nav-link p-0 " onClick={OpenModal}>Terms of Services</Link></li>
+                            <li className="nav-item mb-2"><Link to={'/privacy'} className="nav-link p-0 ">Privacy policy</Link></li>
+                            <li className="nav-item mb-2"><Link to={'/'} className="nav-link p-0 ">Email</Link></li>
                         </ul>
                     </div>
 

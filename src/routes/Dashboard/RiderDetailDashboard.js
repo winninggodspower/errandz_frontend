@@ -16,14 +16,14 @@ export default function RiderDetailDashboard({ rider, sideText}) {
         </a>
 
 
-        <div class="modal" style={{display: (show ? "block" : "none")}} tabindex="-1" id={rider.account.id}>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Rider Details</h5>
-                    <button onClick={handleClose} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal" style={{display: (show ? "block" : "none")}} tabindex="-1" id={rider.account.id}>
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">Rider Details</h5>
+                    <button onClick={handleClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body px-4 px-md-5">
+                <div className="modal-body px-4 px-md-5">
                     <div className='text-center'>
                         <img className="rounded-circle mx-auto" src={BASE_URL + rider.account.profile_image} alt="profile " style={{ width: "100px", height: "100px" }} />
                     </div>
@@ -42,8 +42,8 @@ export default function RiderDetailDashboard({ rider, sideText}) {
                         <span className='text-dark'>{rider.account.email}</span>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClose}>Close</button>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClose}>Close</button>
                 </div>
                 </div>
             </div>

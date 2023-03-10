@@ -15,6 +15,7 @@ import { requestdata } from "../../Utils/useFetch";
 import ConfirmDelivery from "./confirmDelivery";
 import BottomNav from '../../components/BottomNav/BottomNav';
 import getRiderEarning from "./getRiderEarning";
+import requestNotificationPermission from "../../notification/firebase.js";
 
 function Dashboard() {
     let navigate = useNavigate();
@@ -61,6 +62,13 @@ function Dashboard() {
 
 
     }, [user, navigate])
+
+    useEffect(()=>{
+        // request permission to send notification
+        if (getToken()) {
+            requestNotificationPermission();
+        }
+    }, [])
 
 
     return (

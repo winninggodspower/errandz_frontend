@@ -23,7 +23,6 @@ function Navbar(props) {
                 navRef.current.style.display = "block";
             }
             if (mustShowPages.find(showpage=>pathname===showpage)) {
-                console.log(navRef.current);
                 navRef.current.style.display = "block";
             }
         };

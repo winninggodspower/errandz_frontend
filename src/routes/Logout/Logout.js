@@ -11,7 +11,7 @@ function Logout() {
     let logoutUser = () => {
         clearToken();
         setUser(null);
-        return navigate("/")
+        return navigate("/login")
     }
 
     return (

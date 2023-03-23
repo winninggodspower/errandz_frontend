@@ -28,7 +28,7 @@ function Home(){
                          <Link to={"/dashboard"} className="btn btn-light text-dark text-decoration-none d-md-inline-flex justify-content-center align-items-center" >Dashboard</Link> : 
                          <div>
                             <Link to={"/register/customer"} className="btn btn-light mt-3 me-3 text-dark d-inline-flex justify-content-center align-items-center" >Get Started</Link>
-                            <Link to={"/login"} className="btn btn-light mt-3 text-dark d-none d-md-inline-flex justify-content-center align-items-center" >Sign Up</Link>
+                            <Link to={"/login"} className="btn btn-light mt-3 text-dark d-none d-md-inline-flex justify-content-center align-items-center" >Sign In</Link>
                          </div>
                         }
                        

@@ -16,7 +16,7 @@ function Logout() {
 
     return (
         <>
-            {getToken() ? logoutUser() : <Navigate to="/" />}
+            {getToken() ? logoutUser() : <Navigate to="/login" />}
         </>
     )
 

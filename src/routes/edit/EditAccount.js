@@ -1,72 +1,75 @@
-import React from 'react'
-import "./editAccount.css"
-import backarrow from "./../../image/backarrow.svg"
-import profile from "./../../images/profile.jpg"
+import React from 'react';
+import "./editAccount.css";
+import backarrow from "./../../image/backarrow.svg";
+import plusIcon from "./../../images/icons/plus-icon.svg";
+import profile from "./../../images/profile.jpg";
+import { useEffect } from 'react';
 
 function EditAccount() {
-  return (
-    <div className='h-100'>
+    return (
         <div className='h-100'>
-            <div className='position-relative pt-5 container'>
-                <img src={backarrow} alt='solo pics' className='position-absolute left-0' style={{ width: "50px", height: "50px" }} />
-                <div className='d-flex justify-content-center align-items-center'>
-                <img className="rounded-circle mx-auto" id="profile-img" src={profile} alt="profile " style={{ width: "100px", height: "100px" }} />
+            <div className='h-100 container mx-3'>
+
+                <div className='pt-5'>
+
+                    <div className='d-flex justify-content-center my-4'>
+                        <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={profile} alt="profile" />
+                    </div>
 
                 </div>
-            </div>
-            <div className=' edit-form row  gap-1 gap-md-2 ps-md-5'>
-                <div className='row gap-1 m-0 p-0 w-100  ' >
-                    <div className='col'>
-                        <label>Surname</label>
-                        <input type="text" placeholder='Opeyemi' id="surname" style={{width:"120px"}} />
+
+                <div className=' edit-form mx-auto mt-5'>
+                    <div className='row row-cols-2 g-3 mx-auto'>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>Surname</label>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Opeyemi' id="surname" />
+                        </div>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>First Name</label>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Daniel' />
+                        </div>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>Email Address</label>
+                            <input type="email" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='dami@gmail.com' />
+                        </div>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>Phone</label>
+                            <input type="number" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='07092828673' />
+                        </div>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>State</label>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='River State' />
+                        </div>
+                        <div className='col mb-4 '>
+                            <label className='d-block mb-2'>City</label>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Yenagoa' />
+                        </div>
                     </div>
-                    <div className='col '>
-                        <label>First Name</label>
-                        <input type="text" placeholder='Daniel' style={{width:"120px"}}/>
+
+                    <div className='col-12 mb-4'>
+                        <div id='upload-id'>
+
+                            <label className='d-block mb-2'>Valid Id</label>
+                            <label class="label w-100" for="user-id-file">
+                                <div id="id-box" className='w-100 btn rounded-0 d-grid align-items-center justify-content-center'>
+                                    <img src={plusIcon} />
+                                </div>
+                            </label>
+
+                            <input type="file" id='user-id-file'/>
+                        </div>
                     </div>
-                </div>
-                <div className='row gap-1 gap-md-3 m-0 p-0'>
-                    <div className='col'>
-                        <label>Country Code</label>
-                        <input type="number" placeholder='+234' style={{width:"120px"}}/>
-                    </div>
-                    <div className='col '>
-                        <label>Phone</label>
-                        <input type="number" placeholder='07092828673' style={{width:"120px"}}/>
-                    </div>
-                </div>
-                <div className='row gap-1 gap-md-3 m-0 p-0'>
-                    <div className='col'>
-                        <label>Email Address</label>
-                        <input type="email" placeholder='dami@gmail.com' style={{width:"120px"}}/>
-                    </div>
-                    <div className='col '>
-                        <label>Home Address</label>
-                        <input type="text" placeholder='Daniel' style={{width:"120px"}}/>
-                    </div>
-                </div>
-                <div className='row gap-1 gap-md-3 m-0 p-0'>
-                    <div className='col'>
-                        <label>Language</label>
-                        <input type="text" placeholder='English, Yoruba, Igbo' style={{width:"150px"}}/>
-                    </div>
-                    <div className='col w-100'>
-                        <label className='d-block'>Valid Id</label>
-                        <label class="label">
-                            <input type="file" required/>
-                            <span>Select a file <i className='fa fa-plus'></i></span>
-                        </label>
-                    </div>
-                    <div className='w-100 w-md-50 mx-auto d-flex justify-content-center align-items-center'>
-                    <button type='submit' className='btn btn-dark mx-auto w-75 h-75' >submit</button>
+
+                    <div className='w-100 '>
+                        <button type='submit' className='btn btn-dark w-100 rounded-0' >submit</button>
                     </div>
                 </div>
 
                 
+
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default EditAccount

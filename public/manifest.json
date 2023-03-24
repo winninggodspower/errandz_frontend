@@ -3,7 +3,7 @@
   "name": "Errandz",
   "icons": [
     {
-      "src": "errandz192-black.png",
+      "src": "errandz-black.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
@@ -14,7 +14,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "errandz-black.png",
+      "src": "errandz192.png",
       "type": "image/png",
       "sizes": "192x192"
     },

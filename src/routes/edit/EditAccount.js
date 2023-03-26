@@ -61,7 +61,7 @@ function EditAccount() {
 
                 <div className=' edit-form mx-auto mt-5'>
 
-                    <div className='d-grid position-relative justify-content-center my-4 mb-4'>
+                    <div className='d-grid position-relative justify-content-center my-4 mb-5'>
                         <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={account.account.profile_image || profile} alt="profile" />
                         <div className="position-absolute d-flex justify-content-start align-self-center">
                             <BackNav />

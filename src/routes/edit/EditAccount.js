@@ -7,19 +7,22 @@ import { useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import { getToken } from 'firebase/messaging';
+import BackNav from "../../components/BackNav/BackNav";
 
 function EditAccount() {
     let navigate = useNavigate();
     let { user } = useContext(UserContext)
 
-    const [account, setAccount] = useState({ first_name: "", last_name: "", 
-                                            account: { email: "", phone: "", state: "", city: "", profile_image: ""}})
+    const [account, setAccount] = useState({
+        first_name: "", last_name: "",
+        account: { email: "", phone: "", state: "", city: "", profile_image: "" }
+    })
 
-    let updateAccount= (newDetails)=>{
-        if (!newDetails){
+    let updateAccount = (newDetails) => {
+        if (!newDetails) {
             return
         }
-        let updatedAccountDetails = {account}
+        let updatedAccountDetails = { account }
         for (const key in account) {
             if (Object.hasOwnProperty.call(newDetails, key)) {
                 updatedAccountDetails[key] = newDetails[key]
@@ -32,20 +35,20 @@ function EditAccount() {
     const handleChange = (e) => {
 
         let { name, value } = e.target;
-        if (name in account.account){
+        if (name in account.account) {
 
             setAccount({ ...account, [name]: value })
-        }else{
-            setAccount({ ...account, [name]: value }) 
+        } else {
+            setAccount({ ...account, [name]: value })
         }
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!getToken()) {
             return navigate('/login');
         }
-        else{
+        else {
             updateAccount(user)
             console.log(user);
         }
@@ -55,23 +58,24 @@ function EditAccount() {
         <div className='h-100'>
             <div className='h-100 container mx-auto'>
 
-                <div className='pt-5'>
-
-                    <div className='d-flex justify-content-center my-4'>
-                        <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={account.profile_image || profile} alt="profile" />
-                    </div>
-
-                </div>
 
                 <div className=' edit-form mx-auto mt-5'>
-                    <div className='row row-cols-2 g-3 mx-auto'>
+
+                    <div className='d-grid position-relative justify-content-center my-4 mb-4'>
+                        <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={account.account.profile_image || profile} alt="profile" />
+                        <div className="position-absolute d-flex justify-content-start align-self-center">
+                            <BackNav />
+                        </div>
+                    </div>
+
+                    <div className='row row-cols-2 g-3 mx-auto mt-5'>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Surname</label>
                             <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Opeyemi' id="surname" value={account.first_name} onChange={handleChange} />
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>First Name</label>
-                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Daniel' value={account.last_name} onChange={handleChange}/>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Daniel' value={account.last_name} onChange={handleChange} />
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Email Address</label>
@@ -79,15 +83,15 @@ function EditAccount() {
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Phone</label>
-                            <input type="tel" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='07092828673' value={account.account.phone} onChange={handleChange}/>
+                            <input type="tel" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='07092828673' value={account.account.phone} onChange={handleChange} />
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>State</label>
-                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='River State' value={account.account.state} onChange={handleChange}/>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='River State' value={account.account.state} onChange={handleChange} />
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>City</label>
-                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Yenagoa' value={account.account.city} onChange={handleChange}/>
+                            <input type="text" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Yenagoa' value={account.account.city} onChange={handleChange} />
                         </div>
                     </div>
 
@@ -101,7 +105,7 @@ function EditAccount() {
                                 </div>
                             </label>
 
-                            <input type="file" id='user-id-file'/>
+                            <input type="file" id='user-id-file' />
                         </div>
                     </div>
 
@@ -110,7 +114,7 @@ function EditAccount() {
                     </div>
                 </div>
 
-                
+
 
             </div>
         </div>

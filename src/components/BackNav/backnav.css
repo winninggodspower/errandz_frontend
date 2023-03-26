@@ -1,0 +1,9 @@
+#backNavIcon{
+    cursor: pointer;
+}
+
+@media (min-width: 768px){
+    #backNavIcon {
+            width: 30px;
+        }
+}

@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import { BASE_URL } from '../../globalVariable';
 import { getUserDetails } from '../../Utils/AccountUtils';
 import { AlertContext } from '../../UserContext';
+import { ThreeDots } from 'react-loader-spinner';
 
 const loginPath = BASE_URL + '/api/api-token-auth/';
 
@@ -23,10 +24,10 @@ const FetchUser = async (data, errorFunc) => {
         },
 
     })
-    .catch((error)=>{
-        errorFunc(error);
-    })
-    
+        .catch((error) => {
+            errorFunc(error);
+        })
+
     if (response) {
         return response.json()
     }
@@ -57,7 +58,7 @@ function Login() {
         e.preventDefault();
         setLoading(true)
 
-        let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password }, (error)=>{
+        let response = await FetchUser({ username: loginDetails.email, password: loginDetails.password }, (error) => {
             setLoading(false);
             addAlert('danger', `${error}`)
             console.log(error);
@@ -108,13 +109,23 @@ function Login() {
                                     <input type="checkbox" class="form-check-input" id="show-password" onChange={showPassword} />
                                     <label class="form-check-label" for="show-password">show password</label>
                                 </div>
-                                
+
                                 <div>
                                     <span><a href="/forgot-password" class="text-dark text-decoration-none">forgot password?</a></span>
                                 </div>
                             </div>
 
-                            <button type="submit" onClick={handleSubmit} class="btn btn-dark w-100" disabled={is_loading}>Sign In</button>
+                            <button type="submit" onClick={handleSubmit} class="btn btn-dark d-flex justify-content-center w-100" disabled={is_loading}>
+                                {is_loading ? <ThreeDots
+                                    height="90%"
+                                    radius="9"
+                                    color="#ffffff"
+                                    ariaLabel="three-dots-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClassName=""
+                                    visible={true}
+                                /> : "Sign In"}
+                            </button>
                         </Form>
                     </div>
 

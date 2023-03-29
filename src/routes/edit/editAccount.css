@@ -7,11 +7,11 @@
 }
 
 #account-profile-img{
-  width: 80px !important;
-  height: 80px !important;
+  width: 90px !important;
+  height: 90px !important;
 }
 
-#upload-id > input
+#upload-id > input, #upload-image-icon-container > input
 {
     display: none;
 }
@@ -25,5 +25,9 @@
   #account-profile-img{
     width: 60px !important;
     height: 60px !important;
+  }
+
+  #upload-image-icon{
+    width: 30px;
   }
 }

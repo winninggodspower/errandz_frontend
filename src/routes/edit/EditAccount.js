@@ -50,7 +50,6 @@ function EditAccount() {
 
     const upload = (e) => {
         const image = e.target.files[0];
-        console.log(e.target.files)
         // this.setState({ uploading: true })
 
         const formData = new FormData();
@@ -60,9 +59,7 @@ function EditAccount() {
 
         let account2 = { ...account };
         account2.account.profile_image = image_url;
-        console.log(account2);
         setAccount(account2);
-
 
 
         // fetch(`${API_URL}/image-upload`, {
@@ -90,7 +87,6 @@ function EditAccount() {
             setAccount({ ...account, [name]: value });
         }
 
-        console.log(account);
     }
 
     const handleSubmit = async (e) => {
@@ -99,7 +95,13 @@ function EditAccount() {
 
         const path = "/api/account/";
         const url = BASE_URL + path;
-        console.log(url)
+        let accountToSubmit = { ...account }
+
+        //remove phone number field if it's the same as account
+        //because it'll return error
+        if(accountToSubmit.account.email === user.account.email){
+            delete accountToSubmit.account.email;
+        }
 
         await fetch(url, {
             method: "PATCH",
@@ -107,19 +109,21 @@ function EditAccount() {
                 'Content-Type': 'application/json',
                 'Authorization': `Token ${getToken()}`,
             },
-            body: JSON.stringify(account)
+            body: JSON.stringify(accountToSubmit)
         })
             .then(res => {
                 if (res.status === 400) {
                     res.json()
                         .then(data => {
                             setError(data);
-                            console.log(data)
+                            console.log("errorr",data)
                         })
                 } else {
                     res.json()
                         .then(data => {
-                            console.log(data);
+                            console.log('data',data);
+                            setAccount(data);
+                            setError({});
                         })
                 }
             })
@@ -155,7 +159,7 @@ function EditAccount() {
                                 <img id="upload-image-icon" type="button" src={uploadImageIcon} alt="profile" />
                             </label>
 
-                            <input type="file" id='upload-image' onChange={upload} />
+                            <input type="file" id='upload-image' accept="image/*" onChange={upload} />
                         </div>
 
                         <div className="position-absolute d-flex justify-content-start align-self-center">

@@ -79,7 +79,7 @@ function Dashboard() {
 
                 <div id="profile-heading" className="d-flex justify-content-between mt-5">
                     <div className="profile">
-                        <Link to={"/profile"}>   <img src={user && user.account.profile_image} id="profile-img" className="rounded-circle" alt="profile" style={{width:"100px"}} />
+                        <Link to={"/profile"}>   <img src={user && user.account.profile_image} id="profile-img" className="rounded-circle" alt="profile" style={{width:"100px", objectFit: "cover"}} />
                         </Link> <span id="profile-name" className="fs-4 ms-3">Hi, {user && user.first_name}</span>
                     </div>
                     <div className="d-flex align-items-center mx-2">

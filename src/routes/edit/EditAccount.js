@@ -14,7 +14,7 @@ const defaultProfileImage = "https://errandzmedia.blob.core.windows.net/media/pr
 
 function EditAccount() {
     let navigate = useNavigate();
-    let { user } = useContext(UserContext)
+    let { user, setUser } = useContext(UserContext)
 
     const [account, setAccount] = useState({
         first_name: "", last_name: "",
@@ -79,6 +79,10 @@ function EditAccount() {
             .then(image => {
                 console.log(image);
                 setUploading(false);
+                let updatedUserDetails = {...user}
+                updatedUserDetails.account.profile_image = image.profile_image;
+                console.log(updatedUserDetails)
+                setUser(updatedUserDetails)
             })
 
     }

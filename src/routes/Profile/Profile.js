@@ -38,7 +38,7 @@ function Profile() {
                     </div>
 
                     <div className="d-flex flex-column flex-md-row">
-                        <img className="rounded-circle mx-auto mx-2 mx-md-0" id="profile-img" src={user && user.account.profile_image} alt="profile " style={{ width: "100px", height: "100px" }} />
+                        <img className="rounded-circle mx-auto mx-2 mx-md-0" id="profile-img" src={user && user.account.profile_image} alt="profile " style={{ width: "100px", height: "100px", objectFit: "cover" }} />
                         <div className="align-self-center ms-0 ms-md-4 text-center text-md-start">
                             <p id="username" className="mb-0 fw-md-semibold mt-2">{user && user.first_name}</p>
                             <p id="phone" className="mb-0 mt-1">{user && user.account.phone}</p>

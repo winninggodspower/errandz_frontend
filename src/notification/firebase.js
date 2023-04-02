@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging , getToken, onMessage } from "firebase/messaging";
+import {BASE_URL} from "../globalVariable";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,7 +25,23 @@ function getDeviceToken(){
     .then((currentToken) => {
         if (currentToken) {
         // Send the token to your server and update the UI if necessary
-        // ...
+        fetch(`${BASE_URL}/api/register_user_device_notification_token`, {
+          method: "POST",
+          headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${getToken()}`,
+            },
+          body: JSON.stringify({
+            token: currentToken
+          })
+        })
+        .then(res => {
+          return res.json()
+        })
+        .then(data=>{
+          console.log(data);
+        })
+
         console.log(currentToken);
         } else {
         // Show permission request UI
@@ -43,7 +60,6 @@ export default function requestNotificationPermission() {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
         getDeviceToken();
-        new Notification("notification went through");
       }else{
         console.log('Notification permission not granted.');
       }

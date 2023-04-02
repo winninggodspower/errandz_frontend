@@ -42,7 +42,6 @@ function EditAccount() {
                         }
                         else if(accountKey in profileImage){
                             setProfileImage({[accountKey]: newDetails[key][accountKey]})
-                            console.log({[accountKey]: newDetails[key][accountKey]})
                         }
                     }
                 } else {

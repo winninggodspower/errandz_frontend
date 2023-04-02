@@ -2,7 +2,6 @@ import React from 'react';
 import "./editAccount.css";
 import plusIcon from "./../../images/icons/plus-icon.svg";
 import uploadImageIcon from "./../../images/icons/upload-image-icon.svg";
-import profile from "./../../images/profile.jpg";
 import { useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
@@ -11,16 +10,20 @@ import { BASE_URL } from "../../globalVariable";
 import { getToken } from "../../Utils/LoginUtils";
 import { ThreeDots } from 'react-loader-spinner';
 
+const defaultProfileImage = "https://errandzmedia.blob.core.windows.net/media/profile_images/default/profile_avatar.jpg";
+
 function EditAccount() {
     let navigate = useNavigate();
     let { user } = useContext(UserContext)
 
     const [account, setAccount] = useState({
         first_name: "", last_name: "",
-        account: { email: "", phone: "", state: "", city: "", profile_image: "" }
+        account: { email: "", phone: "", state: "", city: "" }
     })
+    const [profileImage, setProfileImage] = useState({"profile_image": ""})
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [uploading, setUploading] = useState(false);
 
     let updateAccount = (newDetails) => {
         if (!newDetails) {
@@ -37,6 +40,10 @@ function EditAccount() {
 
                             updatedAccountDetails[key][accountKey] = newDetails[key][accountKey]
                         }
+                        else if(accountKey in profileImage){
+                            setProfileImage({[accountKey]: newDetails[key][accountKey]})
+                            console.log({[accountKey]: newDetails[key][accountKey]})
+                        }
                     }
                 } else {
                     updatedAccountDetails[key] = newDetails[key];
@@ -44,35 +51,37 @@ function EditAccount() {
             }
         }
 
-        console.log(updatedAccountDetails);
         setAccount(updatedAccountDetails);
     }
 
     const upload = (e) => {
         const image = e.target.files[0];
-        // this.setState({ uploading: true })
+        setUploading(true)
 
-        const formData = new FormData();
+        let formData = new FormData();
+        
+        formData.append("profile_image", image);
 
-        // FormData.append("profile_image", image);
         let image_url = URL.createObjectURL(image);
 
         let account2 = { ...account };
-        account2.account.profile_image = image_url;
+        profileImage.profile_image = image_url;
         setAccount(account2);
 
+        fetch(`${BASE_URL}/api/account/change_profile_image/`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Token ${getToken()}`,
+            },
+            body: formData,
+            
+        })
+            .then(res => res.json())
+            .then(image => {
+                console.log(image);
+                setUploading(false);
+            })
 
-        // fetch(`${API_URL}/image-upload`, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(images => {
-        //         this.setState({
-        //             uploading: false,
-        //             images
-        //         })
-        //     })
     }
 
     const handleChange = (e) => {
@@ -97,12 +106,13 @@ function EditAccount() {
         const url = BASE_URL + path;
         let accountToSubmit = { ...account }
 
-        //remove phone number field if it's the same as account
+        //remove email field if it's the same as account
         //because it'll return error
         if(accountToSubmit.account.email === user.account.email){
             delete accountToSubmit.account.email;
         }
 
+        console.log(accountToSubmit)
         await fetch(url, {
             method: "PATCH",
             headers: {
@@ -112,18 +122,18 @@ function EditAccount() {
             body: JSON.stringify(accountToSubmit)
         })
             .then(res => {
-                if (res.status === 400) {
-                    res.json()
-                        .then(data => {
-                            setError(data);
-                            console.log("errorr",data)
-                        })
-                } else {
+                if (res.status === 200) {
                     res.json()
                         .then(data => {
                             console.log('data',data);
                             setAccount(data);
                             setError({});
+                        })
+                } else {
+                        res.json()
+                        .then(data => {
+                            setError(data);
+                            console.log("error",data)
                         })
                 }
             })
@@ -151,7 +161,7 @@ function EditAccount() {
                 <form onSubmit={handleSubmit} className=' edit-form mx-auto mt-5'>
 
                     <div className='d-grid position-relative justify-content-center my-4 mb-5'>
-                        <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={account.account.profile_image || profile} alt="profile" />
+                        <img id="account-profile-img" className="rounded-circle ratio-1x1 mx-auto" src={profileImage.profile_image || defaultProfileImage} alt="profile" />
 
                         <div id="upload-image-icon-container" className="position-absolute bottom-0 start-50">
                             <label className="label w-100" htmlFor="upload-image">
@@ -164,38 +174,50 @@ function EditAccount() {
                         <div className="position-absolute d-flex justify-content-start align-self-center">
                             <BackNav />
                         </div>
+
+                        <div className="position-absolute start-50 translate-middle d-flex justify-content-start align-self-center">
+                            <ThreeDots
+                                height="90%"
+                                radius="9"
+                                color="#000000"
+                                ariaLabel="three-dots-loading"
+                                wrapperStyle={{}}
+                                wrapperClassName=""
+                                visible={uploading}
+                            />
+                        </div>
                     </div>
 
                     <div className='row row-cols-2 g-3 mx-auto mt-5'>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Surname</label>
-                            <input type="text" name="first_name" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Opeyemi' id="surname" value={account.first_name} onChange={handleChange} />
+                            <input type="text" name="first_name" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0'  id="surname" value={account.first_name} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.first_name || null}</span>}
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>First Name</label>
-                            <input type="text" name="last_name" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Daniel' value={account.last_name} onChange={handleChange} />
+                            <input type="text" name="last_name" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0'  value={account.last_name} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.last_name || null}</span>}
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Email Address</label>
-                            <input type="email" name="email" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='dami@gmail.com' value={account.account.email} onChange={handleChange} />
+                            <input type="email" name="email" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' value={account.account.email} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.account?.email || null}</span>}
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>Phone</label>
-                            <input type="tel" name="phone" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='07092828673' value={account.account.phone} onChange={handleChange} />
+                            <input type="tel" name="phone" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0'  value={account.account.phone} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.account?.phone || null}</span>}
 
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>State</label>
-                            <input type="text" name="state" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='River State' value={account.account.state} onChange={handleChange} />
+                            <input type="text" name="state" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' value={account.account.state} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.account?.state || null}</span>}
                         </div>
                         <div className='col mb-4 '>
                             <label className='d-block mb-2'>City</label>
-                            <input type="text" name="city" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0' placeholder='Yenagoa' value={account.account.city} onChange={handleChange} />
+                            <input type="text" name="city" className='edit-input form-control bg-transparent rounded-0 p-0 border-bottom border-0'  value={account.account.city} onChange={handleChange} />
                             {error && <span className="text-danger">{error?.account?.city || null}</span>}
                         </div>
                     </div>

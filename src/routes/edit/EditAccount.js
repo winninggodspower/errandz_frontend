@@ -144,7 +144,6 @@ function EditAccount() {
         <div className='h-100'>
             <div className='h-100 container mx-auto'>
 
-
                 <form onSubmit={handleSubmit} className=' edit-form mx-auto mt-5'>
 
                     <div className='d-grid position-relative justify-content-center my-4 mb-5'>

@@ -9,6 +9,7 @@ import { getToken } from '../../Utils/LoginUtils';
 import { requestdata } from '../../Utils/useFetch';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/BottomNav/BottomNav';
+import { ThreeDots } from 'react-loader-spinner';
 
 // add language English.
 TimeAgo.addDefaultLocale(en)
@@ -20,41 +21,43 @@ const timeAgo = new TimeAgo('en-US')
 function Notification() {
 
     let [notifications, setNotifications] = useState([]);
+    let [notificationLoading, setNotificationLoading] = useState(false);
     let navigate = useNavigate();
 
     useEffect(() => {
 
-        let getAccountNotification = ()=>{
+        let getAccountNotification = () => {
+            setNotificationLoading(true);
             let notificationPath = '/api/get_notification';
-            let notificationUrl = BASE_URL + notificationPath
-            let headers={
+            let notificationUrl = BASE_URL + notificationPath;
+            let headers = {
                 'Content-Type': 'application/json',
                 'Authorization': `Token ${getToken()}`
-            }
-            let method="GET";
-            requestdata(notificationUrl, {'NOTHING TO PASS': true}, headers,  method)
-                        .then(res=>{
-                            if (res.status === 200) {
-                                res.json()
-                                    .then(r=> {
-                                        
-                                        console.log(r);
-                                        setNotifications(r.reverse());
-                                    })
-                                
-                                // 
-                               }else{
-                                console.log(res.json());
-                            }
-                        })
-                        
+            };
+            let method = "GET";
+            requestdata(notificationUrl, { 'NOTHING TO PASS': true }, headers, method)
+                .then(res => {
+                    if (res.status === 200) {
+                        res.json()
+                            .then(r => {
+
+                                setNotifications(r.reverse());
+                                setNotificationLoading(false);
+                            })
+
+                        // 
+                    } else {
+                        setNotificationLoading(false);
                     }
+                })
+
+        }
 
         getAccountNotification();
     }, [])
 
-    let handleAcceptRequestRedirect = (notification)=>{
-        console.log(notification    );
+    let handleAcceptRequestRedirect = (notification) => {
+        console.log(notification);
 
         if (notification.type === 'request' && notification.model) {
             return navigate(`/accept-request/${notification.model.ref}`)
@@ -72,14 +75,25 @@ function Notification() {
 
 
                 <div className="notifications mx-auto px-2 px-md-5 py-2 bg-white" style={{ width: "1000px", maxWidth: "100%" }}>
-                    {
-                        notifications.length ? notifications.map((p, index )=> {
-                            return (
-                                <div key={index}>
+                    <div className="text-center d-flex justify-content-center">
+                        <ThreeDots
+                            height="90%"
+                            radius="9"
+                            color="#000000"
+                            ariaLabel="three-dots-loading"
+                            wrapperStyle={{}}
+                            wrapperClassName=""
+                            visible={notificationLoading}
+                        />
+                    </div>
 
-                                <div onClick={()=>handleAcceptRequestRedirect(p)} className="notification  d-flex justify-content-between justify-content-center py-2">
+                    {
+                        notifications.length ? notifications.map((p, index) => (
+                            <div key={index}>
+
+                                <div onClick={() => handleAcceptRequestRedirect(p)} className="notification  d-flex justify-content-between justify-content-center py-2">
                                     <div className="d-flex">
-            
+
                                         <div id="notification-icon-wrapper" className="rounded-circle d-flex justify-content-center align-items-center">
                                             <img src={riderIcon} alt="" width="40px" />
                                         </div>
@@ -91,11 +105,10 @@ function Notification() {
                                         <p className="mb-0 time">{timeAgo.format(new Date(p.date_created))}</p>
                                     </div>
                                 </div>
-                                
-                                {index !== notifications.length - 1 && <hr />     }
-                                </div>
-                            )
-                        }) : <span className='text-center d-block'>notification empty</span>
+
+                                {index !== notifications.length - 1 && <hr />}
+                            </div>
+                        )) : <span className={'text-center' + notificationLoading ? "d-none" : "d-block"} >notification empty</span>
                     }
 
 

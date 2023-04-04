@@ -62,17 +62,22 @@ function EditAccount() {
         setAccount(account2);
 
 
-        // fetch(`${API_URL}/image-upload`, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(images => {
-        //         this.setState({
-        //             uploading: false,
-        //             images
-        //         })
-        //     })
+        fetch(`${BASE_URL}/api/account/change_profile_image`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Token ${getToken()}`,
+            },
+            body: formData
+
+        })
+            .then(res => res.json())
+            .then(image => {
+                // this.setState({
+                //     uploading: false,
+                //     images
+                // })
+                console.log(image)
+            })
     }
 
     const handleChange = (e) => {
@@ -121,7 +126,6 @@ function EditAccount() {
                 } else {
                     res.json()
                         .then(data => {
-                            console.log('data',data);
                             setAccount(data);
                             setError({});
                         })

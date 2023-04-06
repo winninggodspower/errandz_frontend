@@ -19,6 +19,8 @@ import $ from "jquery"
 
 
 
+
+
 mapboxgl.accessToken = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow";
 
 function Delivery() {

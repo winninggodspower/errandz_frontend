@@ -44,7 +44,7 @@ function Delivery() {
     let [fieldErrors, setFieldError] = useState({});
     let { user} = useContext(UserContext)
     let navigate = useNavigate();
-    let { addAlert } = useContext(AlertContext)
+    let { addAlert } = useContext(AlertContext);
 
     
     useEffect(()=> {

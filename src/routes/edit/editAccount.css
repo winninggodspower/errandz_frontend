@@ -9,6 +9,7 @@
 #account-profile-img{
   width: 90px !important;
   height: 90px !important;
+  object-fit: cover;
 }
 
 #upload-id > input, #upload-image-icon-container > input

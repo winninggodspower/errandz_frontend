@@ -27,6 +27,7 @@ import { loader as deliverLoader  } from './routes/AcceptRequest/accept-request'
 import CommingSoon from './routes/Comming/comming';
 import PrivacyPage from './routes/errandz/privacy';
 import EditAccount from './routes/edit/EditAccount';
+import Map from './routes/map/map';
 
 const router = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
         path: 'edit_account_details/',
         element: <EditAccount />
       },
+      {
+        path: "map",
+        element: <Map />
+      }
     ]
   }
 ]);

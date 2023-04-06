@@ -154,7 +154,7 @@ function Delivery() {
                     },
                     paint: {
                       'circle-radius': 10,
-                      'circle-color': '#f30'
+                      'circle-color': '#1a1a1a'
                     }
                   });
                 }

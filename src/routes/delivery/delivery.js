@@ -15,13 +15,14 @@ import BottomNav from "../../components/BottomNav/BottomNav";
 import mapboxgl from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import $ from "jquery"
+import MapboxAutocomplete from 'react-mapbox-autocomplete';
 
 
 
 
 
-
-mapboxgl.accessToken = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow";
+const apikey = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow"
+mapboxgl.accessToken = apikey;
 
 function Delivery() {
 
@@ -30,10 +31,11 @@ function Delivery() {
     const deliveryInputRef = useRef();
     const mapRef = useRef();
     const mapContainerRef = useRef(null)
-    const [lng, setlng] = useState(3.86);
-    const [lat, setlat] = useState(9.93);
+    const [lng, setlng] = useState(6.86);
+    const [lat, setlat] = useState(4.93);
     const [zoom, setZoom] = useState(8);
     const [start, setStart] = useState([lng , lat])
+    const [coord, setCoords] = useState([7.223, 2.23])
 
     let [is_loading, setLoading] = useState(false);
     let [deliveryDetails, setDeliveryDetails] = useState({ 
@@ -69,7 +71,9 @@ function Delivery() {
             setlat(mapRef.current.getCenter().lat.toFixed(4));
             setZoom(mapRef.current.getZoom().toFixed(2));
         })
+    
         route()
+       
     }, [mapRef.current]) 
 
     const locate = () => {
@@ -115,56 +119,104 @@ function Delivery() {
                     "circle-radius": 10,
                     "circle-color": "#3887be"
                 }
+
+                
             });
 
-            mapRef.current.on('click', (event) => {
-                const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-                const end = {
-                  type: 'FeatureCollection',
-                  features: [
-                    {
-                      type: 'Feature',
-                      properties: {},
-                      geometry: {
-                        type: 'Point',
-                        coordinates: coords
-                      }
+            const end = {
+                type: 'FeatureCollection',
+                features: [
+                  {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                      type: 'Point',
+                      coordinates: coord
                     }
-                  ]
-                };
-                if (mapRef.current.getLayer('end')) {
-                  mapRef.current.getSource('end').setData(end);
-                } else {
-                  mapRef.current.addLayer({
-                    id: 'end',
-                    type: 'circle',
-                    source: {
-                      type: 'geojson',
-                      data: {
-                        type: 'FeatureCollection',
-                        features: [
-                          {
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {
-                              type: 'Point',
-                              coordinates: coords
-                            }
+                  }
+                ]
+              };
+              if (mapRef.current.getLayer('end')) {
+                mapRef.current.getSource('end').setData(end);
+              } else {
+                mapRef.current.addLayer({
+                  id: 'end',
+                  type: 'circle',
+                  source: {
+                    type: 'geojson',
+                    data: {
+                      type: 'FeatureCollection',
+                      features: [
+                        {
+                          type: 'Feature',
+                          properties: {},
+                          geometry: {
+                            type: 'Point',
+                            coordinates: coord
                           }
-                        ]
-                      }
-                    },
-                    paint: {
-                      'circle-radius': 10,
-                      'circle-color': '#1a1a1a'
+                        }
+                      ]
                     }
-                  });
-                }
-                getRoute(coords);
-              });
+                  },
+                  paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#1a1a1a'
+                  }
+                });
+              }
+    
+
+            // mapRef.current.on('click', (event) => {
+            //     const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+            //     const end = {
+            //       type: 'FeatureCollection',
+            //       features: [
+            //         {
+            //           type: 'Feature',
+            //           properties: {},
+            //           geometry: {
+            //             type: 'Point',
+            //             coordinates: coords
+            //           }
+            //         }
+            //       ]
+            //     };
+            //     if (mapRef.current.getLayer('end')) {
+            //       mapRef.current.getSource('end').setData(end);
+            //     } else {
+            //       mapRef.current.addLayer({
+            //         id: 'end',
+            //         type: 'circle',
+            //         source: {
+            //           type: 'geojson',
+            //           data: {
+            //             type: 'FeatureCollection',
+            //             features: [
+            //               {
+            //                 type: 'Feature',
+            //                 properties: {},
+            //                 geometry: {
+            //                   type: 'Point',
+            //                   coordinates: coords
+            //                 }
+            //               }
+            //             ]
+            //           }
+            //         },
+            //         paint: {
+            //           'circle-radius': 10,
+            //           'circle-color': '#1a1a1a'
+            //         }
+            //       });
+            //     }
+            //     getRoute(coords);
+            //   });
+
+              getRoute(coord)
         })
     }
 
+    
     async function getRoute(end) {
         const query = await fetch(
           `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
@@ -205,8 +257,9 @@ function Delivery() {
             }
           });
         }
-
-    console.log({json})
+        let v = json.routes[0].distance/1000
+    console.log(v)
+    setDeliveryDetails({...deliveryDetails, delivery_distance: Math.floor(v)})
   }
 
     let handleSubmit = (e)=>{
@@ -259,15 +312,10 @@ function Delivery() {
             if (deliveryDetails.delivery_location){
                 
                 var pickup = look_up[value].id
-                var delivery = look_up[deliveryDetails.delivery_location].id
-
-                console.log(pickup)
-                console.log(delivery)
-               
+                var delivery = look_up[deliveryDetails.delivery_location].i
                 var int_delivery1 = parseInt(delivery) -1
                 var abs_price1 = prices[pickup]
                 var abs_cash1 = abs_price1[int_delivery1] 
-                console.log(abs_cash1)
                 setDeliveryDetails((d)=>{
                     return {...d, "delivery_distance":abs_cash1}
                 })
@@ -294,7 +342,21 @@ function Delivery() {
                 
                 }}
     }
+    const SuggestionSelect= (result, lat, lng, text) => {
+        console.log(result, lat, lng, text)
+        setStart([lng,lat])
+        setDeliveryDetails({...setDeliveryDetails, pickup_location: result})
+        
+      }
+    
+    const SuggestionSelect2= (result, lat, lng, text) => {
+        console.log(result, lat, lng, text)
+        setCoords([lng,lat])
+        setDeliveryDetails({...setDeliveryDetails, delivery_location: result})
+        getRoute([lng,lat])  
+      }
 
+      
     return (
         <>
 
@@ -333,16 +395,12 @@ function Delivery() {
                                                     {fieldErrors.recipient_name && fieldErrors.recipient_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
                           
                                                 </div>
-
-                                                <div className="mb-3">
-                                                    <input className="form-control" list="pickuplist" value={deliveryDetails.pickup_location} name="pickup_location" type="text" placeholder="Location" id="pickup-location" onChange={handleInputChange}
-                                                        aria-label="alakahia chaoba" />
-                                                    <datalist id="pickuplist">
-                                                    
-                                                        {places.map((place)=> <option value={place[0]} name={place[1]} />)}
-                                                    </datalist>
-                                                    {fieldErrors.pickup_location && fieldErrors.pickup_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
-                                                </div>
+                                                <MapboxAutocomplete publicKey= {apikey}
+                                                        inputClass='form-control search'
+                                                        onSuggestionSelect={SuggestionSelect}
+                                                        country='ng'
+                                                        resetSearch={false}/>
+                                                
 
                                                 <div className="mb-3">
                                                     <input className="form-control" value={deliveryDetails.recipient_phone_number} onChange={handleInputChange} name="recipient_phone_number"  type="text" placeholder="Phone number"
@@ -375,17 +433,15 @@ function Delivery() {
                                                         aria-label="godfred obot" />
                                                     {fieldErrors.recievers_name && fieldErrors.recievers_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
-
-                                                <div className="mb-3">
-                                                    <input className="form-control" list="deliverylist" value={deliveryDetails.delivery_location} name="delivery_location" onChange={handleInputChange} type="text" placeholder="Location"
-                                                        aria-label="alakahia chaoba" />
-
-                                                <datalist id="deliverylist">
-                                                    
-                                                    {places.map((place)=> <option >{place[0]}</option>)}
-                                                </datalist>
+                                                <MapboxAutocomplete publicKey= {apikey}
+                                                        inputClass='form-control search'
+                                                        onSuggestionSelect={SuggestionSelect2}
+                                                        country='ng'
+                                                        resetSearch={false}/>
+                                                
+                                                
                                                     {fieldErrors.delivery_location && fieldErrors.delivery_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
-                                                </div>
+                                                
 
                                                 <div className="mb-3">
                                                     <input className="form-control" value={deliveryDetails.receiver_phone_number} name="receiver_phone_number" onChange={handleInputChange} type="text" placeholder="Phone number"

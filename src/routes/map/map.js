@@ -1,21 +1,26 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState , useMemo} from "react";
 import mapboxgl from "mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
-
+import { logJSONData } from "../../Utils/useFetch";
+import MapboxAutocomplete from 'react-mapbox-autocomplete';
 // import $ from "jquery"
 
-
+const apikey = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow"
 function Map() {
-    mapboxgl.accessToken = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow";
+    mapboxgl.accessToken = apikey;
     const mapboxMapContainer = useRef(null);
     const mapboxMap = useRef(null);
     const [lng, setlng] = useState(3.86);
     const [lat, setlat] = useState(9.93);
     const [zoom, setZoom] = useState(8);
-    const start = [lng, lat];
+    const [start, setStart] = useState([lng, lat])
+    const [val1, setval1] = useState("")
+    const [val2, setval2] = useState("")
+    const [input, setInput] = useState(true)
+    
 
     useEffect(() => {
-        if (mapboxMap.current) return;
+        if(mapboxMap.current) return;
         mapboxMap.current = new mapboxgl.Map({
             container: mapboxMapContainer.current,
             style: "mapbox://styles/mapbox/streets-v11",
@@ -85,7 +90,16 @@ function Map() {
             });
 
             mapboxMap.current.on('click', (event) => {
+              
                 const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+                console.log(coords)
+                
+                logJSONData(coords[0], coords[1])
+                  .then((d)=> {
+                    console.log(input)
+                    input === true? setval1(d.display_name): setval2(d.display_name)
+                  })
+                  
                 const end = {
                   type: 'FeatureCollection',
                   features: [
@@ -178,14 +192,32 @@ function Map() {
 
     console.log(data.distance)
   } 
+  
+  const FocusHandler = (e) => {
+    setInput(true)
+
+  }
+
+  const FocusHandler2 = (e) => {
+    setInput(false)
+  }
+  const SuggestionSelect= (result, lat, lng, text) => {
+    console.log(result, lat, lng, text)
+  }
 
     return (
         <div className="d-flex">
             <div ref={mapboxMapContainer} className="w-100 d-flex flex-fill vh-100"></div>
             
             <div className="position-absolute ">
-                <input className="form-control" type="text" />
-                <input className="form-control" type="text" />
+              
+<MapboxAutocomplete publicKey= {apikey}
+                    inputClass='form-control search'
+                    onSuggestionSelect={SuggestionSelect}
+                    country='ng'
+                    resetSearch={false}/>
+                <input className="form-control" type="text" name="val1" onClick={FocusHandler} value={val1}  />
+                <input className="form-control"  type="text" name="val2" onClick={FocusHandler2} value={val2} />
             </div>
 
 

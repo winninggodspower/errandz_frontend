@@ -12,30 +12,14 @@ import { getToken } from "../../Utils/LoginUtils";
 import { AlertContext } from "../../UserContext";
 import { places, look_up, prices } from "../../components/mapFile";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import mapboxgl from "mapbox-gl";
-import 'mapbox-gl/dist/mapbox-gl.css';
-import $ from "jquery"
-import MapboxAutocomplete from 'react-mapbox-autocomplete';
-
-
-
-
-
-const apikey = "pk.eyJ1IjoiZ29kZnJlZDEiLCJhIjoiY2xkMWI3d29kMDV4ejNvbGcydWZ4ajJsYyJ9.FDOnmjiwqXVI5SGfd8u5Ow"
-mapboxgl.accessToken = apikey;
 
 function Delivery() {
 
-    
+    const autoCompletePickupRef = useRef();
+    const autoCompleteDeliveryRef = useRef();
     const pickupInputRef = useRef();
     const deliveryInputRef = useRef();
     const mapRef = useRef();
-    const mapContainerRef = useRef(null)
-    const [lng, setlng] = useState(6.86);
-    const [lat, setlat] = useState(4.93);
-    const [zoom, setZoom] = useState(8);
-    const [start, setStart] = useState([lng , lat])
-    const [coord, setCoords] = useState([7.223, 2.23])
 
     let [is_loading, setLoading] = useState(false);
     let [deliveryDetails, setDeliveryDetails] = useState({ 
@@ -46,221 +30,83 @@ function Delivery() {
     let [fieldErrors, setFieldError] = useState({});
     let { user} = useContext(UserContext)
     let navigate = useNavigate();
-    let { addAlert } = useContext(AlertContext);
+    let { addAlert } = useContext(AlertContext)
 
-    
-    useEffect(()=> {
+    let directionsService = new window.google.maps.DirectionsService();
+    let directionsRenderer = new window.google.maps.DirectionsRenderer();
+
+    const options = {
+        componentRestrictions: { country: "ng" },
+        fields: ["address_components", "place_id", "geometry", "icon", "name"],
+        // strictBounds: false,
+        types: ["establishment"],
+    };
+
+    useEffect(() => {
         if (!getToken()) {
             return navigate('/login');
         }
-    }, [navigate, getToken])
-    
+    }, [user, navigate])
 
     useEffect(()=>{
-        if (mapRef.current) return;
-        mapRef.current = new mapboxgl.Map({
-            container: mapContainerRef.current,
-            style: "mapbox://styles/mapbox/streets-v11",
-            center: [lng, lat],
-            zoom: zoom
 
-        });
+        autoCompletePickupRef.current = new window.google.maps.places.Autocomplete(
+            pickupInputRef.current,
+            options
+            );
+        autoCompletePickupRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompletePickupRef, pickupInputRef))
         
-        mapRef.current.on("move", () => {
-            setlng(mapRef.current.getCenter().lng.toFixed(4));
-            setlat(mapRef.current.getCenter().lat.toFixed(4));
-            setZoom(mapRef.current.getZoom().toFixed(2));
-        })
-    
-        route()
-       
-    }, [mapRef.current]) 
+        autoCompleteDeliveryRef.current = new window.google.maps.places.Autocomplete(
+            deliveryInputRef.current,
+            options
+            );
+        autoCompleteDeliveryRef.current.addListener('place_changed',()=> handlePlaceChanged(autoCompleteDeliveryRef, deliveryInputRef))
+        
 
-    const locate = () => {
-        mapRef.current.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true,
-                },
-                trackUserLocation: true,
-                style: {
-                    right :10,
-                    top: 10
-                },
-                position: "bottom-left",
-                showUserHeading: true,
-            })
-        );
-    }
-
-    const route = () =>{
-        locate();
-        mapRef.current.on("load", ()=> {
-            mapRef.current.addLayer({
-                id:"point",
-                type: "circle", 
-                source: {
-                    type: "geojson",
-                    data: {
-                        type: "FeatureCollection",
-                        features: [
-                            {
-                                type: "Feature",
-                                properties: {},
-                                geometry: {
-                                    type: "point",
-                                    coordinates: start
-                                }
-                            }
-                        ]
-                    }
-                },
-                paint: {
-                    "circle-radius": 10,
-                    "circle-color": "#3887be"
-                }
-
-                
-            });
-
-            const end = {
-                type: 'FeatureCollection',
-                features: [
-                  {
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                      type: 'Point',
-                      coordinates: coord
-                    }
-                  }
-                ]
-              };
-              if (mapRef.current.getLayer('end')) {
-                mapRef.current.getSource('end').setData(end);
-              } else {
-                mapRef.current.addLayer({
-                  id: 'end',
-                  type: 'circle',
-                  source: {
-                    type: 'geojson',
-                    data: {
-                      type: 'FeatureCollection',
-                      features: [
-                        {
-                          type: 'Feature',
-                          properties: {},
-                          geometry: {
-                            type: 'Point',
-                            coordinates: coord
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  paint: {
-                    'circle-radius': 10,
-                    'circle-color': '#1a1a1a'
-                  }
-                });
-              }
+        let chicago = new window.google.maps.LatLng(41.850033, -87.6500523);
+        let mapOptions = {
+          zoom:10,
+          center: chicago
+        }
+        let map = new window.google.maps.Map(mapRef.current, mapOptions);
+        directionsRenderer.setMap(map);
+        
+    }, [])
     
 
-            // mapRef.current.on('click', (event) => {
-            //     const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-            //     const end = {
-            //       type: 'FeatureCollection',
-            //       features: [
-            //         {
-            //           type: 'Feature',
-            //           properties: {},
-            //           geometry: {
-            //             type: 'Point',
-            //             coordinates: coords
-            //           }
-            //         }
-            //       ]
-            //     };
-            //     if (mapRef.current.getLayer('end')) {
-            //       mapRef.current.getSource('end').setData(end);
-            //     } else {
-            //       mapRef.current.addLayer({
-            //         id: 'end',
-            //         type: 'circle',
-            //         source: {
-            //           type: 'geojson',
-            //           data: {
-            //             type: 'FeatureCollection',
-            //             features: [
-            //               {
-            //                 type: 'Feature',
-            //                 properties: {},
-            //                 geometry: {
-            //                   type: 'Point',
-            //                   coordinates: coords
-            //                 }
-            //               }
-            //             ]
-            //           }
-            //         },
-            //         paint: {
-            //           'circle-radius': 10,
-            //           'circle-color': '#1a1a1a'
-            //         }
-            //       });
-            //     }
-            //     getRoute(coords);
-            //   });
-
-              getRoute(coord)
-        })
-    }
-
-    
-    async function getRoute(end) {
-        const query = await fetch(
-          `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-          { method: 'GET' }
-        );
-        const json = await query.json();
-        const data = json.routes[0];
-        const route = data.geometry.coordinates;
-        const geojson = {
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'LineString',
-            coordinates: route
-          }
+    let calcRoute = ()=> {
+        let start = autoCompletePickupRef.current.getPlace();
+        let end = autoCompletePickupRef.current.getPlace();
+        let request = {
+            origin: start,
+            destination: end,
+            travelMode: 'BICYCLING'
         };
-        // if the route already exists on the map, we'll reset it using setData
-        if (mapRef.current.getSource('route')) {
-          mapRef.current.getSource('route').setData(geojson);
-        }
-        // otherwise, we'll make a new request
-        else {
-          mapRef.current.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-              type: 'geojson',
-              data: geojson
-            },
-            layout: {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            paint: {
-              'line-color': '#3887be',
-              'line-width': 5,
-              'line-opacity': 0.75
+
+        directionsService.route(request, function(result, status) {
+            if (status === 'OK') {
+                directionsRenderer.setDirections(result);
             }
-          });
+        });
+    }
+    
+
+    let handlePlaceChanged = async (autocomplete, input)=>{
+        const place = await autocomplete.current.getPlace();
+        console.log(place)
+
+        if (!place.geometry){
+            // user did not select a prediction; reset input field
+            input.placeholder = 'Enter a place';
+        } else {
+            // display details about the valid place
+            alert(place.name);
+
+            // plot map direction
+            calcRoute();
         }
-        let v = json.routes[0].distance/1000
-    console.log(v)
-    setDeliveryDetails({...deliveryDetails, delivery_distance: Math.floor(v)})
-  }
+
+      }
 
     let handleSubmit = (e)=>{
         e.preventDefault()
@@ -298,6 +144,9 @@ function Delivery() {
         setLoading(false);
 
     }
+
+    
+
     
     const handleInputChange = (e) => {
         let { name, value } = e.target;
@@ -312,10 +161,15 @@ function Delivery() {
             if (deliveryDetails.delivery_location){
                 
                 var pickup = look_up[value].id
-                var delivery = look_up[deliveryDetails.delivery_location].i
+                var delivery = look_up[deliveryDetails.delivery_location].id
+
+                console.log(pickup)
+                console.log(delivery)
+               
                 var int_delivery1 = parseInt(delivery) -1
                 var abs_price1 = prices[pickup]
                 var abs_cash1 = abs_price1[int_delivery1] 
+                console.log(abs_cash1)
                 setDeliveryDetails((d)=>{
                     return {...d, "delivery_distance":abs_cash1}
                 })
@@ -342,21 +196,7 @@ function Delivery() {
                 
                 }}
     }
-    const SuggestionSelect= (result, lat, lng, text) => {
-        console.log(result, lat, lng, text)
-        setStart([lng,lat])
-        setDeliveryDetails({...setDeliveryDetails, pickup_location: result})
-        
-      }
-    
-    const SuggestionSelect2= (result, lat, lng, text) => {
-        console.log(result, lat, lng, text)
-        setCoords([lng,lat])
-        setDeliveryDetails({...setDeliveryDetails, delivery_location: result})
-        getRoute([lng,lat])  
-      }
 
-      
     return (
         <>
 
@@ -366,7 +206,7 @@ function Delivery() {
 
 
                     <div id="map" className="position-relative">
-                        <div style={{width: "100vw", height: "400px"}} ref={mapContainerRef}></div>
+                        <div style={{width: "100%", height: "400px"}} ref={mapRef}></div>
                         {/* <img src={mapIcon} alt="" width="100%" height="400px" style={{ objectFit: "cover" }} /> */}
                         <div id="faded-circle" className="position-absolute bottom-0 w-100 bg-light rounded-top-up">
 
@@ -395,12 +235,16 @@ function Delivery() {
                                                     {fieldErrors.recipient_name && fieldErrors.recipient_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
                           
                                                 </div>
-                                                <MapboxAutocomplete publicKey= {apikey}
-                                                        inputClass='form-control search'
-                                                        onSuggestionSelect={SuggestionSelect}
-                                                        country='ng'
-                                                        resetSearch={false}/>
-                                                
+
+                                                <div className="mb-3">
+                                                    <input className="form-control" list="pickuplist" value={deliveryDetails.pickup_location} name="pickup_location" type="text" placeholder="Location" id="pickup-location" onChange={handleInputChange}
+                                                        aria-label="alakahia chaoba" />
+                                                    <datalist id="pickuplist">
+                                                    
+                                                        {places.map((place)=> <option value={place[0]} name={place[1]} />)}
+                                                    </datalist>
+                                                    {fieldErrors.pickup_location && fieldErrors.pickup_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
+                                                </div>
 
                                                 <div className="mb-3">
                                                     <input className="form-control" value={deliveryDetails.recipient_phone_number} onChange={handleInputChange} name="recipient_phone_number"  type="text" placeholder="Phone number"
@@ -433,15 +277,17 @@ function Delivery() {
                                                         aria-label="godfred obot" />
                                                     {fieldErrors.recievers_name && fieldErrors.recievers_name.map(error => <p key={error} className='text-danger'>{error}</p>)}
                                                 </div>
-                                                <MapboxAutocomplete publicKey= {apikey}
-                                                        inputClass='form-control search'
-                                                        onSuggestionSelect={SuggestionSelect2}
-                                                        country='ng'
-                                                        resetSearch={false}/>
-                                                
-                                                
+
+                                                <div className="mb-3">
+                                                    <input className="form-control" list="deliverylist" value={deliveryDetails.delivery_location} name="delivery_location" onChange={handleInputChange} type="text" placeholder="Location"
+                                                        aria-label="alakahia chaoba" />
+
+                                                <datalist id="deliverylist">
+                                                    
+                                                    {places.map((place)=> <option >{place[0]}</option>)}
+                                                </datalist>
                                                     {fieldErrors.delivery_location && fieldErrors.delivery_location.map(error => <p key={error} className='text-danger'>{error}</p>)}
-                                                
+                                                </div>
 
                                                 <div className="mb-3">
                                                     <input className="form-control" value={deliveryDetails.receiver_phone_number} name="receiver_phone_number" onChange={handleInputChange} type="text" placeholder="Phone number"

@@ -18,7 +18,7 @@ function Delivery() {
   const pickupInputRef = useRef();
   const deliveryInputRef = useRef();
   const mapRef = useRef();
-  const porthHarcourtCoord = { lon: 7.033611, lat: 4.824167 };
+  const porthHarcourtCoord = { lon: 7.233611, lat: 4.824167 };
 
   let [is_loading, setLoading] = useState(false);
   let [deliveryDetails, setDeliveryDetails] = useState({
@@ -86,11 +86,11 @@ function Delivery() {
         if (res.status === 400) {
           res.json().then((data) => {
             setFieldError(data);
-            console.log(data);
+            // console.log(data);
           });
         } else if (res.status === 201) {
           res.json().then((data) => {
-            console.log('Success: ', data);
+            // console.log('Success: ', data);
             setFieldError({});
             window.location.replace(data.checkout_url);
           });
@@ -105,17 +105,8 @@ function Delivery() {
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
-    console.log(value);
-    console.log(name);
 
-    setDeliveryDetails({ ...deliveryDetails, [name]: e.target.value });
-
-    if (name === 'pickup_location' && value) {
-      console.log('pickup locatio changed');
-    }
-    if (name === 'delivery_location' && value) {
-      console.log('pickup locatio changed');
-    }
+    setDeliveryDetails({ ...deliveryDetails, [name]: value });
   };
 
   return (
